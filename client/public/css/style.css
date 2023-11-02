@@ -746,6 +746,12 @@ nav.navbar.bootsnav .navbar-toggle i {
     margin: 0 auto;
 }
 
+.clients-say .container .row .owl-carousel.testimonial-carousel.owl-loaded.owl-drag .owl-stage-outer .owl-stage {
+    transform: translate3d(-1170px, 0px, 0px);
+    transition: all 1s ease 0s;
+    width: 3510px;
+}
+
 /*owl carousel*/
 
 /*-------------------------------------
