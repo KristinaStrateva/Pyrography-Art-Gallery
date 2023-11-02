@@ -29,7 +29,7 @@
     color: #FFF;
     text-decoration: none;
 }
-.owl-theme .owl-nav .disabled {
+.owl-theme .owl-nav.disabled {
     opacity: .5;
     cursor: default;
 }

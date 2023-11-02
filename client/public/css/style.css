@@ -580,7 +580,7 @@ nav.navbar.bootsnav .navbar-toggle i {
     background: #6a7781;
 }
 
-.new-cars .owl-theme .owl-nav.disabled + .owl-dots {
+.new-cars .owl-theme .owl-nav.disabled+.owl-dots {
     margin-top: 62px;
 }
 
