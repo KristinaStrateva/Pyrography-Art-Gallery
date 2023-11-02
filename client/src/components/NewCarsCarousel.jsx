@@ -25,7 +25,7 @@ export default function NewCarsCarousel() {
                                             <p className="new-cars-para2">
                                                 Sed ut pers unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
                                             </p>
-                                            <button className="welcome-btn new-cars-btn" onClick={window.location.href = '#'}>
+                                            <button className="welcome-btn new-cars-btn">
                                                 view details
                                             </button>
                                         </div>
@@ -50,7 +50,7 @@ export default function NewCarsCarousel() {
                                             <p className="new-cars-para2">
                                                 Sed ut pers unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
                                             </p>
-                                            <button className="welcome-btn new-cars-btn" onClick={window.location.href = '#'}>
+                                            <button className="welcome-btn new-cars-btn">
                                                 view details
                                             </button>
                                         </div>
@@ -75,7 +75,7 @@ export default function NewCarsCarousel() {
                                             <p className="new-cars-para2">
                                                 Sed ut pers unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
                                             </p>
-                                            <button className="welcome-btn new-cars-btn" onClick={window.location.href = '#'}>
+                                            <button className="welcome-btn new-cars-btn">
                                                 view details
                                             </button>
                                         </div>

@@ -6,7 +6,7 @@ export default function HomeContent() {
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore   magna aliqua.
                 </p>
-                <button className="welcome-btn" onClick={window.location.href='#'}>contact us</button>
+                <button className="welcome-btn">contact us</button>
             </div>
         </div>
     );

@@ -102,7 +102,7 @@ export default function HomeSearch() {
                             </div>
                             <div className="col-md-2 col-sm-12">
                                 <div className="single-model-search text-center">
-                                    <button className="welcome-btn model-search-btn" onClick={window.location.href='#'}>
+                                    <button className="welcome-btn model-search-btn">
                                         search
                                     </button>
                                 </div>
