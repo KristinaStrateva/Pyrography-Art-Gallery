@@ -104,7 +104,7 @@ body {
   position: fixed;
   align-items: center;
   flex-direction: column;
-  background-color: #dfe7ddff;
+  background-color: white;
 }
 .home-header {
   padding-top: 24px;
@@ -158,6 +158,10 @@ body {
   align-items: flex-start;
   flex-direction: row;
 
+}
+.home-right .navbar-link a > img {
+  width: 12px;
+  height: auto;
 }
 .home-icons {
   display: flex;
@@ -242,7 +246,7 @@ body {
 .home-hero {
   padding-top: 48px;
   padding-bottom: 48px;
-  background-color: #dfe7ddff;
+  background-color: white;
 }
 .home-max-width {
   max-width: 1032px;
@@ -599,7 +603,7 @@ body {
   cursor: auto;
   outline: none;
   padding: 0.5rem 1rem;
-  background-color: #dfe7ddff;
+  background-color: white;
 }
 .section-container {
   width: 100%;
@@ -653,7 +657,7 @@ body {
 }
 .navbar-logo-title img {
   display: block;
-  width: 120px;
+  width: 80px;
   height: auto;
 }
 .Heading-3 {

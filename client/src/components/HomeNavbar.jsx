@@ -9,11 +9,11 @@ export default function HomeNavbar() {
                     <div className="home-middle">
                         <ul className="home-left">
                             <li className="navbar-link"><a href="#">SHOWROOM</a></li>
-                            <li className="navbar-link"><a href="#">SELL YOUR CAR</a></li>
+                            <li className="navbar-link"><a href="#">RENT-A-CAR</a></li>
                             {/* <li className="navbar-link"><a href="#">SPECIAL</a></li> */}
                         </ul>
                         <div className="navbar-logo-title navbar-link">
-                            <a href="/"><img src="images/Retro-car-logo.png" alt="logo" /></a>
+                            <a href="/"><img src="images/1000_F_210640190_A393H4ZiIYDVR4iWZBwMvNdN8jxKKOoL.jpg" alt="logo" /></a>
                         </div>
                         <ul className="home-right">
                             <li className="navbar-link"><a href="#">LOGIN</a></li>
