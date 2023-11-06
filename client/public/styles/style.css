@@ -156,6 +156,8 @@ body {
   grid-gap: 45px;
   position: relative;
   align-items: flex-start;
+  flex-direction: row;
+
 }
 .home-icons {
   display: flex;
@@ -620,6 +622,7 @@ body {
   flex-direction: column;
 }
 .navbar-link {
+  display: block;
   color: rgba(0, 0, 0, 1);
   cursor: pointer;
   height: auto;
@@ -629,6 +632,10 @@ body {
   font-family: Jost;
   font-weight: 500;
   text-decoration: none;
+}
+.navbar-link a {
+  text-decoration: none;
+  color: #000000;
 }
 .navbar-logo-title {
   color: #000000;
@@ -643,6 +650,11 @@ body {
   margin-right: 64px;
   letter-spacing: 0.4em;
   text-decoration: none;
+}
+.navbar-logo-title img {
+  display: block;
+  width: 120px;
+  height: auto;
 }
 .Heading-3 {
   font-size: 24px;
