@@ -9,12 +9,11 @@ export default function HomeMain() {
         carService.getOneCar()
             .then(car => setBestCar(car))
             .catch(err => console.log(err));
-
     }, []);
 
     return (
         <div className="home-main">
-            <BestOffer car={bestCar} />
+            <BestOffer car={{...bestCar}} />
             <div className="section-container column">
                 <div className="max-width-container">
                     <div className="section-heading-section-heading">
