@@ -1,21 +1,26 @@
 import { useEffect, useState } from "react";
 import BestOffer from "./BestOffer";
-import * as carService from '../services/carsService';
+import * as itemsService from '../services/itemsService';
 import RentByCategories from "./RentByCategories";
 import HomeBanner from "./HomeBanner";
 
 export default function HomeMain() {
-    const [bestCar, setBestCar] = useState(null);
+    const [bestItem, setBestItem] = useState(null);
 
     useEffect(() => {
-        carService.getOneCar()
-            .then(car => setBestCar(car))
+        itemsService.getAllItems()
+            .then(items => {
+                const currBestItemPrice = Math.min(...Object.values(items).map(item => item.purchasesAmount));
+                const currBestItem = Object.values(items).find(item => item.purchasesAmount === currBestItemPrice);
+
+                setBestItem(currBestItem);
+            })
             .catch(err => console.log(err));
     }, []);
 
     return (
         <div className="home-main">
-            <BestOffer car={{...bestCar}} />
+            <BestOffer item={{...bestItem}} />
             <div className="section-container column">
                 <RentByCategories />
 

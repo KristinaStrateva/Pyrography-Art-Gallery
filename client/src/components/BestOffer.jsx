@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function BestOffer({
-    car,
+    item,
 }) {
     const [month, setMonth] = useState(null);
     const [year, setYear] = useState(null);
@@ -29,21 +29,21 @@ export default function BestOffer({
                     <div className="home-container03">
                         <div className="home-info">
                             <span className="home-text12">
-                                <span>BEST OFFER</span>
+                                <span>BEST SELLER</span>
                                 <br />
                                 <span>{month} / {year}</span>
                             </span>
                         </div>
-                        <h1 className="home-text16 Heading-1">{car.name}</h1>
+                        <h1 className="home-text16 Heading-1">{item.name}</h1>
                         <div className="home-container04">
                             <span className="home-text17">FOR</span>
-                            <span className="home-text18"> €{car.price}/day</span>
+                            <span className="home-text18"> €{item.price}</span>
                         </div>
                         <div className="home-btn-group">
-                            <button className="button">RENT NOW</button>
+                            <button className="button">BUY NOW</button>
                         </div>
                     </div>
-                    <img src={car.imageUrl} alt={car.name} className="home-image5" />
+                    <img src={item.imageUrl} alt={item.name} className="home-image5" />
                 </div>
             </div>
         </div>

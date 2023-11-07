@@ -1,9 +1,0 @@
-{
-  "car1": {
-      "_id": "car1",
-      "name": "VW Golf VII",
-      "range": 120000,
-      "imageUrl": "images/showimage.png",
-      "price": 30
-  }
-}
