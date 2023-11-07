@@ -655,7 +655,8 @@ body {
   letter-spacing: 0.4em;
   text-decoration: none;
 }
-.navbar-logo-title img {
+.navbar-logo-title img,
+.home-container05 img {
   display: block;
   width: 80px;
   height: auto;
