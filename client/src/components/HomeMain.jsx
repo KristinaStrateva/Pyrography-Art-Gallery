@@ -10,7 +10,7 @@ export default function HomeMain() {
     useEffect(() => {
         itemsService.getAllItems()
             .then(items => {
-                const currBestItemPrice = Math.min(...Object.values(items).map(item => item.purchasesAmount));
+                const currBestItemPrice = Math.max(...Object.values(items).map(item => item.purchasesAmount));
                 const currBestItem = Object.values(items).find(item => item.purchasesAmount === currBestItemPrice);
 
                 setBestItem(currBestItem);
