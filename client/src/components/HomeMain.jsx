@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import BestOffer from "./BestOffer";
 import * as carService from '../services/carsService';
+import RentByCategories from "./RentByCategories";
 
 export default function HomeMain() {
     const [bestCar, setBestCar] = useState(null);
@@ -15,61 +16,7 @@ export default function HomeMain() {
         <div className="home-main">
             <BestOffer car={{...bestCar}} />
             <div className="section-container column">
-                <div className="max-width-container">
-                    <div className="section-heading-section-heading">
-                        <h1 className="section-heading-text Heading-2">
-                            <span>SHOP BY CATEGORIES</span>
-                        </h1>
-                        <span className="section-heading-text1">
-                            <span>
-                                Start shopping based on the categories you are interested in
-                            </span>
-                        </span>
-                    </div>
-                    <div className="home-cards-container">
-                        <div className="category-card-category-card">
-                            <img alt="image" src="images/pic2.jpg" className="category-card-image" />
-                            <span className="category-card-text"><span>Desks</span></span>
-                        </div>
-                        <div className="category-card-category-card">
-                            <img alt="image" src="images/pic3.jpg" className="category-card-image" />
-                            <span className="category-card-text"><span>Chairs</span></span>
-                        </div>
-                        <div className="category-card-category-card">
-                            <img alt="image" src="images/pic4.jpg" className="category-card-image" />
-                            <span className="category-card-text"><span>Tables</span></span>
-                        </div>
-                        <div className="category-card-category-card">
-                            <img alt="image" src="images/pic5.jpg" className="category-card-image" />
-                            <span className="category-card-text"><span>Lamps</span></span>
-                        </div>
-                        <div className="category-card-category-card">
-                            <img alt="image" src="images/pic6.jpg" className="category-card-image" />
-                            <span className="category-card-text"><span>Plants</span></span>
-                        </div>
-                        <div className="category-card-category-card">
-                            <img alt="image" src="images/pic7.jpg" className="category-card-image" />
-                            <span className="category-card-text">
-                                <span>Decoration</span>
-                            </span>
-                        </div>
-                        <div className="category-card-category-card">
-                            <img alt="image" src="images/pic8.jpg" className="category-card-image" />
-                            <span className="category-card-text">
-                                <span>Collections</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div className="home-banner">
-                    <div className="home-container05">
-                        <img src="images/1000_F_210640190_A393H4ZiIYDVR4iWZBwMvNdN8jxKKOoL.jpg" alt="logo" />
-                        <span className="home-text20">
-                            {/* <span></span> */}
-                            {/* <span>Choose the best car for you</span> */}
-                        </span>
-                    </div>
-                </div>
+                <RentByCategories />
                 <div className="home-container06 max-width-container">
                     <div className="home-container07">
                         <span className="home-text23">
