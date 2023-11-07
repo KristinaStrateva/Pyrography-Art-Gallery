@@ -1,9 +1,20 @@
+import { useEffect, useState } from "react";
 import BestOffer from "./BestOffer";
+import * as carService from '../services/carsService';
 
 export default function HomeMain() {
+    const [bestCar, setBestCar] = useState(null);
+
+    useEffect(() => {
+        carService.getOneCar()
+            .then(car => setBestCar(car))
+            .catch(err => console.log(err));
+
+    }, []);
+
     return (
         <div className="home-main">
-            <BestOffer car={{}} />
+            <BestOffer car={bestCar} />
             <div className="section-container column">
                 <div className="max-width-container">
                     <div className="section-heading-section-heading">
