@@ -1,10 +1,10 @@
 {
     "item1": {
         "_id": "item1",
-        "name": "VW Golf VII",
-        "imageUrl": "images/SW.png",
-        "price": 30,
-        "purchasesAmount": 2,
+        "name": "Bulgaria magnets",
+        "imageUrl": "images/Bulgaria_magnets.jpg",
+        "price": 2,
+        "purchasesAmount": 5,
         "likesAmount": 0
     },
     "item2": {
