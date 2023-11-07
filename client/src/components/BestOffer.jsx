@@ -36,7 +36,7 @@ export default function BestOffer({
                         </div>
                         <h1 className="home-text16 Heading-1">{car.name}</h1>
                         <div className="home-container04">
-                            <span className="home-text17">FROM</span>
+                            <span className="home-text17">FOR</span>
                             <span className="home-text18"> €{car.price}/day</span>
                         </div>
                         <div className="home-btn-group">
