@@ -4,7 +4,5 @@ export const getAllItems = async () => {
     const response = await fetch(baseUrl);
     const data = await response.json();
 
-    console.log(data);
-
     return data;
 }
