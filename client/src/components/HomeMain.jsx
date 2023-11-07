@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import BestOffer from "./BestOffer";
 import * as carService from '../services/carsService';
 import RentByCategories from "./RentByCategories";
+import HomeBanner from "./HomeBanner";
 
 export default function HomeMain() {
     const [bestCar, setBestCar] = useState(null);
@@ -17,6 +18,8 @@ export default function HomeMain() {
             <BestOffer car={{...bestCar}} />
             <div className="section-container column">
                 <RentByCategories />
+
+                <HomeBanner />
                 <div className="home-container06 max-width-container">
                     <div className="home-container07">
                         <span className="home-text23">
