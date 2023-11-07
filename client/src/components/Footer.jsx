@@ -4,24 +4,21 @@ export default function Footer() {
             <div className="max-width-container">
                 <footer className="home-footer1">
                     <div className="home-container09">
-                        <h3 className="home-text32 Heading-3">MOBILLIO</h3>
+                        <h3 className="home-text32 Heading-3">VESSEY'S ART SHOP</h3>
                         <span className="home-text33">
-                            <span>4517 Washington Ave. Manchester, Kentucky 39495,</span>
+                            <span>25th September, Dobritch</span>
                             <br />
-                            <span>United States</span>
+                            <span>Bulgaria</span>
                         </span>
-                        <span className="home-text36">(671) 555-0110</span>
-                        <span className="home-text37">contact@mobillio.com</span>
+                        <span className="home-text36">(359) 8994 292 80</span>
+                        <span className="home-text37">veselina_hendry@gmail.com</span>
                     </div>
                     <div className="home-links-container">
                         <div className="home-container10">
                             <span className="home-text38">Categories</span>
-                            <a href="#" className="home-text39">Collections</a>
-                            <a href="#" className="home-text40">Desks</a>
-                            <a href="#" className="home-text41">Furniture</a>
-                            <a href="#" className="home-text42">Lamps</a>
-                            <a href="#" className="home-text43">Plants</a>
-                            <a href="#" className="home-text44">Decoration</a>
+                            <a href="#" className="home-text39">Home Decoration</a>
+                            <a href="#" className="home-text40">Gift Sets</a>
+                            <a href="#" className="home-text41">Custom text on wood</a>
                         </div>
                         <div className="home-container11">
                             <span className="home-text45">Company</span>
@@ -29,7 +26,6 @@ export default function Footer() {
                             <a href="#" className="home-text47">Lookbook</a>
                             <a href="#" className="home-text48">Specials</a>
                             <a href="#" className="home-text49">About</a>
-                            <a href="#" className="home-text50">Blog</a>
                         </div>
                         <div className="home-container12">
                             <span className="home-text51">Resources</span>
