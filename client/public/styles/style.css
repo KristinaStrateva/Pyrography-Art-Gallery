@@ -246,7 +246,7 @@ body {
 .home-hero {
   padding-top: 48px;
   padding-bottom: 48px;
-  background-color: white;
+  background-color: #ddd;
 }
 .home-max-width {
   max-width: 1032px;
