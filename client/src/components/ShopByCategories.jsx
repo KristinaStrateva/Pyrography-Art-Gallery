@@ -1,9 +1,9 @@
-export default function BuyByCategories() {
+export default function ShopByCategories() {
     return (
         <div className="max-width-container">
             <div className="section-heading-section-heading">
                 <h1 className="section-heading-text Heading-2">
-                    <span>BUY BY CATEGORIES</span>
+                    <span>SHOP BY CATEGORIES</span>
                 </h1>
                 <span className="section-heading-text1">
                     <span>

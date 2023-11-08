@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import BestOffer from "./BestOffer";
 import * as itemsService from '../services/itemsService';
-import BuyByCategories from "./BuyByCategories";
+import ShopByCategories from "./ShopByCategories";
 import HomeBanner from "./HomeBanner";
 
 export default function HomeMain() {
@@ -27,8 +27,8 @@ export default function HomeMain() {
 
             <div className="section-container column">
 
-                <BuyByCategories />
-                
+                <ShopByCategories />
+
             </div>
         </div>
     );

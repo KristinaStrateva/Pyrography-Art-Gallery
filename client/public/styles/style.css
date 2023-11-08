@@ -250,7 +250,7 @@ body {
 .home-hero {
   padding-top: 48px;
   padding-bottom: 1em;
-  background-color: #e5e5e5ff;
+  background-color: #d99595;
   margin-bottom: 3.5em;
 }
 .home-max-width {
@@ -320,6 +320,9 @@ body {
   align-items: center;
   flex-direction: row;
 }
+.home-btn-group > .button {
+  box-shadow: 0.5em 0.5em 1em #b17474;
+}
 .home-image5 {
   width: 100%;
   position: relative;
@@ -328,7 +331,7 @@ body {
   max-height: 300px;
   object-fit: cover;
   border-color: transparent;
-  box-shadow: 0.7em 0.7em 1em #8f8d8d;
+  box-shadow: 0.7em 0.7em 1em #b17474;
 }
 .home-cards-container {
   flex: 0 0 auto;
