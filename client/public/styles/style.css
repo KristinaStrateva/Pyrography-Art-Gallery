@@ -40,8 +40,8 @@ body {
   flex-direction: column;
 }
 .category-card-image {
-  width: 120px;
-  height: 120px;
+  max-width: 250px;
+  max-height: 150px;
   object-fit: cover;
   margin-bottom: 16px;
   object-position: bottom;
@@ -315,9 +315,9 @@ body {
 .home-image5 {
   width: 100%;
   position: relative;
-  max-width: 579px;
+  max-width: 300px;
   box-sizing: border-box;
-  max-height: 579px;
+  max-height: 300px;
   object-fit: cover;
   border-color: transparent;
 }
@@ -608,7 +608,7 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 2em;
   justify-content: center;
 }
 .max-width-container {
