@@ -38,6 +38,7 @@ body {
   transition: 0.3s;
   align-items: center;
   flex-direction: column;
+  box-shadow: 0.7em 0.5em 1em #ccc;
 }
 .category-card-image {
   max-width: 250px;
@@ -244,7 +245,7 @@ body {
 .home-hero {
   padding-top: 48px;
   padding-bottom: 1em;
-  background-color: #ddd;
+  background-color: #e5e5e5ff;
   margin-bottom: 3.5em;
 }
 .home-max-width {
@@ -275,11 +276,11 @@ body {
 }
 .home-text12 {
   color: #00000080;
-  font-size: 12px;
+  font-size: 18px;
   text-align: left;
   font-family: Jost;
   font-weight: 600;
-  line-height: 18px;
+  line-height: 28px;
   text-transform: uppercase;
 }
 .home-text16 {
@@ -322,6 +323,7 @@ body {
   max-height: 300px;
   object-fit: cover;
   border-color: transparent;
+  box-shadow: 0.7em 0.7em 1em #8f8d8d;
 }
 .home-cards-container {
   flex: 0 0 auto;
@@ -359,6 +361,7 @@ body {
   flex-direction: column;
   justify-content: center;
   background-color: #fefafa;
+  box-shadow: 0.3em 0.3em 1em #ccc;
 }
 .home-text19,
 .home-text32 {
