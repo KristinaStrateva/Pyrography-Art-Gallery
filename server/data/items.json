@@ -37,7 +37,7 @@
             "name": "Termometer",
             "imageUrl": "images/categories/homeDecoration/termometer.jpg",
             "price": 7,
-            "purchasesAmount": 10,
+            "purchasesAmount": 9,
             "likesAmount": 0
         }
     },
@@ -53,7 +53,7 @@
         "item7": {
             "_id": "item7",
             "name": "Gift box",
-            "imageUrl": "images/categories/giftSets/gift_box_1.jpg",
+            "imageUrl": "images/categories/giftSets/gift-box_1.jpg",
             "price": 15,
             "purchasesAmount": 10,
             "likesAmount": 0
