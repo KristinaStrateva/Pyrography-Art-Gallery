@@ -107,9 +107,7 @@ body {
   background-color: #fefafa;
 }
 .home-header {
-  padding-top: 24px;
   flex-direction: row;
-  padding-bottom: 24px;
   justify-content: space-between;
 }
 .home-navbar1 {
