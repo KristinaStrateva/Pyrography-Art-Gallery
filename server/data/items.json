@@ -5,7 +5,7 @@
             "name": "Bulgaria magnets",
             "imageUrl": "images/categories/homeDecoration/Bulgaria_magnets.jpg",
             "price": 2,
-            "purchasesAmount": 5,
+            "purchasesAmount": 20,
             "likesAmount": 0
         },
         "item2": {
@@ -18,10 +18,10 @@
         },
         "item3": {
             "_id": "item3",
-            "name": "Motocycle magnet",
+            "name": "Motorcycle magnet",
             "imageUrl": "images/categories/homeDecoration/moto_magnet.jpg",
             "price": 2,
-            "purchasesAmount": 7,
+            "purchasesAmount": 25,
             "likesAmount": 0
         },
         "item4": {
@@ -47,7 +47,7 @@
             "name": "Coffee set",
             "imageUrl": "images/categories/giftSets/coffee_set.jpg",
             "price": 10,
-            "purchasesAmount": 8,
+            "purchasesAmount": 30,
             "likesAmount": 0
         },
         "item7": {
@@ -73,7 +73,7 @@
             "name": "Mug pad",
             "imageUrl": "images/categories/customTextOnWood/custom_mug_pad.jpg",
             "price": 5,
-            "purchasesAmount": 6,
+            "purchasesAmount": 32,
             "likesAmount": 0
         },
         "item10": {
