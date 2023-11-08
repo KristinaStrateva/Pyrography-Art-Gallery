@@ -239,12 +239,13 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-bottom: 96px;
+  padding-bottom: 1em;
 }
 .home-hero {
   padding-top: 48px;
-  padding-bottom: 48px;
+  padding-bottom: 1em;
   background-color: #ddd;
+  margin-bottom: 3.5em;
 }
 .home-max-width {
   max-width: 1032px;
@@ -252,7 +253,7 @@ body {
 .home-hero1 {
   width: 100%;
   display: flex;
-  max-width: 1328px;
+  max-width: 1000px;
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
@@ -290,6 +291,7 @@ body {
   align-items: flex-end;
   margin-bottom: 48px;
   flex-direction: row;
+  gap: 1em;
 }
 .home-text17 {
   color: #000000cc;
@@ -329,7 +331,7 @@ body {
   flex-wrap: wrap;
   max-width: 1080px;
   align-items: flex-start;
-  margin-bottom: 64px;
+  margin-bottom: 2.5em;
   flex-direction: row;
   justify-content: space-between;
 }
@@ -517,9 +519,9 @@ body {
   display: flex;
   max-width: 1328px;
   align-items: flex-start;
-  padding-top: 96px;
+  padding-top: 3em;
   flex-direction: row;
-  padding-bottom: 96px;
+  padding-bottom: 1em;
   justify-content: space-between;
 }
 .home-container09 {

@@ -20,26 +20,16 @@ export default function HomeMain() {
 
     return (
         <div className="home-main">
-            <BestOffer item={{...bestItem}} />
-            <div className="section-container column">
-                <BuyByCategories />
 
-                <HomeBanner />
+            <BestOffer item={{ ...bestItem }} />
+
+            <HomeBanner />
+
+            <div className="section-container column">
+
+                <BuyByCategories />
+                
             </div>
-            <div className="home-full-width-banner section-container">
-                <div className="home-left4">
-                    <div className="home-content">
-                        <span className="home-text29">LOOKBOOKS</span>
-                        <span className="home-text30">
-                            Carefully curated furniture, well matched in style and looks
-                        </span>
-                    </div>
-                    <div className="home-btn button">
-                        <span className="home-text31">Explore now</span>
-                    </div>
-                </div>
-                <img alt="Rectangle13271410" src="images/pic9.jpg" className="home-image6" />
-            </div>      
         </div>
     );
 }
