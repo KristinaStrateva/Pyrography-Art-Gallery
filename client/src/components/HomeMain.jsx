@@ -25,11 +25,8 @@ export default function HomeMain() {
 
             <HomeBanner />
 
-            <div className="section-container column">
+            <ShopByCategories />
 
-                <ShopByCategories />
-
-            </div>
         </div>
     );
 }
