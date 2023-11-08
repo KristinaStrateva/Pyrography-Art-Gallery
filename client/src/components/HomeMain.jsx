@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import BestOffer from "./BestOffer";
 import * as itemsService from '../services/itemsService';
-import RentByCategories from "./RentByCategories";
+import BuyByCategories from "./BuyByCategories";
 import HomeBanner from "./HomeBanner";
 
 export default function HomeMain() {
@@ -22,7 +22,7 @@ export default function HomeMain() {
         <div className="home-main">
             <BestOffer item={{...bestItem}} />
             <div className="section-container column">
-                <RentByCategories />
+                <BuyByCategories />
 
                 <HomeBanner />
                 <div className="home-container06 max-width-container">

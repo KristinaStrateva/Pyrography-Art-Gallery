@@ -1,4 +1,4 @@
-export default function RentByCategories() {
+export default function BuyByCategories() {
     return (
         <div className="max-width-container">
             <div className="section-heading-section-heading">
@@ -13,15 +13,15 @@ export default function RentByCategories() {
             </div>
             <div className="home-cards-container">
                 <div className="category-card-category-card">
-                    <img alt="image" src="images/categories/ideas_main_how-to-make-a-pyrography-home-sweet-home-sign.jpg" className="category-card-image" />
+                    <img alt="image" src="images/categories/homeDecoration/ideas_main_how-to-make-a-pyrography-home-sweet-home-sign.jpg" className="category-card-image" />
                     <span className="category-card-text"><span>Home Decorations</span></span>
                 </div>
                 <div className="category-card-category-card">
-                    <img alt="image" src="images/categories/best-diy-wood-burning-ideas-designs-art-featured-homebnc-1024x536.jpg" className="category-card-image" />
+                    <img alt="image" src="images/categories/giftSets/best-diy-wood-burning-ideas-designs-art-featured-homebnc-1024x536.jpg" className="category-card-image" />
                     <span className="category-card-text"><span>Gift Sets</span></span>
                 </div>
                 <div className="category-card-category-card">
-                    <img alt="image" src="images/categories/Custom-Wood-Burning-Cutting-Board-madebybarb-4.jpg" className="category-card-image" />
+                    <img alt="image" src="images/categories/customTextOnWood/Custom-Wood-Burning-Cutting-Board-madebybarb-4.jpg" className="category-card-image" />
                     <span className="category-card-text"><span>Custom Text On Wood</span></span>
                 </div>
             </div>
