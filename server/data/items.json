@@ -1,18 +1,88 @@
 {
-    "item1": {
-        "_id": "item1",
-        "name": "Bulgaria magnets",
-        "imageUrl": "images/Bulgaria_magnets.jpg",
-        "price": 2,
-        "purchasesAmount": 5,
-        "likesAmount": 0
+    "homeDecoration": {
+        "item1": {
+            "_id": "item1",
+            "name": "Bulgaria magnets",
+            "imageUrl": "images/categories/homeDecoration/Bulgaria_magnets.jpg",
+            "price": 2,
+            "purchasesAmount": 5,
+            "likesAmount": 0
+        },
+        "item2": {
+            "_id": "item2",
+            "name": "Keep it simple magnet",
+            "imageUrl": "images/categories/homeDecoration/keet_it_simple_magnet.jpg",
+            "price": 2,
+            "purchasesAmount": 3,
+            "likesAmount": 0
+        },
+        "item3": {
+            "_id": "item3",
+            "name": "Motocycle magnet",
+            "imageUrl": "images/categories/homeDecoration/moto_magnet.jpg",
+            "price": 2,
+            "purchasesAmount": 7,
+            "likesAmount": 0
+        },
+        "item4": {
+            "_id": "item4",
+            "name": "Napkin holder",
+            "imageUrl": "images/categories/homeDecoration/napkin_holder.jpg",
+            "price": 5,
+            "purchasesAmount": 6,
+            "likesAmount": 0
+        },
+        "item5": {
+            "_id": "item5",
+            "name": "Termometer",
+            "imageUrl": "images/categories/homeDecoration/termometer.jpg",
+            "price": 7,
+            "purchasesAmount": 10,
+            "likesAmount": 0
+        }
     },
-    "item2": {
-        "_id": "item2",
-        "name": "VW Golf VII",
-        "imageUrl": "images/showimage.png",
-        "price": 20,
-        "purchasesAmount": 3,
-        "likesAmount": 0
+    "giftSets": {
+        "item6": {
+            "_id": "item6",
+            "name": "Coffee set",
+            "imageUrl": "images/categories/giftSets/coffee_set.jpg",
+            "price": 10,
+            "purchasesAmount": 8,
+            "likesAmount": 0
+        },
+        "item7": {
+            "_id": "item7",
+            "name": "Gift box",
+            "imageUrl": "images/categories/giftSets/gift_box_1.jpg",
+            "price": 15,
+            "purchasesAmount": 10,
+            "likesAmount": 0
+        },
+        "item8": {
+            "_id": "item8",
+            "name": "Gift box",
+            "imageUrl": "images/categories/giftSets/gift_box_2.jpg",
+            "price": 15,
+            "purchasesAmount": 9,
+            "likesAmount": 0
+        }
+    },
+    "customTextOnWood": {
+        "item9": {
+            "_id": "item9",
+            "name": "Mug pad",
+            "imageUrl": "images/categories/customTextOnWood/custom_mug_pad.jpg",
+            "price": 5,
+            "purchasesAmount": 6,
+            "likesAmount": 0
+        },
+        "item10": {
+            "_id": "item10",
+            "name": "Wooden spoons",
+            "imageUrl": "images/categories/customTextOnWood/wooden_spoons.jpg",
+            "price": 7,
+            "purchasesAmount": 4,
+            "likesAmount": 0
+        }
     }
 }

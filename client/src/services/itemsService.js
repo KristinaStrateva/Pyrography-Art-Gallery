@@ -4,5 +4,11 @@ export const getAllItems = async () => {
     const response = await fetch(baseUrl);
     const data = await response.json();
 
-    return data;
+    const allItems = {...data.homeDecoration, ...data.giftSets, ...data.customTextOnWood};
+
+    return allItems;
+};
+
+export const getAllHomeDecorations = async () => {
+
 }
