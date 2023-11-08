@@ -1,7 +1,6 @@
 @media (max-width: 600px) {
 
     .home-left,
-    .home-right,
     .home-container01 {
         display: none;
     }

@@ -39,6 +39,10 @@ body {
   align-items: center;
   flex-direction: column;
   box-shadow: 0.7em 0.5em 1em #ccc;
+  background-color: #fefafa;
+}
+.category-card-text {
+  padding-bottom: 8px;
 }
 .category-card-image {
   max-width: 250px;
