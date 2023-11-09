@@ -26,7 +26,7 @@ export default function HomeMain() {
             <HomeBanner />
 
             <ShopByCategories />
-
+            
         </div>
     );
 }
