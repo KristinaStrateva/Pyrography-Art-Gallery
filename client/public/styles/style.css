@@ -330,7 +330,7 @@ body {
   box-sizing: border-box;
   max-height: 300px;
   object-fit: cover;
-  border-color: transparent;
+  border: 1px solid #66656580;
   box-shadow: 0.7em 0.7em 1em #b17474;
 }
 .home-cards-container {
