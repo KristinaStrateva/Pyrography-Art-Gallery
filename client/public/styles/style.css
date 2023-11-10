@@ -102,71 +102,20 @@ body {
   padding-top: 70px;
   flex-direction: column;
 }
-.home-navbar {
-  top: 0;
-  width: 100%;
-  display: flex;
-  z-index: 1000;
-  position: fixed;
-  align-items: center;
-  flex-direction: column;
-  background-color: #fefafa;
-}
-.home-header {
-  flex-direction: row;
-  justify-content: space-between;
-}
-.home-navbar1 {
-  width: 100%;
-  display: flex;
-  position: relative;
-  align-items: center;
-  justify-content: space-between;
-}
-.home-container01 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+
+
+
+
 .home-image {
   width: 24px;
   height: 24px;
   z-index: 100;
   margin-right: -32px;
 }
-.home-textinput {
-  width: 100%;
-  max-width: 288px;
-  transition: 0.3s;
-  border-color: #999999;
-  border-width: 1px;
-  padding-left: 48px;
-  border-top-width: 0px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-}
-.home-middle {
-  display: flex;
-  position: relative;
-  box-sizing: border-box;
-  align-items: center;
-  flex-shrink: 1;
-  border-color: transparent;
-  justify-content: center;
-}
-.home-left,
-.home-right {
-  display: flex;
-  grid-gap: 45px;
-  position: relative;
-  align-items: flex-start;
-  flex-direction: row;
 
-}
-.home-right .navbar-link a > img {
-  width: 12px;
-  height: auto;
-}
+
+
+
 .home-icons {
   display: flex;
 }
@@ -610,13 +559,7 @@ body {
   padding-bottom: 12px;
   text-decoration: none;
 }
-.input {
-  color: #ffffff;
-  cursor: auto;
-  outline: none;
-  padding: 0.5rem 1rem;
-  background-color: #fefafa;
-}
+
 .section-container {
   width: 100%;
   display: flex;
@@ -624,55 +567,18 @@ body {
   padding-top: 2em;
   justify-content: center;
 }
-.max-width-container {
-  width: 100%;
-  display: flex;
-  max-width: 1328px;
-  align-items: center;
-  padding-left: 24px;
-  padding-right: 24px;
-  flex-direction: column;
-}
+
 .column {
   display: flex;
   flex-direction: column;
 }
-.navbar-link {
-  display: block;
-  color: rgba(0, 0, 0, 1);
-  cursor: pointer;
-  height: auto;
-  font-size: 13px;
-  text-align: left;
-  transition: 0.3s;
-  font-family: Jost;
-  font-weight: 500;
-  text-decoration: none;
-}
-.navbar-link a {
-  text-decoration: none;
-  color: #000000;
-}
-.navbar-logo-title {
-  color: #000000;
-  cursor: pointer;
-  height: auto;
-  font-size: 24px;
-  transition: 0.3s;
-  font-family: Jost;
-  font-weight: 500;
-  line-height: 20px;
-  margin-left: 64px;
-  margin-right: 64px;
-  letter-spacing: 0.4em;
-  text-decoration: none;
-}
-.navbar-logo-title img,
+
 .home-container05 img {
-  display: block;
-  width: 90px;
-  height: auto;
+    display: block;
+    width: 90px;
+    height: auto;
 }
+
 .Heading-3 {
   font-size: 24px;
   font-style: normal;
