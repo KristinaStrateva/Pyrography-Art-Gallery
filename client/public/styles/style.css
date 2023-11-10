@@ -1,19 +1,4 @@
-body {
-  font-weight: 400;
-  font-style: normal;
-  text-decoration: none;
-  text-transform: none;
-  letter-spacing: 0.02;
-  line-height: 1.55;
-  color: #000000;
-  background-color: #ffffff;
-  margin: 0;
-}
-* {
-  box-sizing: border-box;
-  border-width: 0;
-  border-style: solid;
-}
+
 .section-heading-section-heading {
   display: flex;
   position: relative;
@@ -93,15 +78,7 @@ body {
   font-style: normal;
   margin-bottom: 32px;
 }
-.home-container {
-  width: 100%;
-  display: flex;
-  min-height: 100vh;
-  overflow-x: hidden;
-  align-items: center;
-  padding-top: 70px;
-  flex-direction: column;
-}
+
 
 
 
@@ -138,11 +115,7 @@ body {
   justify-content: space-between;
   background-color: #fff;
 }
-.home-nav {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-}
+
 .home-container02 {
   width: 100%;
   display: flex;

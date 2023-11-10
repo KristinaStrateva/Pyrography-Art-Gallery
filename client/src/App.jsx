@@ -4,11 +4,12 @@ import HomeMain from "./components/HomeMain";
 import Navigation from "./components/Navigation";
 import Details from './components/Details';
 import About from './components/About';
+import styles from './App.module.css';
 
 function App() {
 
     return (
-        <div className="home-container">
+        <div className={styles["home-container"]}>
             <Navigation name={''} />
 
             <Routes>
