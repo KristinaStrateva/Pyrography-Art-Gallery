@@ -20,7 +20,7 @@ export default function Footer() {
                     <div className={styles["home-links-container"]}>
                         <div className={styles["home-container10"]}>
                             <span className={styles["home-text38"]}>Categories</span>
-                            <Link to="/collection/homeDecorations" className={styles["home-text39"]}>Home Decoration</Link>
+                            <Link to="/homeDecorations" className={styles["home-text39"]}>Home Decoration</Link>
                             <Link to="/collection/giftSets" className={styles["home-text40"]}>Gift Sets</Link>
                             <Link to="/collection/customTextOnWood" className={styles["home-text41"]}>Custom text on wood</Link>
                         </div>

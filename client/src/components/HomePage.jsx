@@ -5,7 +5,7 @@ import ShopByCategories from "./ShopByCategories";
 import HomeBanner from "./HomeBanner";
 import mainStyle from '../App.module.css';
 
-export default function HomeMain() {
+export default function HomePage() {
     const [bestItem, setBestItem] = useState(null);
 
     useEffect(() => {

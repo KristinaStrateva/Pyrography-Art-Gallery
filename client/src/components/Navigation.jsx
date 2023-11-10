@@ -14,7 +14,7 @@ export default function Navigation({
                     </div>
                     <div className={styles["home-middle"]}>
                         <ul className={styles["home-left"]}>
-                            <li className={styles["navbar-link"]}><Link to="/collection/homeDecorations">HOME DECORATIONS</Link></li>
+                            <li className={styles["navbar-link"]}><Link to="/homeDecorations">HOME DECORATIONS</Link></li>
 
                             <li className={styles["navbar-link"]}><Link to="/collection/giftSets">GIFT SETS</Link></li>
                             <li className={styles["navbar-link"]}><Link to="/collection/customTextOnWood">CUSTOM TEXT ON WOOD</Link></li>

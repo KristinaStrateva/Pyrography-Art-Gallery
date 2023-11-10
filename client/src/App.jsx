@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Footer from "./components/Footer";
-import HomeMain from "./components/HomeMain";
+import HomePage from "./components/HomePage";
 import Navigation from "./components/Navigation";
 import CollectionPage from './components/CollectionPage';
 import About from './components/About';
@@ -13,9 +13,9 @@ export default function App() {
             <Navigation name={''} />
 
             <Routes>
-                <Route path='/' element={<HomeMain />} />
+                <Route path='/' element={<HomePage />} />
                 <Route path='/about' element={<About />} />
-                <Route path='/collection/homeDecorations' element={<CollectionPage />} />
+                <Route path='/homeDecorations' element={<CollectionPage />} />
             </Routes>
 
             <Footer />
