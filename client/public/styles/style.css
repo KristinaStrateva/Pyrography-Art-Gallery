@@ -145,39 +145,7 @@
   letter-spacing: 1em;
   text-transform: uppercase;
 }
-.home-container06 {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-.home-container07 {
-  width: 100%;
-  display: flex;
-  position: relative;
-  max-width: 770px;
-  box-sizing: border-box;
-  margin-top: 80px;
-  align-items: center;
-  flex-shrink: 1;
-  border-color: transparent;
-  flex-direction: column;
-}
-.home-text23 {
-  color: #000000cc;
-  width: 100%;
-  height: auto;
-  font-size: 16px;
-  align-self: auto;
-  font-style: normal;
-  text-align: center;
-  font-family: Jost;
-  font-weight: 400px;
-  line-height: 175%;
-  font-stretch: normal;
-  margin-bottom: 48px;
-  text-decoration: none;
-}
+
 .home-full-width-banner {
   width: 100%;
   display: flex;

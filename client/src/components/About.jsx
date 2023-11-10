@@ -1,8 +1,11 @@
+import styles from './About.module.css';
+// import mainStyle from '../App.module.css';
+
 export default function About() {
     return (
-        <div className="home-container06 max-width-container">
-            <div className="home-container07">
-                <span className="home-text23">
+        <div className={`${styles["home-container06"]} ${styles["max-width-container"]}`}>
+            <div className={styles["home-container07"]}>
+                <span className={styles["home-text23"]}>
                     <span>
                         Mobilio Stores Inc. are unique reseller of modern furnitors,
                         designer-made,
@@ -21,7 +24,7 @@ export default function About() {
                         vitae congue
                     </span>
                 </span>
-                <button className="button">Read more</button>
+                {/* <button className={mainStyle["button"]}>Read more</button> */}
             </div>
         </div>
     );
