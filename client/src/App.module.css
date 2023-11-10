@@ -32,6 +32,15 @@ body {
     flex-direction: column;
 }
 
+.home-main {
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 1em;
+}
+
 .max-width-container {
     width: 100%;
     display: flex;

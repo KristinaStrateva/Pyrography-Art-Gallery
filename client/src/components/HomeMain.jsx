@@ -3,6 +3,7 @@ import BestOffer from "./BestOffer";
 import * as itemsService from '../services/itemsService';
 import ShopByCategories from "./ShopByCategories";
 import HomeBanner from "./HomeBanner";
+import mainStyle from '../App.module.css';
 
 export default function HomeMain() {
     const [bestItem, setBestItem] = useState(null);
@@ -19,14 +20,14 @@ export default function HomeMain() {
     }, []);
 
     return (
-        <div className="home-main">
+        <div className={mainStyle["home-main"]}>
 
             <BestOffer item={{ ...bestItem }} />
 
             <HomeBanner />
 
             <ShopByCategories />
-            
+
         </div>
     );
 }
