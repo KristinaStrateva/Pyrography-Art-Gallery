@@ -25,7 +25,6 @@ export default function Navigation({
                         <ul className={styles["home-right"]}>
                             <li className={styles["navbar-link"]}><Link to="/users/login">LOGIN</Link></li>
                             <li className={styles["navbar-link"]}><Link to="/users/register">REGISTER</Link></li>
-                            {/* <li className={styles["navbar-link"]}><a to="#"><img src="images/user-125-16.png" alt="user" /> ME</a></li> */}
                             <li className={styles["navbar-link"]}><Link to="#">Hello, {name}</Link></li>
                             <li className={styles["navbar-link"]}><Link to="/users/logout">LOGOUT</Link></li>
                         </ul>
