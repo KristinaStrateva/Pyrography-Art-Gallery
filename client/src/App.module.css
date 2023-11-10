@@ -42,13 +42,6 @@ body {
     flex-direction: column;
 }
 
-.navbar-logo-title img,
-.home-container05 img {
-    display: block;
-    width: 90px;
-    height: auto;
-}
-
 .input {
     color: #ffffff;
     cursor: auto;
