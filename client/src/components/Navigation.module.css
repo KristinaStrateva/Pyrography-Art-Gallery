@@ -96,3 +96,9 @@
     letter-spacing: 0.4em;
     text-decoration: none;
 }
+
+.navbar-logo-title img {
+    display: block;
+    width: 90px;
+    height: auto;
+}
