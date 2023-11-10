@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import styles from './BestOffer.module.css';
+import mainStyle from '../App.module.css';
 
 export default function BestOffer({
     item,
@@ -23,27 +25,27 @@ export default function BestOffer({
     }, [year]);
 
     return (
-        <div className="home-hero section-container">
-            <div className="home-max-width max-width-container">
-                <div className="home-hero1">
-                    <div className="home-container03">
-                        <div className="home-info">
-                            <span className="home-text12">
+        <div className={`${styles["home-hero"]} ${mainStyle["section-container"]}`}>
+            <div className={`${styles["home-max-width"]} ${mainStyle["max-width-container"]}`}>
+                <div className={styles["home-hero1"]}>
+                    <div className={styles["home-container03"]}>
+                        <div className={styles["home-info"]}>
+                            <span className={styles["home-text12"]}>
                                 <span>BEST SELLER</span>
                                 <br />
                                 <span>{month} / {year}</span>
                             </span>
                         </div>
-                        <h1 className="home-text16 Heading-1">{item.name}</h1>
-                        <div className="home-container04">
-                            <span className="home-text17">FOR</span>
-                            <span className="home-text18"> €{item.price}</span>
+                        <h1 className={`${styles["home-text16"]} ${mainStyle["Heading-1"]}`}>{item.name}</h1>
+                        <div className={styles["home-container04"]}>
+                            <span className={styles["home-text17"]}>FOR</span>
+                            <span className={styles["home-text18"]}> €{item.price}</span>
                         </div>
-                        <div className="home-btn-group">
-                            <button className="button">BUY NOW</button>
+                        <div className={styles["home-btn-group"]}>
+                            <button className={mainStyle["button"]}>BUY NOW</button>
                         </div>
                     </div>
-                    <img src={item.imageUrl} alt={item.name} className="home-image5" />
+                    <img src={item.imageUrl} alt={item.name} className={styles["home-image5"]} />
                 </div>
             </div>
         </div>
