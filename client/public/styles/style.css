@@ -541,10 +541,7 @@
   justify-content: center;
 }
 
-.column {
-  display: flex;
-  flex-direction: column;
-}
+
 
 .home-container05 img {
     display: block;
@@ -552,39 +549,3 @@
     height: auto;
 }
 
-.Heading-3 {
-  font-size: 24px;
-  font-style: normal;
-  font-family: Jost;
-  font-weight: 500;
-  line-height: 20px;
-  letter-spacing: 0.4em;
-  text-transform: none;
-  text-decoration: none;
-}
-.Content {
-  font-size: 16px;
-  font-family: Jost;
-  font-weight: 400;
-  letter-spacing: 0.02;
-  text-transform: none;
-  text-decoration: none;
-}
-.Heading-1 {
-  font-size: 36px;
-  font-family: Jost;
-  font-weight: 500;
-  line-height: 47px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-.Heading-2 {
-  font-size: 28px;
-  font-family: Jost;
-  font-weight: 500;
-  line-height: 36px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-}
