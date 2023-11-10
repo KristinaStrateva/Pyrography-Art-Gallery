@@ -5,11 +5,11 @@ export default function ShopByCategories() {
     return (
         <div className={`${mainStyle["section-container"]} ${mainStyle["column"]}`}>
             <div className={mainStyle["max-width-container"]}>
-                <div className={styles["section-heading-section-heading"]}>
-                    <h1 className={`${styles["section-heading-text"]} ${mainStyle["Heading-2"]}`}>
+                <div className={mainStyle["section-heading-section-heading"]}>
+                    <h1 className={`${mainStyle["section-heading-text"]} ${mainStyle["Heading-2"]}`}>
                         <span>SHOP BY CATEGORIES</span>
                     </h1>
-                    <span className={styles["section-heading-text1"]}>
+                    <span className={mainStyle["section-heading-text1"]}>
                         <span>
                             Make your purchase by your preferences
                         </span>

@@ -91,6 +91,25 @@ body {
     justify-content: center;
 }
 
+.section-heading-section-heading {
+    display: flex;
+    position: relative;
+    align-items: center;
+    margin-bottom: 48px;
+    flex-direction: column;
+}
+
+.section-heading-text {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.section-heading-text1 {
+    color: #00000099;
+    text-align: center;
+    line-height: 24px;
+}
+
 .column {
     display: flex;
     flex-direction: column;

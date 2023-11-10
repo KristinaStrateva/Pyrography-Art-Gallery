@@ -1,9 +1,6 @@
 
 
-.section-heading-text{
-  text-align: center;
-  margin-bottom: 16px;
-}
+
 
 
 .blog-post-card-blog-post-card {
@@ -235,15 +232,7 @@
   object-fit: cover;
   border-color: transparent;
 }
-.home-container08 {
-  flex: 0 0 auto;
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-}
+
 
 
 

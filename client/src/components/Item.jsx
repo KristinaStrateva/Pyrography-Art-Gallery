@@ -1,4 +1,4 @@
-import styles from './DetailsItem.module.css';
+import styles from './Item.module.css';
 import mainStyle from '../App.module.css';
 
 export default function DetailsItem({
