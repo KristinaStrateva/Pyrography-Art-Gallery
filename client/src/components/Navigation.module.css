@@ -14,16 +14,6 @@
     justify-content: space-between;
 }
 
-.max-width-container {
-    width: 100%;
-    display: flex;
-    max-width: 1328px;
-    align-items: center;
-    padding-left: 24px;
-    padding-right: 24px;
-    flex-direction: column;
-}
-
 .home-navbar1 {
     width: 100%;
     display: flex;
@@ -48,14 +38,6 @@
     border-top-width: 0px;
     border-left-width: 0px;
     border-right-width: 0px;
-}
-
-.input {
-    color: #ffffff;
-    cursor: auto;
-    outline: none;
-    padding: 0.5rem 1rem;
-    background-color: #fefafa;
 }
 
 .home-middle {

@@ -6,10 +6,10 @@ export default function Navigation({
 }) {
     return (
         <div className={styles["home-navbar"]}>
-            <header data-role="Header" className={styles["home-header", "max-width-container"]}>
+            <header data-role="Header" className={`${styles["home-header"]} ${styles["max-width-container"]}`}>
                 <div className={styles["home-navbar1"]}>
                     <div className={styles["home-container01"]}>
-                        <input type="text" placeholder="search" className={styles["home-textinput", "input"]} />
+                        <input type="text" placeholder="search" className={`${styles["home-textinput"]} ${styles["input"]}`} />
                     </div>
                     <div className={styles["home-middle"]}>
                         <ul className={styles["home-left"]}>
@@ -18,7 +18,7 @@ export default function Navigation({
                             <li className={styles["navbar-link"]}><Link to="/collection/giftSets">GIFT SETS</Link></li>
                             <li className={styles["navbar-link"]}><Link to="/collection/customTextOnWood">CUSTOM TEXT ON WOOD</Link></li>
                         </ul>
-                        <div className={styles["navbar-logo-title", "navbar-link"]}>
+                        <div className={`${styles["navbar-logo-title"]} ${styles["navbar-link"]}`}>
                             <Link to="/"><img src="images/2.png" alt="logo" /></Link>
                         </div>
                         <ul className={styles["home-right"]}>
