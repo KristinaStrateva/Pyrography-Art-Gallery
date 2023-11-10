@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Footer from "./components/Footer";
 import HomeMain from "./components/HomeMain";
 import Navigation from "./components/Navigation";
-import Details from './components/Details';
+import DetailsPage from './components/DetailsPage';
 import About from './components/About';
 import styles from './App.module.css';
 
@@ -15,7 +15,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<HomeMain />} />
                 <Route path='/about' element={<About />} />
-                <Route path='/collection/homeDecorations' element={<Details />} />
+                <Route path='/collection/homeDecorations' element={<DetailsPage />} />
             </Routes>
 
             <Footer />
