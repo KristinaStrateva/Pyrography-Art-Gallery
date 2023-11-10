@@ -6,7 +6,7 @@ import DetailsPage from './components/DetailsPage';
 import About from './components/About';
 import styles from './App.module.css';
 
-function App() {
+export default function App() {
 
     return (
         <div className={styles["home-container"]}>
@@ -21,6 +21,4 @@ function App() {
             <Footer />
         </div>
     )
-}
-
-export default App
+};

@@ -21,4 +21,4 @@ export default function DetailsItem({
             </div>
         </div>
     );
-};
+}
