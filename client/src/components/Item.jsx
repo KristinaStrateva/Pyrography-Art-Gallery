@@ -1,10 +1,10 @@
 import styles from './Item.module.css';
 import mainStyle from '../App.module.css';
 
-export default function DetailsItem({
+export default function Item({
     name,
     imageUrl,
-    description,
+    // price,
 }) {
     return (
         <div className={styles["blog-post-card-blog-post-card"]}>
@@ -13,11 +13,11 @@ export default function DetailsItem({
                 <span className={styles["blog-post-card-text"]}>
                     <span>{name}</span>
                 </span>
-                <span className={styles["blog-post-card-text1"]}>
+                {/* <span className={styles["blog-post-card-text1"]}>
                     <span>
-                        {description}
+                        {price}
                     </span>
-                </span>
+                </span> */}
                 <a href="#" className={mainStyle["button"]}>
                     More details
                 </a>

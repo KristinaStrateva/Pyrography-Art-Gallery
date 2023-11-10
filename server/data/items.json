@@ -1,41 +1,46 @@
 {
-    "homeDecoration": {
+    "homeDecorations": {
         "item1": {
             "_id": "item1",
+            "collectionName": "Home Decorations",
             "name": "Bulgaria magnets",
-            "imageUrl": "images/categories/homeDecoration/Bulgaria_magnets.jpg",
+            "imageUrl": "images/categories/homeDecorations/Bulgaria_magnets.jpg",
             "price": 2,
             "purchasesAmount": 20,
             "likesAmount": 0
         },
         "item2": {
             "_id": "item2",
+            "collectionName": "Home Decorations",
             "name": "Keep it simple magnet",
-            "imageUrl": "images/categories/homeDecoration/keet_it_simple_magnet.jpg",
+            "imageUrl": "images/categories/homeDecorations/keep_it_simple_magnet.jpg",
             "price": 2,
             "purchasesAmount": 3,
             "likesAmount": 0
         },
         "item3": {
             "_id": "item3",
+            "collectionName": "Home Decorations",
             "name": "Motorcycle magnet",
-            "imageUrl": "images/categories/homeDecoration/moto_magnet.jpg",
+            "imageUrl": "images/categories/homeDecorations/moto_magnet.jpg",
             "price": 2,
             "purchasesAmount": 25,
             "likesAmount": 0
         },
         "item4": {
             "_id": "item4",
+            "collectionName": "Home Decorations",
             "name": "Napkin holder",
-            "imageUrl": "images/categories/homeDecoration/napkin_holder.jpg",
+            "imageUrl": "images/categories/homeDecorations/napkin_holder.jpg",
             "price": 5,
             "purchasesAmount": 6,
             "likesAmount": 0
         },
         "item5": {
             "_id": "item5",
+            "collectionName": "Home Decorations",
             "name": "Termometer",
-            "imageUrl": "images/categories/homeDecoration/termometer.jpg",
+            "imageUrl": "images/categories/homeDecorations/termometer.jpg",
             "price": 7,
             "purchasesAmount": 9,
             "likesAmount": 0
@@ -44,6 +49,7 @@
     "giftSets": {
         "item6": {
             "_id": "item6",
+            "collectionName": "Gift Items",
             "name": "Coffee set",
             "imageUrl": "images/categories/giftSets/coffee_set.jpg",
             "price": 10,
@@ -52,6 +58,7 @@
         },
         "item7": {
             "_id": "item7",
+            "collectionName": "Gift Items",
             "name": "Gift box",
             "imageUrl": "images/categories/giftSets/gift-box_1.jpg",
             "price": 15,
@@ -60,6 +67,7 @@
         },
         "item8": {
             "_id": "item8",
+            "collectionName": "Gift Items",
             "name": "Gift box",
             "imageUrl": "images/categories/giftSets/gift_box_2.jpg",
             "price": 15,
@@ -70,6 +78,7 @@
     "customTextOnWood": {
         "item9": {
             "_id": "item9",
+            "collectionName": "Custom Text On Wood",
             "name": "Mug pad",
             "imageUrl": "images/categories/customTextOnWood/custom_mug_pad.jpg",
             "price": 5,
@@ -78,6 +87,7 @@
         },
         "item10": {
             "_id": "item10",
+            "collectionName": "Custom Text On Wood",
             "name": "Wooden spoons",
             "imageUrl": "images/categories/customTextOnWood/wooden_spoons.jpg",
             "price": 7,

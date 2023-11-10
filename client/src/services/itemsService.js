@@ -9,6 +9,9 @@ export const getAllItems = async () => {
     return allItems;
 };
 
-export const getAllHomeDecorations = async () => {
+export const getAllFromCollection = async (collectionName) => {
+    const response = await fetch(`${baseUrl}/${collectionName}`);
+    const data = await response.json();
 
+    return data;
 }
