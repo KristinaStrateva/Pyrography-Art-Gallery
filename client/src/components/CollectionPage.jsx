@@ -1,7 +1,7 @@
 import Carousel from 'react-bootstrap/Carousel';
 
 import { useLocation } from 'react-router-dom';
-// import Item from "./Item";
+import Item from "./Item";
 import * as itemsService from '../services/itemsService';
 import styles from './CollectionPage.module.css';
 import mainStyle from '../App.module.css';

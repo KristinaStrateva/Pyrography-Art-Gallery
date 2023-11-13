@@ -10,23 +10,13 @@ export default function Item({
 }) {
     return (
         <>
-        {/* // <div className={styles["blog-post-card-blog-post-card"]}> */}
-                {/* <img alt={name} src={imageUrl} className={styles["blog-post-card-image"]} />
-            <div className={styles["blog-post-card-container"]}>
-                <span className={styles["blog-post-card-text"]}>
-                    <span>{name}</span>
-                </span>
-                <span className={styles["blog-post-card-text1"]}>
-                    <span>
-                        {price}
-                    </span>
-                </span>
-                <a href="#" className={mainStyle["button"]}>
-                    More details
-                </a>
-            </div> */}
-                
-        {/* // </div > */}
+            <Carousel.Item className={styles["blog-post-card-blog-post-card"]}>
+                    <img alt={name} src={imageUrl} className={styles["blog-post-card-image"]} />
+                    <Carousel.Caption>
+                        <h3>{name}</h3>
+                        <a href="#" className={mainStyle["button"]}>More details</a>
+                    </Carousel.Caption>
+            </Carousel.Item >
         </>
     );
 }

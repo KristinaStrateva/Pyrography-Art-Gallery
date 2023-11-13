@@ -12,6 +12,8 @@
 .blog-post-card-image {
     flex: 1;
     width: 100%;
+    max-width: auto;
+    max-height: 20em;
     object-fit: cover;
 }
 
