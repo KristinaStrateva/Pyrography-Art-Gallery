@@ -1,12 +1,13 @@
 .home-container08 {
     flex: 0 0 auto;
     width: 100%;
+    padding-top: 1.5em;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     flex-direction: row;
     justify-content: center;
-    background-color: #b17474;
+    background-color: #d99595;
 }
 
 .blog-post-card-blog-post-card {
@@ -23,9 +24,10 @@
 .blog-post-card-image {
     flex: 1;
     width: 100%;
-    max-width: auto;
     max-height: 20em;
     object-fit: cover;
+    border: 1px solid #66656580;
+    box-shadow: 0.7em 0.7em 1em #b17474;
 }
 
 .blog-post-card-container {
@@ -55,4 +57,24 @@
     font-size: 16px;
     font-style: normal;
     margin-bottom: 32px;
+}
+
+.button {
+    text-align: center;
+    text-decoration: none;
+    color: #000000cc;
+    border: 1px solid #00000080;
+    box-shadow: 0.5em 0.5em 1em #b17474;
+    cursor: pointer;
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14px;
+    padding: 12px 24px;
+    transition: 0.3s;
+    background-color: #f7f7f7;
+}
+
+.carousel-item {
+    padding-inline: 1.5em;
 }

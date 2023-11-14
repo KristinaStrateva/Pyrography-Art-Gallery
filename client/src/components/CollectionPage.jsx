@@ -33,7 +33,20 @@ export default function CollectionPage() {
         if (indicators) {
             indicators.style.display = 'none';
         }
+
     }, []);
+
+    const captions = Array.from(document.querySelectorAll('.carousel-caption'));
+
+    if (captions) {
+        captions.forEach(caption => {
+            caption.style.position = 'initial';
+            caption.style.display = 'flex';
+            caption.style.flexDirection = 'column';
+            caption.style.alignItems = 'center';
+            caption.style.gap = '0.7em';
+        });
+    }
 
     return (
         <div className={`${mainStyle["section-container"]} ${mainStyle["column"]}`}>
@@ -54,11 +67,11 @@ export default function CollectionPage() {
                         <Carousel slide={false}>
 
                             {collection.map((item, index) => (
-                                <CarouselItem key={`${item._id}-${index}`}>
+                                <CarouselItem key={`${item._id}-${index}`} className={styles["carousel-item"]}>
                                     <img alt={item.name} src={item.imageUrl} className={styles["blog-post-card-image"]} />
                                     <CarouselCaption>
                                         <h3>{item.name}</h3>
-                                        <a href="#" className={mainStyle["button"]}>More details</a>
+                                        <a href="#" className={styles["button"]}>MORE DETAILS</a>
                                     </CarouselCaption>
                                 </CarouselItem >
                             ))}
