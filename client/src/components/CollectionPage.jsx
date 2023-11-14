@@ -1,11 +1,9 @@
 import Carousel from 'react-bootstrap/Carousel';
 
 import { useLocation } from 'react-router-dom';
-import Item from "./Item";
 import * as itemsService from '../services/itemsService';
 import styles from './CollectionPage.module.css';
 import mainStyle from '../App.module.css';
-import itemStyles from './Item.module.css';
 import { useEffect, useState } from 'react';
 
 export default function CollectionPage() {
@@ -46,7 +44,7 @@ export default function CollectionPage() {
 
                             {collection.map((item, index) => (
                                 <Carousel.Item key={`${item._id}-${index}`}>
-                                    <img alt={item.name} src={item.imageUrl} className={itemStyles["blog-post-card-image"]} />
+                                    <img alt={item.name} src={item.imageUrl} className={styles["blog-post-card-image"]} />
                                     <Carousel.Caption>
                                         <h3>{item.name}</h3>
                                         <a href="#" className={mainStyle["button"]}>More details</a>
