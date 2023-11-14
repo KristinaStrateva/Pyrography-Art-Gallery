@@ -21,8 +21,8 @@ export default function Footer() {
                         <div className={styles["home-container10"]}>
                             <span className={styles["home-text38"]}>Categories</span>
                             <Link to="/homeDecorations" className={styles["home-text39"]}>Home Decoration</Link>
-                            <Link to="/collection/giftSets" className={styles["home-text40"]}>Gift Sets</Link>
-                            <Link to="/collection/customTextOnWood" className={styles["home-text41"]}>Custom text on wood</Link>
+                            <Link to="/giftSets" className={styles["home-text40"]}>Gift Sets</Link>
+                            <Link to="/customTextOnWood" className={styles["home-text41"]}>Custom text on wood</Link>
                         </div>
                         <div className={styles["home-container11"]}>
                             <span className={styles["home-text45"]}>Company</span>
