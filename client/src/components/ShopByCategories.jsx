@@ -17,7 +17,7 @@ export default function ShopByCategories() {
                 </div>
                 <div className={styles["home-cards-container"]}>
                     <div className={styles["category-card-category-card"]}>
-                        <img alt="image" src="images/categories/homeDecoration/ideas_main_how-to-make-a-pyrography-home-sweet-home-sign.jpg" className={styles["category-card-image"]} />
+                        <img alt="image" src="images/categories/homeDecorations/ideas_main_how-to-make-a-pyrography-home-sweet-home-sign.jpg" className={styles["category-card-image"]} />
                         <span className={styles["category-card-text"]}><span>Home Decorations</span></span>
                     </div>
                     <div className={styles["category-card-category-card"]}>
