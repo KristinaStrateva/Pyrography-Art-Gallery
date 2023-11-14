@@ -16,6 +16,8 @@ export default function App() {
                 <Route path='/' element={<HomePage />} />
                 <Route path='/about' element={<About />} />
                 <Route path='/homeDecorations' element={<CollectionPage />} />
+                <Route path='/giftSets' element={<CollectionPage />} />
+                <Route path='/customTextOnWood' element={<CollectionPage />} />
             </Routes>
 
             <Footer />

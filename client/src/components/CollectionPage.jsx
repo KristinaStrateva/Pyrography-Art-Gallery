@@ -1,4 +1,7 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
+import CarouselItem from 'react-bootstrap/CarouselItem';
+import CarouselCaption from 'react-bootstrap/CarouselCaption';
 
 import { useLocation } from 'react-router-dom';
 import * as itemsService from '../services/itemsService';
@@ -18,11 +21,19 @@ export default function CollectionPage() {
                 setCollection(Object.values(data));
             })
             .catch(err => console.log(err));
-    }, []);
+    }, [locationName]);
 
     useEffect(() => {
         setCollectionName(s => s = collection[0]?.collectionName);
     }, [collection]);
+
+    useEffect(() => {
+        const indicators = document.querySelector('.carousel-indicators');
+
+        if (indicators) {
+            indicators.style.display = 'none';
+        }
+    }, []);
 
     return (
         <div className={`${mainStyle["section-container"]} ${mainStyle["column"]}`}>
@@ -43,13 +54,13 @@ export default function CollectionPage() {
                         <Carousel slide={false}>
 
                             {collection.map((item, index) => (
-                                <Carousel.Item key={`${item._id}-${index}`}>
+                                <CarouselItem key={`${item._id}-${index}`}>
                                     <img alt={item.name} src={item.imageUrl} className={styles["blog-post-card-image"]} />
-                                    <Carousel.Caption>
+                                    <CarouselCaption>
                                         <h3>{item.name}</h3>
                                         <a href="#" className={mainStyle["button"]}>More details</a>
-                                    </Carousel.Caption>
-                                </Carousel.Item >
+                                    </CarouselCaption>
+                                </CarouselItem >
                             ))}
 
                         </Carousel>
