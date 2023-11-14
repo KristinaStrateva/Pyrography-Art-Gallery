@@ -37,21 +37,32 @@ export default function CollectionPage() {
     }, []);
 
     const captions = Array.from(document.querySelectorAll('.carousel-caption'));
+    const controlPrev = document.querySelector('.carousel-control-prev');
+    const controlNext = document.querySelector('.carousel-control-next');
 
-    if (captions) {
-        captions.forEach(caption => {
-            caption.style.position = 'initial';
-            caption.style.display = 'flex';
-            caption.style.flexDirection = 'column';
-            caption.style.alignItems = 'center';
-            caption.style.gap = '0.7em';
-        });
+    captions.forEach(caption => {
+        caption.style.position = 'initial';
+        caption.style.display = 'flex';
+        caption.style.flexDirection = 'column';
+        caption.style.alignItems = 'center';
+        caption.style.gap = '0.7em';
+    });
+
+    if (controlPrev && controlNext) {
+        controlPrev.style.top = '10em';
+        controlPrev.style.left = '15em';
+
+        controlNext.style.top = '10em';
+        controlNext.style.right = '15em';
+    }
+
+    if (controlNext) {
     }
 
     return (
         <div className={`${mainStyle["section-container"]} ${mainStyle["column"]}`}>
             <div className={mainStyle["section-container"]}>
-                <div className={mainStyle["max-width-container"]}>
+                <div className={styles["max-width-container"]}>
                     <div className={mainStyle["section-heading-section-heading"]}>
                         <h1 className={`${mainStyle["section-heading-text"]} ${mainStyle["Heading-2"]}`}>
                             <span>{collectionName}</span>
@@ -64,7 +75,7 @@ export default function CollectionPage() {
                     </div>
                     <div className={styles["home-container08"]}>
 
-                        <Carousel slide={false}>
+                        <Carousel slide={false} className={styles.carousel}>
 
                             {collection.map((item, index) => (
                                 <CarouselItem key={`${item._id}-${index}`} className={styles["carousel-item"]}>

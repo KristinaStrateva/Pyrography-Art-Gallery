@@ -1,7 +1,15 @@
+.max-width-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .home-container08 {
     flex: 0 0 auto;
     width: 100%;
     padding-top: 1.5em;
+    margin-bottom: 2em;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -73,6 +81,10 @@
     padding: 12px 24px;
     transition: 0.3s;
     background-color: #f7f7f7;
+}
+
+.carousel {
+    position: initial;
 }
 
 .carousel-item {
