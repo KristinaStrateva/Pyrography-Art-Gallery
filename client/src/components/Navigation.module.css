@@ -7,6 +7,8 @@
     align-items: center;
     flex-direction: column;
     background-color: #fefafa;
+    border-color: #e5e5e5ff;
+    border-bottom-width: 1px;
 }
 
 .home-header {
