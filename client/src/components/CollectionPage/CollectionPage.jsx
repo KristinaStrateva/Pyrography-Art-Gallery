@@ -4,9 +4,9 @@ import CarouselItem from 'react-bootstrap/CarouselItem';
 import CarouselCaption from 'react-bootstrap/CarouselCaption';
 
 import { useLocation } from 'react-router-dom';
-import * as itemsService from '../services/itemsService';
+import * as itemsService from '../../services/itemsService';
 import styles from './CollectionPage.module.css';
-import mainStyle from '../App.module.css';
+import mainStyle from '../../App.module.css';
 import { useEffect, useState } from 'react';
 
 export default function CollectionPage() {

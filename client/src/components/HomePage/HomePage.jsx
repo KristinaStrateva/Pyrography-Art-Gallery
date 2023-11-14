@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import BestOffer from "./BestOffer";
-import * as itemsService from '../services/itemsService';
+import * as itemsService from '../../services/itemsService';
 import ShopByCategories from "./ShopByCategories";
 import HomeBanner from "./HomeBanner";
-import mainStyle from '../App.module.css';
+import mainStyle from '../../App.module.css';
 
 export default function HomePage() {
     const [bestItem, setBestItem] = useState(null);

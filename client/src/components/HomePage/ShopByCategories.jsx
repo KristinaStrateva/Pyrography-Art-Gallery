@@ -1,5 +1,5 @@
 import styles from './ShopByCategories.module.css';
-import mainStyle from '../App.module.css';
+import mainStyle from '../../App.module.css';
 
 export default function ShopByCategories() {
     return (

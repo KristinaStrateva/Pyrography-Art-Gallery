@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from './BestOffer.module.css';
-import mainStyle from '../App.module.css';
+import mainStyle from '../../App.module.css';
 
 export default function BestOffer({
     item,

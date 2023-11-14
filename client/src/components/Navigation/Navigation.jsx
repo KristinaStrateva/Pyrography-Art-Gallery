@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './Navigation.module.css';
-import mainStyle from '../App.module.css';
+import mainStyle from '../../App.module.css';
 
 export default function Navigation({
     name
