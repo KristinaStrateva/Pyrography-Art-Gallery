@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import CarouselItem from 'react-bootstrap/CarouselItem';
 import CarouselCaption from 'react-bootstrap/CarouselCaption';
 
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import * as itemsService from '../../services/itemsService';
 import styles from './CollectionPage.module.css';
 import mainStyle from '../../App.module.css';
@@ -82,7 +82,7 @@ export default function CollectionPage() {
                                     <img alt={item.name} src={item.imageUrl} className={styles["blog-post-card-image"]} />
                                     <CarouselCaption>
                                         <h3>{item.name}</h3>
-                                        <a href="#" className={styles["button"]}>MORE DETAILS</a>
+                                        <Link to="#" className={styles["button"]}>MORE DETAILS</Link>
                                     </CarouselCaption>
                                 </CarouselItem >
                             ))}
