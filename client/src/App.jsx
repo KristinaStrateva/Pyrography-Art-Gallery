@@ -5,7 +5,7 @@ import Navigation from './components/Navigation/Navigation';
 import CollectionPage from './components/CollectionPage/CollectionPage';
 import About from './components/AboutPage/About';
 import styles from './App.module.css';
-import LoginPage from './components/Login/LoginPage';
+import LoginPage from './components/LoginPage/LoginPage';
 
 export default function App() {
 
