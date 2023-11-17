@@ -60,20 +60,6 @@ textarea {
     background: #9f7c53;
 }
 
-.container {
-    position: relative;
-    z-index: 1;
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-.container:before,
-.container:after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
 .form .message {
     margin: 15px 0 0;
     color: #b3b3b3;
