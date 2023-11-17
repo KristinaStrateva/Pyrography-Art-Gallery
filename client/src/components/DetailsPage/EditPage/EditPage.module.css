@@ -21,7 +21,7 @@
     color: white;
 }
 
-.form input,
+.form select, input,
 textarea {
     outline: 0;
     background: #f2f2f2;
