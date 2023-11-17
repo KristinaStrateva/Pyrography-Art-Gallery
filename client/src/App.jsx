@@ -6,6 +6,7 @@ import CollectionPage from './components/CollectionPage/CollectionPage';
 import About from './components/AboutPage/About';
 import styles from './App.module.css';
 import LoginPage from './components/LoginPage/LoginPage';
+import RegisterPage from './components/RegisterPage/RegisterPage';
 
 export default function App() {
 
@@ -16,7 +17,7 @@ export default function App() {
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='/login' element={<LoginPage />} />
-                <Route path='/register' element={<LoginPage />} />
+                <Route path='/register' element={<RegisterPage />} />
                 <Route path='/about' element={<About />} />
                 <Route path='/homeDecorations' element={<CollectionPage />} />
                 <Route path='/giftSets' element={<CollectionPage />} />
