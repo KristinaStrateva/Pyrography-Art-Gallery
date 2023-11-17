@@ -91,7 +91,7 @@ table td p span {
     text-align: center;
     color: white;
     border-radius: 10px;
-    /* background-image: linear-gradient(45deg, .59452e, .e8b77e); */
+    background-image: linear-gradient(45deg, #59452e, #e8b77e);
 }
 
 .action-buttons p {
