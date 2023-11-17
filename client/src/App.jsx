@@ -7,6 +7,7 @@ import About from './components/AboutPage/About';
 import styles from './App.module.css';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
+import DetailsPage from './components/DetailsPage/DetailsPage';
 
 export default function App() {
 
@@ -22,6 +23,7 @@ export default function App() {
                 <Route path='/homeDecorations' element={<CollectionPage />} />
                 <Route path='/giftSets' element={<CollectionPage />} />
                 <Route path='/customTextOnWood' element={<CollectionPage />} />
+                <Route path='/details' element={<DetailsPage />} />
             </Routes>
 
             <Footer />
