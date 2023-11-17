@@ -9,6 +9,7 @@ import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import DetailsPage from './components/DetailsPage/DetailsPage';
 import EditPage from './components/DetailsPage/EditPage/EditPage';
+import AddItemPage from './components/AddItemPage/AddItemPage';
 
 export default function App() {
 
@@ -26,6 +27,7 @@ export default function App() {
                 <Route path='/customTextOnWood' element={<CollectionPage />} />
                 <Route path='/details' element={<DetailsPage />} />
                 <Route path='/edit-item' element={<EditPage />} />
+                <Route path='/add-item' element={<AddItemPage />} />
             </Routes>
 
             <Footer />
