@@ -46,7 +46,7 @@ textarea {
   width: 50%;
   border: 0;
   padding: 15px;
-  color: black;
+  color: #4a3535;
   font-size: 14px;
   border-radius: 10px;
   -webkit-transition: all 0.3 ease;
@@ -57,12 +57,12 @@ textarea {
 .form button:hover,
 .form button:active,
 .form button:focus {
-  background: #fefafa;
+  background: #f1dcdc;
 }
 
 .form .message {
   margin: 15px 0 0;
-  color: #b48888;
+  color: #00000080;
   font-size: 17px;
 }
 
