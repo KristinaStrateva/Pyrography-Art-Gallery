@@ -4,7 +4,7 @@
 }
 
 .form {
-  background: #59452eb6;
+  background: #d99595;
   max-width: 460px;
   margin: auto;
   margin-top: 60px;
@@ -24,7 +24,7 @@
 .form input,
 textarea {
   outline: 0;
-  background: #f2f2f2;
+  background: #fefafa;
   width: 90%;
   height: 50px;
   border: 0;
@@ -57,12 +57,12 @@ textarea {
 .form button:hover,
 .form button:active,
 .form button:focus {
-  background: #9f7c53;
+  background: #fefafa;
 }
 
 .form .message {
   margin: 15px 0 0;
-  color: #b3b3b3;
+  color: #b48888;
   font-size: 17px;
 }
 
