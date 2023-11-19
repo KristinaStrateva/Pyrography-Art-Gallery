@@ -65,7 +65,7 @@ export default function CollectionPage() {
                 <div className={styles["max-width-container"]}>
                     <div className={mainStyle["section-heading-section-heading"]}>
                         <h1 className={`${mainStyle["section-heading-text"]} ${mainStyle["Heading-2"]}`}>
-                            <span>{collectionName}</span>
+                            <span>{collectionName} COLLECTION</span>
                         </h1>
                         <span className={mainStyle["section-heading-text1"]}>
                             <span>
