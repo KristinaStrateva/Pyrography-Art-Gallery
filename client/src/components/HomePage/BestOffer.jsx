@@ -42,7 +42,7 @@ export default function BestOffer({
                             <span className={styles["home-text18"]}> €{item.price}</span>
                         </div>
                         <div className={styles["home-btn-group"]}>
-                            <button className={mainStyle["button"]}>BUY NOW</button>
+                            <button className={mainStyle.button}>Buy now</button>
                         </div>
                     </div>
                     <img src={item.imageUrl} alt={item.name} className={styles["home-image5"]} />

@@ -67,22 +67,6 @@
     margin-bottom: 32px;
 }
 
-.button {
-    text-align: center;
-    text-decoration: none;
-    color: #000000cc;
-    border: 1px solid #00000080;
-    box-shadow: 0.5em 0.5em 1em #b17474;
-    cursor: pointer;
-    font-style: normal;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 14px;
-    padding: 12px 24px;
-    transition: 0.3s;
-    background-color: #f7f7f7;
-}
-
 .carousel {
     position: initial;
 }

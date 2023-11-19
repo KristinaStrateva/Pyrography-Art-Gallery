@@ -10,7 +10,6 @@
   margin-top: 60px;
   padding: 45px;
   text-align: center;
-  border-radius: 30px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.682), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
@@ -30,34 +29,11 @@ textarea {
   border: 0;
   margin: 0 0 15px;
   padding: 15px;
-  border-radius: 10px;
   box-sizing: border-box;
   font-size: 14px;
   text-align: center;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif
-}
-
-.form button {
-  text-transform: uppercase;
-  font-weight: bold;
-  outline: 0;
-  background: white;
-  width: 50%;
-  border: 0;
-  padding: 15px;
-  color: #4a3535;
-  font-size: 14px;
-  border-radius: 10px;
-  -webkit-transition: all 0.3 ease;
-  transition: all 0.3 ease;
-  cursor: pointer;
-}
-
-.form button:hover,
-.form button:active,
-.form button:focus {
-  background: #f1dcdc;
 }
 
 .form .message {

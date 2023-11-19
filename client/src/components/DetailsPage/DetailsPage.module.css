@@ -11,7 +11,6 @@
     min-height: 400px;
     max-width: 60%;
     padding: 20px;
-    border-radius: 30px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.682), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
@@ -29,6 +28,7 @@
     min-height: 300px;
     width: 300px;
     height: 300px;
+    box-shadow: 0.7em 0.7em 1em #b17474;
 }
 
 .img-wrapper p {
@@ -56,7 +56,9 @@
 }
 
 .info-wrapper p > span {
+    display: block;
     font-weight: lighter;
+    text-align: justify;
 }
 
 p {
@@ -72,44 +74,4 @@ span {
     flex-wrap: wrap;
     gap: 1em;
     margin-top: 15px;
-}
-
-.edit-btn,
-.delete-btn,
-.like-btn {
-    text-align: center;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: #000000cc;
-    border: 1px solid #00000080;
-    box-shadow: 0.5em 0.5em 1em #b17474;
-    cursor: pointer;
-    font-style: normal;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 14px;
-    padding: 12px 24px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
-    background-color: #f7f7f7;
-    border-radius: 10px;
-}
-
-.edit-btn:hover,
-.delete-btn:hover,
-.like-btn:hover {
-    background: #f1dcdc;
-}
-
-.action-buttons p {
-    text-decoration: none;
-    margin: auto 50px;
-    font-size: 21px;
-    width: 200px;
-    padding: 10px;
-    margin-top: 10px;
-    text-align: center;
-    color: white;
-    border-radius: 10px;
-    background-image: linear-gradient(45deg, #59452e, #e8b77e);
 }

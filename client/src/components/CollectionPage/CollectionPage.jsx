@@ -82,7 +82,7 @@ export default function CollectionPage() {
                                     <img alt={item.name} src={item.imageUrl} className={styles["blog-post-card-image"]} />
                                     <CarouselCaption>
                                         <h3>{item.name}</h3>
-                                        <Link to="/details" className={styles["button"]}>MORE DETAILS</Link>
+                                        <Link to={`/${item._id}/details`} className={mainStyle.button}>More details</Link>
                                     </CarouselCaption>
                                 </CarouselItem >
                             ))}

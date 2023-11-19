@@ -60,27 +60,27 @@ body {
 }
 
 .button {
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
     color: #000000cc;
+    border: 1px solid #00000080;
+    box-shadow: 0.5em 0.5em 1em #b17474;
     cursor: pointer;
-    display: flex;
-    padding: 0.5rem 1rem;
-    position: relative;
-    box-sizing: border-box;
     font-style: normal;
-    transition: 0.3s;
-    align-items: flex-start;
-    flex-shrink: 1;
+    font-size: 14px;
     font-weight: 500;
     line-height: 14px;
-    padding-top: 12px;
-    border-color: #00000080;
-    border-style: solid;
-    border-width: 1px;
-    padding-left: 24px;
-    border-radius: 0px;
-    padding-right: 24px;
-    padding-bottom: 12px;
-    text-decoration: none;
+    padding: 12px 24px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    background-color: #f7f7f7;
+}
+
+.button:hover,
+.button:active,
+.button:focus {
+    background: #f1dcdc;
 }
 
 .section-container {

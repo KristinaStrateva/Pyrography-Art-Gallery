@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import styles from './RegisterPage.module.css';
+import mainStyle from '../../App.module.css';
 
 export default function RegisterPage() {
     return (
@@ -11,7 +12,7 @@ export default function RegisterPage() {
                     <input type="text" name="email" placeholder="Email" />
                     <input type="password" name="password" placeholder="Password" />
                     <input type="password" name="repeatPass" placeholder="Repeat password" />
-                    <button type="submit">Register</button>
+                    <button type="submit" className={mainStyle.button}>Register</button>
                     <p className={styles.message}>Already registered? <Link to="/login">Login</Link></p>
                 </form>
             </div>

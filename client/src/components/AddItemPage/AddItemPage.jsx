@@ -1,4 +1,5 @@
 import styles from './AddItemPage.module.css';
+import mainStyle from '../../App.module.css';
 
 export default function AddItemPage() {
     return (
@@ -16,7 +17,7 @@ export default function AddItemPage() {
                     <input type="text" name="imageUrl" placeholder="Image url starting with http:// or https://" defaultValue="" />
                     <textarea name="description" placeholder="Description..."></textarea>
 
-                    <button type="submit">Add</button>
+                    <button type="submit" className={mainStyle.button}>Add</button>
                 </form>
             </div>
         </section>
