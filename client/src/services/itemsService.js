@@ -3,26 +3,23 @@ import * as request from '../lib/request';
 const baseUrl = 'http://localhost:3030/jsonstore/items';
 
 export const getAllItems = async () => {
-    const response = await request.get(baseUrl);
-    const data = await response.json();
+    const result = await request.get(baseUrl);
 
-    const allItems = {...data.homeDecorations, ...data.giftSets, ...data.customTextOnWood};
+    const allItems = {...result.homeDecorations, ...result.giftSets, ...result.customTextOnWood};
 
     return allItems;
 };
 
 export const getAllFromCollection = async (collectionName) => {
-    const response = await request.get(`${baseUrl}/${collectionName}`);
-    const data = await response.json();
+    const result = await request.get(`${baseUrl}/${collectionName}`);
 
-    return data;
+    return result;
 };
 
 export const getItemById = async (collectionName, itemId) => {
-    const response = await request.get(`${baseUrl}/${collectionName}/${itemId}`);
-    const data = await response.json();
+    const result = await request.get(`${baseUrl}/${collectionName}/${itemId}`);
 
-    return data;
+    return result;
 };
 
 export const addItem = async (collectionName, itemData) => {
@@ -32,10 +29,8 @@ export const addItem = async (collectionName, itemData) => {
         'purchasesAmount': 0,
         'likesAmount': 0
     };
-    
-    const response = await request.post(`${baseUrl}/${collectionName}`, data);
 
-    const result = await response.json();
+    const result = await request.post(`${baseUrl}/${collectionName}`, data);
 
     return result;
 }

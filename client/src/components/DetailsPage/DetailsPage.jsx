@@ -1,26 +1,36 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import styles from './DetailsPage.module.css';
 import mainStyle from '../../App.module.css';
+import { useEffect, useState } from "react";
+
+import * as itemsService from '../../services/itemsService';
 
 export default function DetailsPage() {
+    const [item, setItem] = useState({});
 
-    const itemId = 'item6';
-    
+    const { collectionName, itemId } = useParams();
+
+    useEffect(() => {
+        itemsService.getItemById(collectionName, itemId)
+            .then(setItem)
+            .catch(err => console.log(err));
+    }, [itemId]);
+
     return (
         <section className={styles.details}>
             <div className={styles["details-wrapper"]}>
                 <div className={styles["img-wrapper"]}>
-                    <img src="images/categories/giftSets/coffee_set.jpg" />
+                    <img src={item.imageUrl} />
                     <div>
-                        <p>0 Likes</p>
+                        <p>{item.likesAmount} Likes</p>
                     </div>
                 </div>
                 <div className={styles["info-wrapper"]}>
                     <div>
-                        <p className={styles["details-title"]}>Name: Coffee set</p>
-                        <p>Price: <span className={styles["details-price"]}>€5</span></p>
-                        <p>Description: <span className={styles["details-description"]}>Some description here...hsdfkjs gfjdsukys rfdgvkdfvds kgfvadfjad sgfjkds kfjgadsgfjad sgfjadskjgf jkads fjkadsgjk fgkagdsgjskj fadfvbdvbjhadvk adsg fadsjf vbdfvjad</span></p>
+                        <p className={styles["details-title"]}>Name: {item.name}</p>
+                        <p>Price: <span className={styles["details-price"]}>€{item.price}</span></p>
+                        <p>Description: <span className={styles["details-description"]}>{item.description}</span></p>
                     </div>
                     <div className={styles["action-buttons"]}>
                         <Link to={`/${itemId}/edit-item`} className={mainStyle.button}>Edit</Link>
