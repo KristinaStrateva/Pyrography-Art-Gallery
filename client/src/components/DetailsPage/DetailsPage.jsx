@@ -33,10 +33,10 @@ export default function DetailsPage() {
                         <p>Description: <span className={styles["details-description"]}>{item.description}</span></p>
                     </div>
                     <div className={styles["action-buttons"]}>
-                        <Link to={`/${itemId}/edit-item`} className={mainStyle.button}>Edit</Link>
-                        <Link to={`/${itemId}/delete-item`} className={mainStyle.button}>Delete</Link>
+                        <Link to={`/${collectionName}/${itemId}/edit-item`} className={mainStyle.button}>Edit</Link>
+                        <Link to={`/${collectionName}/${itemId}/delete-item`} className={mainStyle.button}>Delete</Link>
                         {/* Have to disable the Like button once it is clicked! */}
-                        <Link to={`/${itemId}/like`} className={mainStyle.button}>Like</Link>
+                        <Link to={`/${collectionName}/${itemId}/like`} className={mainStyle.button}>Like</Link>
                     </div>
                 </div>
             </div>

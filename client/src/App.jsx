@@ -26,7 +26,7 @@ export default function App() {
                 <Route path='/giftSets' element={<CollectionPage />} />
                 <Route path='/customTextOnWood' element={<CollectionPage />} />
                 <Route path='/:collectionName/:itemId/details' element={<DetailsPage />} />
-                <Route path='/:itemId/edit-item' element={<EditPage />} />
+                <Route path='/:collectionName/:itemId/edit-item' element={<EditPage />} />
                 <Route path='/add-item' element={<AddItemPage />} />
             </Routes>
 

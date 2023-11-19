@@ -27,10 +27,23 @@ export const addItem = async (collectionName, itemData) => {
         ...itemData,
         price: Number(itemData.price),
         'purchasesAmount': 0,
-        'likesAmount': 0
+        'likesAmount': 0,
     };
 
     const result = await request.post(`${baseUrl}/${collectionName}`, data);
+
+    return result;
+}
+
+export const updateItem = async (collectionName, itemId, itemData) => {
+    const data = {
+        ...itemData,
+        price: Number(itemData.price),
+        'purchasesAmount': 0,
+        'likesAmount': 0,
+    };
+
+    const result = await request.put(`${baseUrl}/${collectionName}/${itemId}`, data);
 
     return result;
 }
