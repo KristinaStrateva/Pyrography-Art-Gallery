@@ -21,7 +21,7 @@ export default function DetailsPage() {
         <section className={styles.details}>
             <div className={styles["details-wrapper"]}>
                 <div className={styles["img-wrapper"]}>
-                    <img src={item.imageUrl} />
+                    <img src={item.imageUrl} alt={item.name} />
                     <div>
                         <p>{item.likesAmount} Likes</p>
                     </div>
