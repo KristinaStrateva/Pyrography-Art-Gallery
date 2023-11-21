@@ -1,23 +1,33 @@
-import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+
+import AuthContext from './contexts/authContext';
+import * as authService from './services/authService';
+import Path from './paths';
+
 import Footer from './components/Footer/Footer';
 import HomePage from './components/HomePage/HomePage';
 import Navigation from './components/Navigation/Navigation';
 import CollectionPage from './components/CollectionPage/CollectionPage';
 import About from './components/AboutPage/About';
-import styles from './App.module.css';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import DetailsPage from './components/DetailsPage/DetailsPage';
 import EditPage from './components/DetailsPage/EditPage/EditPage';
 import AddItemPage from './components/AddItemPage/AddItemPage';
-import { useState } from 'react';
-import AuthContext from './contexts/authContext';
+
+import styles from './App.module.css';
 
 export default function App() {
+    const navigate = useNavigate();
     const [auth, setAuth] = useState();
 
-    const loginSubmitHandler = (values) => {
-        console.log(values);
+    const loginSubmitHandler = async (values) => {
+        const result = await authService.login(values.email, values.password);
+
+        setAuth(result);
+
+        navigate(Path.HomePage);
     }
 
     return (
@@ -26,16 +36,16 @@ export default function App() {
                 <Navigation name={''} />
 
                 <Routes>
-                    <Route path='/' element={<HomePage />} />
-                    <Route path='/login' element={<LoginPage />} />
-                    <Route path='/register' element={<RegisterPage />} />
-                    <Route path='/about' element={<About />} />
-                    <Route path='/homeDecorations' element={<CollectionPage />} />
-                    <Route path='/giftSets' element={<CollectionPage />} />
-                    <Route path='/customTextOnWood' element={<CollectionPage />} />
-                    <Route path='/:collectionName/:itemId/details' element={<DetailsPage />} />
-                    <Route path='/:collectionName/:itemId/edit-item' element={<EditPage />} />
-                    <Route path='/add-item' element={<AddItemPage />} />
+                    <Route path={Path.HomePage} element={<HomePage />} />
+                    <Route path={Path.LoginPage} element={<LoginPage />} />
+                    <Route path={Path.RegisterPage} element={<RegisterPage />} />
+                    <Route path={Path.AboutPage} element={<About />} />
+                    <Route path={Path.HomeDecorationsPage} element={<CollectionPage />} />
+                    <Route path={Path.GiftSetsPage} element={<CollectionPage />} />
+                    <Route path={Path.CustomTextOnWoodPage} element={<CollectionPage />} />
+                    <Route path={Path.DetailsPage} element={<DetailsPage />} />
+                    <Route path={Path.EditPage} element={<EditPage />} />
+                    <Route path={Path.AddItemPage} element={<AddItemPage />} />
                 </Routes>
 
                 <Footer />
