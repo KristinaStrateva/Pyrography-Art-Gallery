@@ -12,6 +12,9 @@ import EditPage from './components/DetailsPage/EditPage/EditPage';
 import AddItemPage from './components/AddItemPage/AddItemPage';
 
 export default function App() {
+    const loginSubmitHandler = (values) => {
+        console.log(values);
+    }
 
     return (
         <div className={styles["home-container"]}>
@@ -19,7 +22,7 @@ export default function App() {
 
             <Routes>
                 <Route path='/' element={<HomePage />} />
-                <Route path='/login' element={<LoginPage />} />
+                <Route path='/login' element={<LoginPage loginSubmitHandler={loginSubmitHandler} />} />
                 <Route path='/register' element={<RegisterPage />} />
                 <Route path='/about' element={<About />} />
                 <Route path='/homeDecorations' element={<CollectionPage />} />
