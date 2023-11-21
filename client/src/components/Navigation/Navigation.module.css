@@ -16,12 +16,21 @@
     justify-content: space-between;
 }
 
+.max-width-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+    padding-right: 24px;
+    flex-direction: column;
+}
+
 .home-navbar1 {
     width: 100%;
     display: flex;
     position: relative;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .home-container01 {
