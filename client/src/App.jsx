@@ -10,30 +10,36 @@ import RegisterPage from './components/RegisterPage/RegisterPage';
 import DetailsPage from './components/DetailsPage/DetailsPage';
 import EditPage from './components/DetailsPage/EditPage/EditPage';
 import AddItemPage from './components/AddItemPage/AddItemPage';
+import { useState } from 'react';
+import AuthContext from './contexts/authContext';
 
 export default function App() {
+    const [auth, setAuth] = useState();
+
     const loginSubmitHandler = (values) => {
         console.log(values);
     }
 
     return (
-        <div className={styles["home-container"]}>
-            <Navigation name={''} />
+        <AuthContext.Provider value={{ loginSubmitHandler }}>
+            <div className={styles["home-container"]}>
+                <Navigation name={''} />
 
-            <Routes>
-                <Route path='/' element={<HomePage />} />
-                <Route path='/login' element={<LoginPage loginSubmitHandler={loginSubmitHandler} />} />
-                <Route path='/register' element={<RegisterPage />} />
-                <Route path='/about' element={<About />} />
-                <Route path='/homeDecorations' element={<CollectionPage />} />
-                <Route path='/giftSets' element={<CollectionPage />} />
-                <Route path='/customTextOnWood' element={<CollectionPage />} />
-                <Route path='/:collectionName/:itemId/details' element={<DetailsPage />} />
-                <Route path='/:collectionName/:itemId/edit-item' element={<EditPage />} />
-                <Route path='/add-item' element={<AddItemPage />} />
-            </Routes>
+                <Routes>
+                    <Route path='/' element={<HomePage />} />
+                    <Route path='/login' element={<LoginPage />} />
+                    <Route path='/register' element={<RegisterPage />} />
+                    <Route path='/about' element={<About />} />
+                    <Route path='/homeDecorations' element={<CollectionPage />} />
+                    <Route path='/giftSets' element={<CollectionPage />} />
+                    <Route path='/customTextOnWood' element={<CollectionPage />} />
+                    <Route path='/:collectionName/:itemId/details' element={<DetailsPage />} />
+                    <Route path='/:collectionName/:itemId/edit-item' element={<EditPage />} />
+                    <Route path='/add-item' element={<AddItemPage />} />
+                </Routes>
 
-            <Footer />
-        </div>
+                <Footer />
+            </div>
+        </AuthContext.Provider>
     )
 };
