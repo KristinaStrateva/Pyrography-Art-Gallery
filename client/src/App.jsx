@@ -20,7 +20,7 @@ import styles from './App.module.css';
 
 export default function App() {
     const navigate = useNavigate();
-    const [auth, setAuth] = useState();
+    const [auth, setAuth] = useState({});
 
     const loginSubmitHandler = async (values) => {
         const result = await authService.login(values.email, values.password);
@@ -28,12 +28,18 @@ export default function App() {
         setAuth(result);
 
         navigate(Path.HomePage);
-    }
+    };
+
+    const values = {
+        loginSubmitHandler,
+        email: auth.email,
+        isAuthenticated: !!auth.email,
+    };
 
     return (
-        <AuthContext.Provider value={{ loginSubmitHandler }}>
+        <AuthContext.Provider value={values} >
             <div className={styles["home-container"]}>
-                <Navigation name={''} />
+                <Navigation />
 
                 <Routes>
                     <Route path={Path.HomePage} element={<HomePage />} />
