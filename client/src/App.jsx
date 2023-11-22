@@ -30,8 +30,17 @@ export default function App() {
         navigate(Path.HomePage);
     };
 
+    const registerSubmitHandler = async (values) => {
+        const result = await authService.register(values.email, values.password);
+
+        setAuth(result);
+
+        navigate(Path.HomePage);
+    };
+
     const values = {
         loginSubmitHandler,
+        registerSubmitHandler,
         email: auth.email,
         isAuthenticated: !!auth.email,
     };
