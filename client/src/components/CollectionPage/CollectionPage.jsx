@@ -18,7 +18,7 @@ export default function CollectionPage() {
     useEffect(() => {
         itemsService.getAllFromCollection(locationName)
             .then(data => {
-                setCollection(Object.values(data));
+                setCollection(Object.values(data).filter(x => typeof x === 'object'));
             })
             .catch(err => console.log(err));
     }, [locationName]);

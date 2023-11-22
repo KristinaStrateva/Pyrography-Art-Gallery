@@ -1,11 +1,13 @@
 import * as request from '../lib/request';
 
-const baseUrl = 'http://localhost:3030/jsonstore/items';
+const baseUrl = 'http://localhost:3030/data';
 
 export const getAllItems = async () => {
-    const result = await request.get(baseUrl);
+    const homeDecorations = await request.get(`${baseUrl}/homeDecorations`);
+    const giftSets = await request.get(`${baseUrl}/giftSets`);
+    const customTextOnWood = await request.get(`${baseUrl}/customTextOnWood`);
 
-    const allItems = {...result.homeDecorations, ...result.giftSets, ...result.customTextOnWood};
+    const allItems = {...homeDecorations, ...giftSets, ...customTextOnWood};
 
     return allItems;
 };

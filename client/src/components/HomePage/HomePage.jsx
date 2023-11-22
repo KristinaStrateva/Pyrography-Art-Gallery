@@ -11,7 +11,8 @@ export default function HomePage() {
     useEffect(() => {
         itemsService.getAllItems()
             .then(items => {
-                const currBestItemPrice = Math.max(...Object.values(items).map(item => item.purchasesAmount));
+                const allItems = Object.values(items).filter(x => typeof x === 'object');
+                const currBestItemPrice = Math.max(...allItems.map(item => item.purchasesAmount));
                 const currBestItem = Object.values(items).find(item => item.purchasesAmount === currBestItemPrice);
 
                 setBestItem(currBestItem);
