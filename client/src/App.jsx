@@ -12,6 +12,7 @@ import CollectionPage from './components/CollectionPage/CollectionPage';
 import About from './components/AboutPage/About';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
+import Logout from './components/Logout/Logout';
 import DetailsPage from './components/DetailsPage/DetailsPage';
 import EditPage from './components/DetailsPage/EditPage/EditPage';
 import AddItemPage from './components/AddItemPage/AddItemPage';
@@ -20,12 +21,18 @@ import styles from './App.module.css';
 
 export default function App() {
     const navigate = useNavigate();
-    const [auth, setAuth] = useState({});
+    const [auth, setAuth] = useState(() => {
+        localStorage.removeItem('accessToken');
+
+        return {};
+    });
 
     const loginSubmitHandler = async (values) => {
         const result = await authService.login(values.email, values.password);
 
         setAuth(result);
+
+        localStorage.setItem('accessToken', result.accessToken);
 
         navigate(Path.HomePage);
     };
@@ -35,14 +42,23 @@ export default function App() {
 
         setAuth(result);
 
+        localStorage.setItem('accessToken', result.accessToken);
+
         navigate(Path.HomePage);
     };
+
+    const logoutHandler = () => {
+        setAuth({});
+        localStorage.removeItem('accessToken');
+        navigate(Path.HomePage);
+    }
 
     const values = {
         loginSubmitHandler,
         registerSubmitHandler,
+        logoutHandler,
         email: auth.email,
-        isAuthenticated: !!auth.email,
+        isAuthenticated: !!auth.accessToken,
     };
 
     return (
@@ -54,6 +70,7 @@ export default function App() {
                     <Route path={Path.HomePage} element={<HomePage />} />
                     <Route path={Path.LoginPage} element={<LoginPage />} />
                     <Route path={Path.RegisterPage} element={<RegisterPage />} />
+                    <Route path={Path.Logout} element={<Logout />} />
                     <Route path={Path.AboutPage} element={<About />} />
                     <Route path={Path.HomeDecorationsPage} element={<CollectionPage />} />
                     <Route path={Path.GiftSetsPage} element={<CollectionPage />} />
