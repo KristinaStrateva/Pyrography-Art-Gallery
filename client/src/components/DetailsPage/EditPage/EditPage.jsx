@@ -104,9 +104,9 @@ export default function EditPage() {
     //     }
     //   }, [item, collectionName]);
 
-    const updateItemSubmitHandler = (values) => {
+    const updateItemSubmitHandler = async (values) => {
         try {
-            itemsService.updateItem(collectionName, itemId, values);
+            await itemsService.updateItem(collectionName, itemId, values);
 
             navigation(`/${collectionName}/${itemId}/details`);
 

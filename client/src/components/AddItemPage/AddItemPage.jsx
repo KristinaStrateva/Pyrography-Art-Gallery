@@ -3,42 +3,79 @@ import mainStyle from '../../App.module.css';
 import { formCollectionName } from './utils';
 import * as itemsService from '../../services/itemsService';
 import { useNavigate } from 'react-router-dom';
+import useForm from '../../hooks/useForm';
+
+const AddItemFormKeys = {
+    CollectionName: 'collectionName',
+    Name: 'name',
+    Price: 'price',
+    ImageUrl: 'imageUrl',
+    Description: 'description',
+}
 
 export default function AddItemPage() {
     const navigate = useNavigate();
 
-    const addItemSubmitHandler = async (e) => {
-        e.preventDefault();
-
-        const itemData = Object.fromEntries(new FormData(e.currentTarget));
-
-        const collectionName = formCollectionName(itemData.collectionName);
+    const addItemSubmitHandler = async (values) => {
+        const collectionName = formCollectionName(values.collectionName);
 
         try {
-            await itemsService.addItem(collectionName, itemData);
-    
+            await itemsService.addItem(collectionName, values);
+
             navigate(`/${collectionName}`);
-            
+
         } catch (error) {
             //Error notification
 
             console.log(error);
         }
-    }
+    };
+
+    const { values, onChange, onSubmit } = useForm({
+        [AddItemFormKeys.CollectionName]: '',
+        [AddItemFormKeys.Name]: '',
+        [AddItemFormKeys.Price]: '',
+        [AddItemFormKeys.ImageUrl]: '',
+        [AddItemFormKeys.Description]: '',
+    }, addItemSubmitHandler);
+
     return (
         <section className={styles.create}>
             <div className={styles.form}>
                 <h2>Add item</h2>
-                <form className={styles["create-form"]} onSubmit={addItemSubmitHandler}>
-                    <select name="collectionName">
+                <form className={styles["create-form"]} onSubmit={onSubmit}>
+                    <select name="collectionName" value={values[AddItemFormKeys.CollectionName]} onChange={onChange}>
                         <option value="Home Decorations">Home Decorations</option>
                         <option value="Gift Sets">Gift Sets</option>
                         <option value="Custom Text On Wood">Custom Text On Wood</option>
                     </select>
-                    <input type="text" name="name" placeholder="Name" defaultValue="" />
-                    <input type="text" name="price" placeholder="Price" defaultValue="" />
-                    <input type="text" name="imageUrl" placeholder="Image url starting with http:// or https://" defaultValue="" />
-                    <textarea name="description" placeholder="Description..."></textarea>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        value={values[AddItemFormKeys.Name]}
+                        onChange={onChange}
+                    />
+                    <input
+                        type="text"
+                        name="price"
+                        placeholder="Price"
+                        value={values[AddItemFormKeys.Price]}
+                        onChange={onChange}
+                    />
+                    <input
+                        type="text"
+                        name="imageUrl"
+                        placeholder="Image url starting with http:// or https://"
+                        value={values[AddItemFormKeys.ImageUrl]}
+                        onChange={onChange}
+                    />
+                    <textarea
+                        name="description"
+                        placeholder="Description..."
+                        value={values[AddItemFormKeys.Description]}
+                        onChange={onChange}
+                    ></textarea>
 
                     <button type="submit" className={mainStyle.button}>Add</button>
                 </form>
