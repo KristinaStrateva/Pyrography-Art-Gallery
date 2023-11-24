@@ -1,11 +1,10 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('http'), require('fs'), require('crypto')) :
-        typeof define === 'function' && define.amd ? define(['http', 'fs', 'crypto'], factory) :
-            (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Server = factory(global.http, global.fs, global.crypto));
-}(this, (function (http, fs, crypto) {
-    'use strict';
+    typeof define === 'function' && define.amd ? define(['http', 'fs', 'crypto'], factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Server = factory(global.http, global.fs, global.crypto));
+}(this, (function (http, fs, crypto) { 'use strict';
 
-    function _interopDefaultLegacy(e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+    function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
     var http__default = /*#__PURE__*/_interopDefaultLegacy(http);
     var fs__default = /*#__PURE__*/_interopDefaultLegacy(fs);
@@ -14,14 +13,14 @@
     class ServiceError extends Error {
         constructor(message = 'Service Error') {
             super(message);
-            this.name = 'ServiceError';
+            this.name = 'ServiceError'; 
         }
     }
 
     class NotFoundError extends ServiceError {
         constructor(message = 'Resource not found') {
             super(message);
-            this.name = 'NotFoundError';
+            this.name = 'NotFoundError'; 
             this.status = 404;
         }
     }
@@ -29,7 +28,7 @@
     class RequestError extends ServiceError {
         constructor(message = 'Request error') {
             super(message);
-            this.name = 'RequestError';
+            this.name = 'RequestError'; 
             this.status = 400;
         }
     }
@@ -37,7 +36,7 @@
     class ConflictError extends ServiceError {
         constructor(message = 'Resource conflict') {
             super(message);
-            this.name = 'ConflictError';
+            this.name = 'ConflictError'; 
             this.status = 409;
         }
     }
@@ -45,7 +44,7 @@
     class AuthorizationError extends ServiceError {
         constructor(message = 'Unauthorized') {
             super(message);
-            this.name = 'AuthorizationError';
+            this.name = 'AuthorizationError'; 
             this.status = 401;
         }
     }
@@ -53,7 +52,7 @@
     class CredentialError extends ServiceError {
         constructor(message = 'Forbidden') {
             super(message);
-            this.name = 'CredentialError';
+            this.name = 'CredentialError'; 
             this.status = 403;
         }
     }
@@ -97,7 +96,7 @@
                     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
                     'Access-Control-Allow-Credentials': false,
                     'Access-Control-Max-Age': '86400',
-                    'Access-Control-Allow-Headers': 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, X-Authorization'
+                    'Access-Control-Allow-Headers': 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, X-Authorization, X-Admin'
                 });
             } else {
                 try {
@@ -147,10 +146,13 @@
                     result = await service(context, { method, tokens, query, body });
                 }
 
-                // NOTE: currently there is no scenario where result is undefined - it will either be data, or an error object;
-                // this may change with further extension of the services, so this check should stay in place
+                // NOTE: logout does not return a result
+                // in this case the content type header should be omitted, to allow checks on the client
                 if (result !== undefined) {
                     result = JSON.stringify(result);
+                } else {
+                    status = 204;
+                    delete headers['Content-Type'];
                 }
             }
         };
@@ -258,6 +260,15 @@
         }
 
         /**
+         * Register PATCH action
+         * @param {string} name Action name. Can be a glob pattern.
+         * @param {(context, tokens: string[], query: *, body: *)} handler Request handler
+         */
+        patch(name, handler) {
+            this.registerAction('PATCH', name, handler);
+        }
+
+        /**
          * Register DELETE action
          * @param {string} name Action name. Can be a glob pattern.
          * @param {(context, tokens: string[], query: *, body: *)} handler Request handler
@@ -297,7 +308,7 @@
     const uuid$1 = util.uuid;
 
 
-    const data = fs__default['default'].readdirSync('./data').reduce((p, c) => {
+    const data = fs__default['default'].existsSync('./data') ? fs__default['default'].readdirSync('./data').reduce((p, c) => {
         const content = JSON.parse(fs__default['default'].readFileSync('./data/' + c));
         const collection = c.slice(0, -5);
         p[collection] = {};
@@ -305,7 +316,7 @@
             p[collection][endpoint] = content[endpoint];
         }
         return p;
-    }, {});
+    }, {}) : {};
 
     const actions = {
         get: (context, tokens, query, body) => {
@@ -336,6 +347,21 @@
             return responseData[newId];
         },
         put: (context, tokens, query, body) => {
+            tokens = [context.params.collection, ...tokens];
+            console.log('Request body:\n', body);
+
+            let responseData = data;
+            for (let token of tokens.slice(0, -1)) {
+                if (responseData !== undefined) {
+                    responseData = responseData[token];
+                }
+            }
+            if (responseData !== undefined && responseData[tokens.slice(-1)] !== undefined) {
+                responseData[tokens.slice(-1)] = body;
+            }
+            return responseData[tokens.slice(-1)];
+        },
+        patch: (context, tokens, query, body) => {
             tokens = [context.params.collection, ...tokens];
             console.log('Request body:\n', body);
 
@@ -374,6 +400,7 @@
     dataService.get(':collection', actions.get);
     dataService.post(':collection', actions.post);
     dataService.put(':collection', actions.put);
+    dataService.patch(':collection', actions.patch);
     dataService.delete(':collection', actions.delete);
 
 
@@ -383,12 +410,27 @@
      * This service requires storage and auth plugins
      */
 
+    const { AuthorizationError: AuthorizationError$1 } = errors;
+
+
+
     const userService = new Service_1();
 
+    userService.get('me', getSelf);
     userService.post('register', onRegister);
     userService.post('login', onLogin);
     userService.get('logout', onLogout);
-    // TODO: get user details
+
+
+    function getSelf(context, tokens, query, body) {
+        if (context.user) {
+            const result = Object.assign({}, context.user);
+            delete result.hashedPassword;
+            return result;
+        } else {
+            throw new AuthorizationError$1();
+        }
+    }
 
     function onRegister(context, tokens, query, body) {
         return context.auth.register(body);
@@ -404,18 +446,17 @@
 
     var users = userService.parseRequest;
 
-    /*
-     * This service requires storage and auth plugins
-     */
-
-    const { NotFoundError: NotFoundError$1, RequestError: RequestError$1, CredentialError: CredentialError$1, AuthorizationError: AuthorizationError$1 } = errors;
+    const { NotFoundError: NotFoundError$1, RequestError: RequestError$1 } = errors;
 
 
-    const dataService$1 = new Service_1();
-    dataService$1.get(':collection', get);
-    dataService$1.post(':collection', post);
-    dataService$1.put(':collection', put);
-    dataService$1.delete(':collection', del);
+    var crud = {
+        get,
+        post,
+        put,
+        patch,
+        delete: del
+    };
+
 
     function validateRequest(context, tokens, query) {
         /*
@@ -488,21 +529,6 @@
                 return context.storage.get();
             }
 
-            if (query.distinct) {
-                const props = query.distinct.split(',').filter(p => p != '');
-                responseData = Object.values(responseData.reduce((distinct, c) => {
-                    const key = props.map(p => c[p]).join('::');
-                    if (distinct.hasOwnProperty(key) == false) {
-                        distinct[key] = c;
-                    }
-                    return distinct;
-                }, {}));
-            }
-
-            if (query.count) {
-                return responseData.length;
-            }
-
             if (query.sortBy) {
                 const props = query.sortBy
                     .split(',')
@@ -510,7 +536,7 @@
                     .map(p => p.split(' ').filter(p => p != ''))
                     .map(([p, desc]) => ({ prop: p, desc: desc ? true : false }));
 
-                // Sorting priority is from first ot last, therefore we sort from last to first
+                // Sorting priority is from first to last, therefore we sort from last to first
                 for (let i = props.length - 1; i >= 0; i--) {
                     let { prop, desc } = props[i];
                     responseData.sort(({ [prop]: propA }, { [prop]: propB }) => {
@@ -529,6 +555,21 @@
             const pageSize = Number(query.pageSize) || 10;
             if (query.pageSize) {
                 responseData = responseData.slice(0, pageSize);
+            }
+    		
+    		if (query.distinct) {
+                const props = query.distinct.split(',').filter(p => p != '');
+                responseData = Object.values(responseData.reduce((distinct, c) => {
+                    const key = props.map(p => c[p]).join('::');
+                    if (distinct.hasOwnProperty(key) == false) {
+                        distinct[key] = c;
+                    }
+                    return distinct;
+                }, {}));
+            }
+
+            if (query.count) {
+                return responseData.length;
             }
 
             if (query.select) {
@@ -570,6 +611,8 @@
             }
         }
 
+        context.canAccess(responseData);
+
         return responseData;
     }
 
@@ -580,14 +623,10 @@
         if (tokens.length > 0) {
             throw new RequestError$1('Use PUT to update records');
         }
+        context.canAccess(undefined, body);
 
+        body._ownerId = context.user._id;
         let responseData;
-
-        if (context.user) {
-            body._ownerId = context.user._id;
-        } else {
-            throw new AuthorizationError$1();
-        }
 
         try {
             responseData = context.storage.add(context.params.collection, body);
@@ -607,11 +646,6 @@
         }
 
         let responseData;
-
-        if (!context.user) {
-            throw new AuthorizationError$1();
-        }
-
         let existing;
 
         try {
@@ -620,12 +654,38 @@
             throw new NotFoundError$1();
         }
 
-        if (context.user._id !== existing._ownerId) {
-            throw new CredentialError$1();
-        }
+        context.canAccess(existing, body);
 
         try {
             responseData = context.storage.set(context.params.collection, tokens[0], body);
+        } catch (err) {
+            throw new RequestError$1();
+        }
+
+        return responseData;
+    }
+
+    function patch(context, tokens, query, body) {
+        console.log('Request body:\n', body);
+
+        validateRequest(context, tokens);
+        if (tokens.length != 1) {
+            throw new RequestError$1('Missing entry ID');
+        }
+
+        let responseData;
+        let existing;
+
+        try {
+            existing = context.storage.get(context.params.collection, tokens[0]);
+        } catch (err) {
+            throw new NotFoundError$1();
+        }
+
+        context.canAccess(existing, body);
+
+        try {
+            responseData = context.storage.merge(context.params.collection, tokens[0], body);
         } catch (err) {
             throw new RequestError$1();
         }
@@ -640,11 +700,6 @@
         }
 
         let responseData;
-
-        if (!context.user) {
-            throw new AuthorizationError$1();
-        }
-
         let existing;
 
         try {
@@ -653,9 +708,7 @@
             throw new NotFoundError$1();
         }
 
-        if (context.user._id !== existing._ownerId) {
-            throw new CredentialError$1();
-        }
+        context.canAccess(existing);
 
         try {
             responseData = context.storage.delete(context.params.collection, tokens[0]);
@@ -666,6 +719,16 @@
         return responseData;
     }
 
+    /*
+     * This service requires storage and auth plugins
+     */
+
+    const dataService$1 = new Service_1();
+    dataService$1.get(':collection', crud.get);
+    dataService$1.post(':collection', crud.post);
+    dataService$1.put(':collection', crud.put);
+    dataService$1.patch(':collection', crud.patch);
+    dataService$1.delete(':collection', crud.delete);
 
     var data$1 = dataService$1.parseRequest;
 
@@ -686,7 +749,7 @@
         };
     };
 
-    var require$$0 = "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>SUPS Admin Panel</title>\r\n    <style>\r\n        * {\r\n            padding: 0;\r\n            margin: 0;\r\n        }\r\n\r\n        body {\r\n            padding: 32px;\r\n            font-size: 16px;\r\n        }\r\n\r\n        .layout::after {\r\n            content: '';\r\n            clear: both;\r\n            display: table;\r\n        }\r\n\r\n        .col {\r\n            display: block;\r\n            float: left;\r\n        }\r\n\r\n        p {\r\n            padding: 8px 16px;\r\n        }\r\n\r\n        table {\r\n            border-collapse: collapse;\r\n        }\r\n\r\n        caption {\r\n            font-size: 120%;\r\n            text-align: left;\r\n            padding: 4px 8px;\r\n            font-weight: bold;\r\n            background-color: #ddd;\r\n        }\r\n\r\n        table, tr, th, td {\r\n            border: 1px solid #ddd;\r\n        }\r\n\r\n        th, td {\r\n            padding: 4px 8px;\r\n        }\r\n\r\n        ul {\r\n            list-style: none;\r\n        }\r\n\r\n        .collection-list a {\r\n            display: block;\r\n            width: 120px;\r\n            padding: 4px 8px;\r\n            text-decoration: none;\r\n            color: black;\r\n            background-color: #ccc;\r\n        }\r\n        .collection-list a:hover {\r\n            background-color: #ddd;\r\n        }\r\n        .collection-list a:visited {\r\n            color: black;\r\n        }\r\n    </style>\r\n    <script type=\"module\">\nimport { html, render } from 'https://unpkg.com/lit-html?module';\nimport { until } from 'https://unpkg.com/lit-html/directives/until?module';\n\nconst api = {\r\n    async get(url) {\r\n        return json(url);\r\n    },\r\n    async post(url, body) {\r\n        return json(url, {\r\n            method: 'POST',\r\n            headers: { 'Content-Type': 'application/json' },\r\n            body: JSON.stringify(body)\r\n        });\r\n    }\r\n};\r\n\r\nasync function json(url, options) {\r\n    return await (await fetch('/' + url, options)).json();\r\n}\r\n\r\nasync function getCollections() {\r\n    return api.get('data');\r\n}\r\n\r\nasync function getRecords(collection) {\r\n    return api.get('data/' + collection);\r\n}\r\n\r\nasync function getThrottling() {\r\n    return api.get('util/throttle');\r\n}\r\n\r\nasync function setThrottling(throttle) {\r\n    return api.post('util', { throttle });\r\n}\n\nasync function collectionList(onSelect) {\r\n    const collections = await getCollections();\r\n\r\n    return html`\r\n    <ul class=\"collection-list\">\r\n        ${collections.map(collectionLi)}\r\n    </ul>`;\r\n\r\n    function collectionLi(name) {\r\n        return html`<li><a href=\"javascript:void(0)\" @click=${(ev) => onSelect(ev, name)}>${name}</a></li>`;\r\n    }\r\n}\n\nasync function recordTable(collectionName) {\r\n    const records = await getRecords(collectionName);\r\n    const layout = getLayout(records);\r\n\r\n    return html`\r\n    <table>\r\n        <caption>${collectionName}</caption>\r\n        <thead>\r\n            <tr>${layout.map(f => html`<th>${f}</th>`)}</tr>\r\n        </thead>\r\n        <tbody>\r\n            ${records.map(r => recordRow(r, layout))}\r\n        </tbody>\r\n    </table>`;\r\n}\r\n\r\nfunction getLayout(records) {\r\n    const result = new Set(['_id']);\r\n    records.forEach(r => Object.keys(r).forEach(k => result.add(k)));\r\n\r\n    return [...result.keys()];\r\n}\r\n\r\nfunction recordRow(record, layout) {\r\n    return html`\r\n    <tr>\r\n        ${layout.map(f => html`<td>${JSON.stringify(record[f]) || html`<span>(missing)</span>`}</td>`)}\r\n    </tr>`;\r\n}\n\nasync function throttlePanel(display) {\r\n    const active = await getThrottling();\r\n\r\n    return html`\r\n    <p>\r\n        Request throttling: </span>${active}</span>\r\n        <button @click=${(ev) => set(ev, true)}>Enable</button>\r\n        <button @click=${(ev) => set(ev, false)}>Disable</button>\r\n    </p>`;\r\n\r\n    async function set(ev, state) {\r\n        ev.target.disabled = true;\r\n        await setThrottling(state);\r\n        display();\r\n    }\r\n}\n\n//import page from '//unpkg.com/page/page.mjs';\r\n\r\n\r\nfunction start() {\r\n    const main = document.querySelector('main');\r\n    editor(main);\r\n}\r\n\r\nasync function editor(main) {\r\n    let list = html`<div class=\"col\">Loading&hellip;</div>`;\r\n    let viewer = html`<div class=\"col\">\r\n    <p>Select collection to view records</p>\r\n</div>`;\r\n    display();\r\n\r\n    list = html`<div class=\"col\">${await collectionList(onSelect)}</div>`;\r\n    display();\r\n\r\n    async function display() {\r\n        render(html`\r\n        <section class=\"layout\">\r\n            ${until(throttlePanel(display), html`<p>Loading</p>`)}\r\n        </section>\r\n        <section class=\"layout\">\r\n            ${list}\r\n            ${viewer}\r\n        </section>`, main);\r\n    }\r\n\r\n    async function onSelect(ev, name) {\r\n        ev.preventDefault();\r\n        viewer = html`<div class=\"col\">${await recordTable(name)}</div>`;\r\n        display();\r\n    }\r\n}\r\n\r\nstart();\n\n</script>\r\n</head>\r\n<body>\r\n    <main>\r\n        Loading&hellip;\r\n    </main>\r\n</body>\r\n</html>";
+    var require$$0 = "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    <title>SUPS Admin Panel</title>\r\n    <style>\r\n        * {\r\n            padding: 0;\r\n            margin: 0;\r\n        }\r\n\r\n        body {\r\n            padding: 32px;\r\n            font-size: 16px;\r\n        }\r\n\r\n        .layout::after {\r\n            content: '';\r\n            clear: both;\r\n            display: table;\r\n        }\r\n\r\n        .col {\r\n            display: block;\r\n            float: left;\r\n        }\r\n\r\n        p {\r\n            padding: 8px 16px;\r\n        }\r\n\r\n        table {\r\n            border-collapse: collapse;\r\n        }\r\n\r\n        caption {\r\n            font-size: 120%;\r\n            text-align: left;\r\n            padding: 4px 8px;\r\n            font-weight: bold;\r\n            background-color: #ddd;\r\n        }\r\n\r\n        table, tr, th, td {\r\n            border: 1px solid #ddd;\r\n        }\r\n\r\n        th, td {\r\n            padding: 4px 8px;\r\n        }\r\n\r\n        ul {\r\n            list-style: none;\r\n        }\r\n\r\n        .collection-list a {\r\n            display: block;\r\n            width: 120px;\r\n            padding: 4px 8px;\r\n            text-decoration: none;\r\n            color: black;\r\n            background-color: #ccc;\r\n        }\r\n        .collection-list a:hover {\r\n            background-color: #ddd;\r\n        }\r\n        .collection-list a:visited {\r\n            color: black;\r\n        }\r\n    </style>\r\n    <script type=\"module\">\nimport { html, render } from 'https://unpkg.com/lit-html@1.3.0?module';\nimport { until } from 'https://unpkg.com/lit-html@1.3.0/directives/until?module';\n\nconst api = {\r\n    async get(url) {\r\n        return json(url);\r\n    },\r\n    async post(url, body) {\r\n        return json(url, {\r\n            method: 'POST',\r\n            headers: { 'Content-Type': 'application/json' },\r\n            body: JSON.stringify(body)\r\n        });\r\n    }\r\n};\r\n\r\nasync function json(url, options) {\r\n    return await (await fetch('/' + url, options)).json();\r\n}\r\n\r\nasync function getCollections() {\r\n    return api.get('data');\r\n}\r\n\r\nasync function getRecords(collection) {\r\n    return api.get('data/' + collection);\r\n}\r\n\r\nasync function getThrottling() {\r\n    return api.get('util/throttle');\r\n}\r\n\r\nasync function setThrottling(throttle) {\r\n    return api.post('util', { throttle });\r\n}\n\nasync function collectionList(onSelect) {\r\n    const collections = await getCollections();\r\n\r\n    return html`\r\n    <ul class=\"collection-list\">\r\n        ${collections.map(collectionLi)}\r\n    </ul>`;\r\n\r\n    function collectionLi(name) {\r\n        return html`<li><a href=\"javascript:void(0)\" @click=${(ev) => onSelect(ev, name)}>${name}</a></li>`;\r\n    }\r\n}\n\nasync function recordTable(collectionName) {\r\n    const records = await getRecords(collectionName);\r\n    const layout = getLayout(records);\r\n\r\n    return html`\r\n    <table>\r\n        <caption>${collectionName}</caption>\r\n        <thead>\r\n            <tr>${layout.map(f => html`<th>${f}</th>`)}</tr>\r\n        </thead>\r\n        <tbody>\r\n            ${records.map(r => recordRow(r, layout))}\r\n        </tbody>\r\n    </table>`;\r\n}\r\n\r\nfunction getLayout(records) {\r\n    const result = new Set(['_id']);\r\n    records.forEach(r => Object.keys(r).forEach(k => result.add(k)));\r\n\r\n    return [...result.keys()];\r\n}\r\n\r\nfunction recordRow(record, layout) {\r\n    return html`\r\n    <tr>\r\n        ${layout.map(f => html`<td>${JSON.stringify(record[f]) || html`<span>(missing)</span>`}</td>`)}\r\n    </tr>`;\r\n}\n\nasync function throttlePanel(display) {\r\n    const active = await getThrottling();\r\n\r\n    return html`\r\n    <p>\r\n        Request throttling: </span>${active}</span>\r\n        <button @click=${(ev) => set(ev, true)}>Enable</button>\r\n        <button @click=${(ev) => set(ev, false)}>Disable</button>\r\n    </p>`;\r\n\r\n    async function set(ev, state) {\r\n        ev.target.disabled = true;\r\n        await setThrottling(state);\r\n        display();\r\n    }\r\n}\n\n//import page from '//unpkg.com/page/page.mjs';\r\n\r\n\r\nfunction start() {\r\n    const main = document.querySelector('main');\r\n    editor(main);\r\n}\r\n\r\nasync function editor(main) {\r\n    let list = html`<div class=\"col\">Loading&hellip;</div>`;\r\n    let viewer = html`<div class=\"col\">\r\n    <p>Select collection to view records</p>\r\n</div>`;\r\n    display();\r\n\r\n    list = html`<div class=\"col\">${await collectionList(onSelect)}</div>`;\r\n    display();\r\n\r\n    async function display() {\r\n        render(html`\r\n        <section class=\"layout\">\r\n            ${until(throttlePanel(display), html`<p>Loading</p>`)}\r\n        </section>\r\n        <section class=\"layout\">\r\n            ${list}\r\n            ${viewer}\r\n        </section>`, main);\r\n    }\r\n\r\n    async function onSelect(ev, name) {\r\n        ev.preventDefault();\r\n        viewer = html`<div class=\"col\">${await recordTable(name)}</div>`;\r\n        display();\r\n    }\r\n}\r\n\r\nstart();\n\n</script>\r\n</head>\r\n<body>\r\n    <main>\r\n        Loading&hellip;\r\n    </main>\r\n</body>\r\n</html>";
 
     const mode = process.argv[2] == '-dev' ? 'dev' : 'prod';
 
@@ -730,7 +793,7 @@
     }
 
     function onRequest(context, tokens, query, body) {
-        Object.entries(body).forEach(([k, v]) => {
+        Object.entries(body).forEach(([k,v]) => {
             console.log(`${k} ${v ? 'enabled' : 'disabled'}`);
             context.util[k] = v;
         });
@@ -839,13 +902,36 @@
         }
 
         /**
-         * Update entry by ID
+         * Replace entry by ID
+         * @param {string} collection Name of collection to access. Throws error if not found.
+         * @param {number|string} id ID of entry to update. Throws error if not found.
+         * @param {Object} data Value to store. Record will be replaced!
+         * @return {Object} Updated entry.
+         */
+        function set(collection, id, data) {
+            if (!collections.has(collection)) {
+                throw new ReferenceError('Collection does not exist: ' + collection);
+            }
+            const targetCollection = collections.get(collection);
+            if (!targetCollection.has(id)) {
+                throw new ReferenceError('Entry does not exist: ' + id);
+            }
+
+            const existing = targetCollection.get(id);
+            const record = assignSystemProps(deepCopy(data), existing);
+            record._updatedOn = Date.now();
+            targetCollection.set(id, record);
+            return Object.assign(deepCopy(record), { _id: id });
+        }
+
+        /**
+         * Modify entry by ID
          * @param {string} collection Name of collection to access. Throws error if not found.
          * @param {number|string} id ID of entry to update. Throws error if not found.
          * @param {Object} data Value to store. Shallow merge will be performed!
          * @return {Object} Updated entry.
          */
-        function set(collection, id, data) {
+         function merge(collection, id, data) {
             if (!collections.has(collection)) {
                 throw new ReferenceError('Collection does not exist: ' + collection);
             }
@@ -919,7 +1005,27 @@
             return result;
         }
 
-        return { get, add, set, delete: del, query };
+        return { get, add, set, merge, delete: del, query };
+    }
+
+
+    function assignSystemProps(target, entry, ...rest) {
+        const whitelist = [
+            '_id',
+            '_createdOn',
+            '_updatedOn',
+            '_ownerId'
+        ];
+        for (let prop of whitelist) {
+            if (entry.hasOwnProperty(prop)) {
+                target[prop] = deepCopy(entry[prop]);
+            }
+        }
+        if (rest.length > 0) {
+            Object.assign(target, ...rest);
+        }
+
+        return target;
     }
 
 
@@ -954,7 +1060,7 @@
 
     var storage = initPlugin;
 
-    const { ConflictError: ConflictError$1, CredentialError: CredentialError$2, RequestError: RequestError$2 } = errors;
+    const { ConflictError: ConflictError$1, CredentialError: CredentialError$1, RequestError: RequestError$2 } = errors;
 
     function initPlugin$1(settings) {
         const identity = settings.identity;
@@ -980,7 +1086,7 @@
                 if (user !== undefined) {
                     context.user = user;
                 } else {
-                    throw new CredentialError$2('Invalid access token');
+                    throw new CredentialError$1('Invalid access token');
                 }
             }
 
@@ -993,10 +1099,10 @@
                 } else if (context.protectedStorage.query('users', { [identity]: body[identity] }).length !== 0) {
                     throw new ConflictError$1(`A user with the same ${identity} already exists`);
                 } else {
-                    const newUser = {
+                    const newUser = Object.assign({}, body, {
                         [identity]: body[identity],
                         hashedPassword: hash(body.password)
-                    };
+                    });
                     const result = context.protectedStorage.add('users', newUser);
                     delete result.hashedPassword;
 
@@ -1019,10 +1125,10 @@
 
                         return result;
                     } else {
-                        throw new CredentialError$2('Email or password don\'t match');
+                        throw new CredentialError$1('Login or password don\'t match');
                     }
                 } else {
-                    throw new CredentialError$2('Email or password don\'t match');
+                    throw new CredentialError$1('Login or password don\'t match');
                 }
             }
 
@@ -1033,7 +1139,7 @@
                         context.protectedStorage.delete('sessions', session._id);
                     }
                 } else {
-                    throw new CredentialError$2('User session does not exist');
+                    throw new CredentialError$1('User session does not exist');
                 }
             }
 
@@ -1077,27 +1183,163 @@
 
     var util$2 = initPlugin$2;
 
+    /*
+     * This plugin requires auth and storage plugins
+     */
+
+    const { RequestError: RequestError$3, ConflictError: ConflictError$2, CredentialError: CredentialError$2, AuthorizationError: AuthorizationError$2 } = errors;
+
+    function initPlugin$3(settings) {
+        const actions = {
+            'GET': '.read',
+            'POST': '.create',
+            'PUT': '.update',
+            'PATCH': '.update',
+            'DELETE': '.delete'
+        };
+        const rules = Object.assign({
+            '*': {
+                '.create': ['User'],
+                '.update': ['Owner'],
+                '.delete': ['Owner']
+            }
+        }, settings.rules);
+
+        return function decorateContext(context, request) {
+            // special rules (evaluated at run-time)
+            const get = (collectionName, id) => {
+                return context.storage.get(collectionName, id);
+            };
+            const isOwner = (user, object) => {
+                return user._id == object._ownerId;
+            };
+            context.rules = {
+                get,
+                isOwner
+            };
+            const isAdmin = request.headers.hasOwnProperty('x-admin');
+
+            context.canAccess = canAccess;
+
+            function canAccess(data, newData) {
+                const user = context.user;
+                const action = actions[request.method];
+                let { rule, propRules } = getRule(action, context.params.collection, data);
+
+                if (Array.isArray(rule)) {
+                    rule = checkRoles(rule, data);
+                } else if (typeof rule == 'string') {
+                    rule = !!(eval(rule));
+                }
+                if (!rule && !isAdmin) {
+                    throw new CredentialError$2();
+                }
+                propRules.map(r => applyPropRule(action, r, user, data, newData));
+            }
+
+            function applyPropRule(action, [prop, rule], user, data, newData) {
+                // NOTE: user needs to be in scope for eval to work on certain rules
+                if (typeof rule == 'string') {
+                    rule = !!eval(rule);
+                }
+
+                if (rule == false) {
+                    if (action == '.create' || action == '.update') {
+                        delete newData[prop];
+                    } else if (action == '.read') {
+                        delete data[prop];
+                    }
+                }
+            }
+
+            function checkRoles(roles, data, newData) {
+                if (roles.includes('Guest')) {
+                    return true;
+                } else if (!context.user && !isAdmin) {
+                    throw new AuthorizationError$2();
+                } else if (roles.includes('User')) {
+                    return true;
+                } else if (context.user && roles.includes('Owner')) {
+                    return context.user._id == data._ownerId;
+                } else {
+                    return false;
+                }
+            }
+        };
+
+
+
+        function getRule(action, collection, data = {}) {
+            let currentRule = ruleOrDefault(true, rules['*'][action]);
+            let propRules = [];
+
+            // Top-level rules for the collection
+            const collectionRules = rules[collection];
+            if (collectionRules !== undefined) {
+                // Top-level rule for the specific action for the collection
+                currentRule = ruleOrDefault(currentRule, collectionRules[action]);
+
+                // Prop rules
+                const allPropRules = collectionRules['*'];
+                if (allPropRules !== undefined) {
+                    propRules = ruleOrDefault(propRules, getPropRule(allPropRules, action));
+                }
+
+                // Rules by record id 
+                const recordRules = collectionRules[data._id];
+                if (recordRules !== undefined) {
+                    currentRule = ruleOrDefault(currentRule, recordRules[action]);
+                    propRules = ruleOrDefault(propRules, getPropRule(recordRules, action));
+                }
+            }
+
+            return {
+                rule: currentRule,
+                propRules
+            };
+        }
+
+        function ruleOrDefault(current, rule) {
+            return (rule === undefined || rule.length === 0) ? current : rule;
+        }
+
+        function getPropRule(record, action) {
+            const props = Object
+                .entries(record)
+                .filter(([k]) => k[0] != '.')
+                .filter(([k, v]) => v.hasOwnProperty(action))
+                .map(([k, v]) => [k, v[action]]);
+
+            return props;
+        }
+    }
+
+    var rules = initPlugin$3;
+
     var identity = "email";
     var protectedData = {
-        users: {
-            "35c62d76-8152-4626-8712-eeb96381bea8": {
-                email: "peter@abv.bg",
-                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-            },
-            "847ec027-f659-4086-8032-5173e2f9c93a": {
-                email: "george@abv.bg",
-                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-            },
-            "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
-                email: "admin@abv.bg",
-                hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
-            }
-        },
-        sessions: {
-        }
+    	users: {
+    		"35c62d76-8152-4626-8712-eeb96381bea8": {
+    			email: "peter@abv.bg",
+    			username: "Peter",
+    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+    		},
+    		"847ec027-f659-4086-8032-5173e2f9c93a": {
+    			email: "george@abv.bg",
+    			username: "George",
+    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+    		},
+    		"60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
+    			email: "admin@abv.bg",
+    			username: "Admin",
+    			hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
+    		}
+    	},
+    	sessions: {
+    	}
     };
     var seedData = {
-        homeDecorations: {
+    	homeDecorations: {
             "item1": {
                 "_id": "item1",
                 "collectionName": "Home Decorations",
@@ -1215,16 +1457,40 @@
         likes: {
         }
     };
+    var rules$1 = {
+    	users: {
+    		".create": false,
+    		".read": [
+    			"Owner"
+    		],
+    		".update": false,
+    		".delete": false
+    	},
+    	members: {
+    		".update": "isOwner(user, get('teams', data.teamId))",
+    		".delete": "isOwner(user, get('teams', data.teamId)) || isOwner(user, data)",
+    		"*": {
+    			teamId: {
+    				".update": "newData.teamId = data.teamId"
+    			},
+    			status: {
+    				".create": "newData.status = 'pending'"
+    			}
+    		}
+    	}
+    };
     var settings = {
-        identity: identity,
-        protectedData: protectedData,
-        seedData: seedData
+    	identity: identity,
+    	protectedData: protectedData,
+    	seedData: seedData,
+    	rules: rules$1
     };
 
     const plugins = [
         storage(settings),
         auth(settings),
-        util$2()
+        util$2(),
+        rules(settings)
     ];
 
     const server = http__default['default'].createServer(requestHandler(plugins, services));
