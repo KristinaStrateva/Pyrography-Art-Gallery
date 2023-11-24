@@ -7,7 +7,7 @@ import styles from './Navigation.module.css';
 import mainStyle from '../../App.module.css';
 
 export default function Navigation() {
-    const { email, isAuthenticated } = useContext(AuthContext);
+    const { username, isAuthenticated } = useContext(AuthContext);
 
     return (
         <div className={styles["home-navbar"]}>
@@ -29,7 +29,7 @@ export default function Navigation() {
 
                         {isAuthenticated && (
                             <ul className={styles["home-right"]}>
-                                <li className={styles["navbar-link"]}><Link to="#">Hello, {email}</Link></li>
+                                <li className={styles["navbar-link"]}><Link to="#">Hello, {username}</Link></li>
                                 <li className={styles["navbar-link"]}><Link to="/add-item">ADD ITEM</Link></li>
                                 <li className={styles["navbar-link"]}><Link to="/logout">LOGOUT</Link></li>
                             </ul>

@@ -50,7 +50,6 @@ export default function App() {
     const logoutHandler = () => {
         setAuth({});
         localStorage.removeItem('accessToken');
-        navigate(Path.HomePage);
     }
 
     const values = {

@@ -70,6 +70,10 @@
     flex-direction: row;
 }
 
+.home-right .navbar-link a {
+    text-transform: uppercase;
+}
+
 .home-right .navbar-link a > img {
     width: 12px;
     height: auto;
