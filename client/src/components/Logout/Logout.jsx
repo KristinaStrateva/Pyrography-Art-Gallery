@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import AuthContext from "../../contexts/authContext";
+import Path from "../../paths";
 
 import * as authService from '../../services/authService';
 
@@ -11,7 +12,10 @@ export default function Logout() {
 
     useEffect(() => {
         authService.logout()
-            .then(logoutHandler())
+            .then(() => {
+                logoutHandler();
+                navigate(Path.HomePage);
+            })
             .catch((err) => console.log(err)); //ToDo: Navigate to 404 page
     }, []);
 

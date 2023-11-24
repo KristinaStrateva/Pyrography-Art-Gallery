@@ -56,7 +56,7 @@ export default function App() {
         loginSubmitHandler,
         registerSubmitHandler,
         logoutHandler,
-        email: auth.email,
+        username: auth.username || auth.email,
         isAuthenticated: !!auth.accessToken,
     };
 
