@@ -11,10 +11,12 @@ export const login = (email, password) => {
     return result;
 };
 
-export const register = (email, password) => {
+export const register = (username, email, password, repeatPass) => {
     const result = request.post(`${baseUrl}/register`, {
+        username,
         email,
         password,
+        repeatPass,
     });
 
     return result;

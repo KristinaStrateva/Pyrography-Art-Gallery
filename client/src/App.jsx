@@ -38,7 +38,11 @@ export default function App() {
     };
 
     const registerSubmitHandler = async (values) => {
-        const result = await authService.register(values.email, values.password);
+        const result = await authService.register(values.username, values.email, values.password, values.repeatPass);
+
+        if (values.password !== values.repeatPass) {
+            throw new Error('Passwords don\'t match!');
+        }
 
         setAuth(result);
 

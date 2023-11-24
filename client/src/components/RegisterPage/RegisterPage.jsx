@@ -8,6 +8,7 @@ import mainStyle from '../../App.module.css';
 import useForm from "../../hooks/useForm";
 
 const RegisterFormKeys = {
+    Username: 'username',
     Email: 'email',
     Password: 'password',
     RepeatPass: 'repeatPass',
@@ -16,6 +17,7 @@ const RegisterFormKeys = {
 export default function RegisterPage() {
     const { registerSubmitHandler } = useContext(AuthContext);
     const { values, onChange, onSubmit } = useForm({
+        [RegisterFormKeys.Username]: '',
         [RegisterFormKeys.Email]: '',
         [RegisterFormKeys.Password]: '',
         [RegisterFormKeys.RepeatPass]: '',
@@ -26,6 +28,13 @@ export default function RegisterPage() {
             <div className={styles.form}>
                 <h2>Register</h2>
                 <form className={styles["register-form"]} onSubmit={onSubmit}>
+                    <input
+                        type="text"
+                        name={RegisterFormKeys.Username}
+                        value={values[RegisterFormKeys.Username]}
+                        onChange={onChange}
+                        placeholder="Username"
+                    />
                     <input
                         type="text"
                         name={RegisterFormKeys.Email}
