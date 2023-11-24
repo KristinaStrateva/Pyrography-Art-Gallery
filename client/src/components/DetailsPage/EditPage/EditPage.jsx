@@ -142,7 +142,7 @@ export default function EditPage() {
                         onChange={onChange}
                     />
                     <input
-                        type="text"
+                        type="number"
                         name="price"
                         placeholder="Price"
                         // defaultValue={item.price}

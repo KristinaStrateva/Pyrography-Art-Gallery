@@ -57,7 +57,7 @@ export default function AddItemPage() {
                         onChange={onChange}
                     />
                     <input
-                        type="text"
+                        type="number"
                         name="price"
                         placeholder="Price"
                         value={values[AddItemFormKeys.Price]}
