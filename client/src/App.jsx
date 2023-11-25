@@ -1,8 +1,6 @@
-import { useState } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import { AuthProvider } from './contexts/authContext';
-import * as authService from './services/authService';
 import Path from './paths';
 
 import Footer from './components/Footer/Footer';
@@ -20,52 +18,9 @@ import AddItemPage from './components/AddItemPage/AddItemPage';
 import styles from './App.module.css';
 
 export default function App() {
-    const navigate = useNavigate();
-    const [auth, setAuth] = useState(() => {
-        localStorage.removeItem('accessToken');
-
-        return {};
-    });
-
-    const loginSubmitHandler = async (values) => {
-        const result = await authService.login(values.email, values.password);
-
-        setAuth(result);
-
-        localStorage.setItem('accessToken', result.accessToken);
-
-        navigate(Path.HomePage);
-    };
-
-    const registerSubmitHandler = async (values) => {
-        const result = await authService.register(values.username, values.email, values.password, values.repeatPass);
-
-        if (values.password !== values.repeatPass) {
-            throw new Error('Passwords don\'t match!');
-        }
-
-        setAuth(result);
-
-        localStorage.setItem('accessToken', result.accessToken);
-
-        navigate(Path.HomePage);
-    };
-
-    const logoutHandler = () => {
-        setAuth({});
-        localStorage.removeItem('accessToken');
-    }
-
-    const values = {
-        loginSubmitHandler,
-        registerSubmitHandler,
-        logoutHandler,
-        username: auth.username || auth.email,
-        isAuthenticated: !!auth.accessToken,
-    };
 
     return (
-        <AuthProvider value={values} >
+        <AuthProvider>
             <div className={styles["home-container"]}>
                 <Navigation />
 
