@@ -16,7 +16,11 @@ export default function Logout() {
                 logoutHandler();
                 navigate(Path.HomePage);
             })
-            .catch((err) => console.log(err)); //ToDo: Navigate to 404 page
+            .catch((err) => {
+                logoutHandler();
+                navigate(Path.LoginPage);
+                console.log(err.message);
+            })
     }, []);
 
     return null;
