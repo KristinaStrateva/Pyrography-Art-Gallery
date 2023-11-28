@@ -17,9 +17,9 @@ const EditFormKeys = {
 export default function EditPage() {
     const [item, setItem] = useState({});
     const navigation = useNavigate();
-    
+
     const { collectionName, itemId } = useParams();
-    
+
     const [currentCollectionName, setCurrentCollectionName] = useState(collectionName);
 
     useEffect(() => {
@@ -112,6 +112,7 @@ export default function EditPage() {
 
         } catch (error) {
             console.log(error);
+            // localStorage.removeItem('auth');
         }
     };
 
