@@ -9,6 +9,7 @@ const Path = {
     CustomTextOnWoodPage: '/customTextOnWood',
     DetailsPage: '/:collectionName/:itemId/details',
     EditPage: '/:collectionName/:itemId/edit-item',
+    DeleteItem: '/:collectionName/:itemId/delete-item',
     AddItemPage: '/add-item',
 };
 
