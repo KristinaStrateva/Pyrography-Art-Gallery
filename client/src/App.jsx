@@ -13,8 +13,8 @@ import RegisterPage from './components/RegisterPage/RegisterPage';
 import Logout from './components/Logout/Logout';
 import DetailsPage from './components/DetailsPage/DetailsPage';
 import EditPage from './components/DetailsPage/EditPage/EditPage';
-import AddItemPage from './components/AddItemPage/AddItemPage';
 import DeleteModal from './components/DetailsPage/DeleteModal/DeleteModal';
+import AddItemPage from './components/AddItemPage/AddItemPage';
 
 import styles from './App.module.css';
 import AuthGuard from './components/Guards/AuthGuard';
@@ -39,7 +39,6 @@ export default function App() {
                     <Route element={<AuthGuard />}>
                         <Route path={Path.Logout} element={<Logout />} />
                         <Route path={Path.EditPage} element={<EditPage />} />
-                        <Route path={Path.DeleteItem} element={<DeleteModal />} />
                         <Route path={Path.AddItemPage} element={<AddItemPage />} />
                     </Route>
                 </Routes>

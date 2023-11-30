@@ -49,3 +49,7 @@ export const updateItem = async (collectionName, itemId, itemData) => {
 
     return result;
 }
+
+export const deleteItem = async (collectionName, itemId) => {
+    await request.del(`${baseUrl}/${collectionName}/${itemId}`);
+}

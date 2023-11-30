@@ -5,9 +5,11 @@ import mainStyle from '../../App.module.css';
 import { useEffect, useState } from "react";
 
 import * as itemsService from '../../services/itemsService';
+import DeleteModal from "./DeleteModal/DeleteModal";
 
 export default function DetailsPage() {
     const [item, setItem] = useState({});
+    const [show, setShow] = useState(false);
 
     const { collectionName, itemId } = useParams();
 
@@ -16,6 +18,9 @@ export default function DetailsPage() {
             .then(setItem)
             .catch(err => console.log(err));
     }, [itemId]);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     return (
         <section className={styles.details}>
@@ -34,7 +39,13 @@ export default function DetailsPage() {
                     </div>
                     <div className={styles["action-buttons"]}>
                         <Link to={`/${collectionName}/${itemId}/edit-item`} className={mainStyle.button}>Edit</Link>
-                        <Link to={`/${collectionName}/${itemId}/delete-item`} className={mainStyle.button}>Delete</Link>
+                        <DeleteModal
+                            show={show}
+                            handleClose={handleClose}
+                            collectionName={collectionName}
+                            itemId={itemId}
+                        />
+                        <button className={mainStyle.button} onClick={handleShow}>Delete</button>
                         {/* Have to disable the Like button once it is clicked! */}
                         <Link to={`/${collectionName}/${itemId}/like`} className={mainStyle.button}>Like</Link>
                     </div>
