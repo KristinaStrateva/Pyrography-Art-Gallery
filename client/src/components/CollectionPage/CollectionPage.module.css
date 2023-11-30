@@ -68,7 +68,8 @@
 }
 
 .carousel {
-    position: initial;
+    position: realtive;
+    width: 500px;
 }
 
 .carousel-item {

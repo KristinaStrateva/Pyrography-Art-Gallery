@@ -49,11 +49,11 @@ export default function CollectionPage() {
     });
 
     if (controlPrev && controlNext) {
-        controlPrev.style.top = '10em';
-        controlPrev.style.left = '15em';
+        controlPrev.style.top = '-5em';
+        controlPrev.style.left = '-5em';
 
-        controlNext.style.top = '10em';
-        controlNext.style.right = '15em';
+        controlNext.style.top = '-5em';
+        controlNext.style.right = '-5em';
     }
 
     if (controlNext) {
