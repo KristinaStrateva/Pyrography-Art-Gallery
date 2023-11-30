@@ -4,10 +4,14 @@ export default function useForm(initialValues, submitHandler) {
     const [values, setValues] = useState(initialValues);
 
     const onChange = (e) => {
-        setValues(state => ({
-            ...state,
-            [e.target.name]: e.target.value,
-        }));
+        const { name, value } = e.target;
+
+        if (name in values) {
+            setValues(state => ({
+                ...state,
+                [name]: value,
+            }));
+        }
     };
 
     const onSubmit = (e) => {

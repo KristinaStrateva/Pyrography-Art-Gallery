@@ -32,7 +32,7 @@ export default function AddItemPage() {
     };
 
     const { values, onChange, onSubmit } = useForm({
-        [AddItemFormKeys.CollectionName]: '',
+        [AddItemFormKeys.CollectionName]: 'Home Decorations',
         [AddItemFormKeys.Name]: '',
         [AddItemFormKeys.Price]: '',
         [AddItemFormKeys.ImageUrl]: '',
