@@ -1340,110 +1340,110 @@
     };
     var seedData = {
     	homeDecorations: {
-            "item1": {
-                "_id": "item1",
-                "collectionName": "Home Decorations",
-                "name": "Bulgaria magnets",
-                "price": 2,
-                "imageUrl": "images/categories/homeDecorations/Bulgaria_magnets.jpg",
-                "description": "",
-                "purchasesAmount": 20,
-                "likesAmount": 0
-            },
-            "item2": {
-                "_id": "item2",
-                "collectionName": "Home Decorations",
-                "name": "Keep it simple magnet",
-                "price": 2,
-                "imageUrl": "images/categories/homeDecorations/keep_it_simple_magnet.jpg",
-                "description": "",
-                "purchasesAmount": 3,
-                "likesAmount": 0
-            },
-            "item3": {
-                "_id": "item3",
-                "collectionName": "Home Decorations",
-                "name": "Motorcycle magnet",
-                "price": 2,
-                "imageUrl": "images/categories/homeDecorations/moto_magnet.jpg",
-                "description": "",
-                "purchasesAmount": 25,
-                "likesAmount": 0
-            },
-            "item4": {
-                "_id": "item4",
-                "collectionName": "Home Decorations",
-                "name": "Napkin holder",
-                "price": 5,
-                "imageUrl": "images/categories/homeDecorations/napkin_holder.jpg",
-                "description": "",
-                "purchasesAmount": 6,
-                "likesAmount": 0
-            },
-            "item5": {
-                "_id": "item5",
-                "collectionName": "Home Decorations",
-                "name": "Termometer",
-                "price": 7,
-                "imageUrl": "images/categories/homeDecorations/termometer.jpg",
-                "description": "",
-                "purchasesAmount": 9,
-                "likesAmount": 0
-            }
+            // "item1": {
+            //     "_id": "item1",
+            //     "collectionName": "Home Decorations",
+            //     "name": "Bulgaria magnets",
+            //     "price": 2,
+            //     "imageUrl": "images/categories/homeDecorations/Bulgaria_magnets.jpg",
+            //     "description": "",
+            //     "purchasesAmount": 20,
+            //     "likesAmount": 0
+            // },
+            // "item2": {
+            //     "_id": "item2",
+            //     "collectionName": "Home Decorations",
+            //     "name": "Keep it simple magnet",
+            //     "price": 2,
+            //     "imageUrl": "images/categories/homeDecorations/keep_it_simple_magnet.jpg",
+            //     "description": "",
+            //     "purchasesAmount": 3,
+            //     "likesAmount": 0
+            // },
+            // "item3": {
+            //     "_id": "item3",
+            //     "collectionName": "Home Decorations",
+            //     "name": "Motorcycle magnet",
+            //     "price": 2,
+            //     "imageUrl": "images/categories/homeDecorations/moto_magnet.jpg",
+            //     "description": "",
+            //     "purchasesAmount": 25,
+            //     "likesAmount": 0
+            // },
+            // "item4": {
+            //     "_id": "item4",
+            //     "collectionName": "Home Decorations",
+            //     "name": "Napkin holder",
+            //     "price": 5,
+            //     "imageUrl": "images/categories/homeDecorations/napkin_holder.jpg",
+            //     "description": "",
+            //     "purchasesAmount": 6,
+            //     "likesAmount": 0
+            // },
+            // "item5": {
+            //     "_id": "item5",
+            //     "collectionName": "Home Decorations",
+            //     "name": "Termometer",
+            //     "price": 7,
+            //     "imageUrl": "images/categories/homeDecorations/termometer.jpg",
+            //     "description": "",
+            //     "purchasesAmount": 9,
+            //     "likesAmount": 0
+            // }
         },
         giftSets: {
-            "item6": {
-                "_id": "item6",
-                "collectionName": "Gift Sets",
-                "name": "Coffee set",
-                "price": 10,
-                "imageUrl": "images/categories/giftSets/coffee_set.jpg",
-                "description": "",
-                "purchasesAmount": 30,
-                "likesAmount": 0
-            },
-            "item7": {
-                "_id": "item7",
-                "collectionName": "Gift Sets",
-                "name": "Gift box",
-                "price": 15,
-                "imageUrl": "images/categories/giftSets/gift-box_1.jpg",
-                "description": "",
-                "purchasesAmount": 10,
-                "likesAmount": 0
-            },
-            "item8": {
-                "_id": "item8",
-                "collectionName": "Gift Sets",
-                "name": "Gift box",
-                "price": 15,
-                "imageUrl": "images/categories/giftSets/gift_box_2.jpg",
-                "description": "",
-                "purchasesAmount": 40,
-                "likesAmount": 0
-            }
+            // "item6": {
+            //     "_id": "item6",
+            //     "collectionName": "Gift Sets",
+            //     "name": "Coffee set",
+            //     "price": 10,
+            //     "imageUrl": "images/categories/giftSets/coffee_set.jpg",
+            //     "description": "",
+            //     "purchasesAmount": 30,
+            //     "likesAmount": 0
+            // },
+            // "item7": {
+            //     "_id": "item7",
+            //     "collectionName": "Gift Sets",
+            //     "name": "Gift box",
+            //     "price": 15,
+            //     "imageUrl": "images/categories/giftSets/gift-box_1.jpg",
+            //     "description": "",
+            //     "purchasesAmount": 10,
+            //     "likesAmount": 0
+            // },
+            // "item8": {
+            //     "_id": "item8",
+            //     "collectionName": "Gift Sets",
+            //     "name": "Gift box",
+            //     "price": 15,
+            //     "imageUrl": "images/categories/giftSets/gift_box_2.jpg",
+            //     "description": "",
+            //     "purchasesAmount": 40,
+            //     "likesAmount": 0
+            // }
         },
         customTextOnWood: {
-            "item9": {
-                "_id": "item9",
-                "collectionName": "Custom Text On Wood",
-                "name": "Mug pad",
-                "price": 5,
-                "imageUrl": "images/categories/customTextOnWood/custom_mug_pad.jpg",
-                "description": "",
-                "purchasesAmount": 32,
-                "likesAmount": 0
-            },
-            "item10": {
-                "_id": "item10",
-                "collectionName": "Custom Text On Wood",
-                "name": "Wooden spoons",
-                "price": 7,
-                "imageUrl": "images/categories/customTextOnWood/wooden_spoons.jpg",
-                "description": "",
-                "purchasesAmount": 4,
-                "likesAmount": 0
-            }
+            // "item9": {
+            //     "_id": "item9",
+            //     "collectionName": "Custom Text On Wood",
+            //     "name": "Mug pad",
+            //     "price": 5,
+            //     "imageUrl": "images/categories/customTextOnWood/custom_mug_pad.jpg",
+            //     "description": "",
+            //     "purchasesAmount": 32,
+            //     "likesAmount": 0
+            // },
+            // "item10": {
+            //     "_id": "item10",
+            //     "collectionName": "Custom Text On Wood",
+            //     "name": "Wooden spoons",
+            //     "price": 7,
+            //     "imageUrl": "images/categories/customTextOnWood/wooden_spoons.jpg",
+            //     "description": "",
+            //     "purchasesAmount": 4,
+            //     "likesAmount": 0
+            // }
         },
         likes: {
             "0a272c58-b7ea-4e09-a000-7ec988248f66": {
