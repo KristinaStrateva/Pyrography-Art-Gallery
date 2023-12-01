@@ -20,7 +20,7 @@
     width: 100%;
     display: flex;
     position: relative;
-    max-width: 770px;
+    max-width: 1360px;
     box-sizing: border-box;
     padding-block: 5em;
     align-items: center;
@@ -36,14 +36,10 @@
     font-size: 16px;
     align-self: auto;
     font-style: normal;
-    text-align: center;
+    text-align: justify;
     font-family: Jost;
     font-weight: 400px;
     line-height: 175%;
     font-stretch: normal;
     text-decoration: none;
 }
-
-/* .home-container07 button {
-    box-shadow: 0.5em 0.5em 1em #b17474;
-} */
