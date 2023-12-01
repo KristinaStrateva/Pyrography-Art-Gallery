@@ -24,8 +24,6 @@ export default function HomePage() {
     return (
         <div className={mainStyle["home-main"]}>
 
-            <BestOffer item={{ ...bestItem }} />
-
             <HomeBanner />
 
             <LastThreeAdded />
