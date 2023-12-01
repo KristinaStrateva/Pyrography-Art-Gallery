@@ -11,11 +11,12 @@ export default function HomePage() {
     useEffect(() => {
         itemsService.getAllItems()
             .then(items => {
-                const allItems = Object.values(items).filter(x => typeof x === 'object');
-                const currBestItemPrice = Math.max(...allItems.map(item => item.purchasesAmount));
-                const currBestItem = Object.values(items).find(item => item.purchasesAmount === currBestItemPrice);
+                if (items) {
+                    const currBestItemPrice = Math.max(...items.map(item => item.purchasesAmount));
+                    const currBestItem = items.find(item => item.purchasesAmount === currBestItemPrice);
 
-                setBestItem(currBestItem);
+                    setBestItem(currBestItem);
+                }
             })
             .catch(err => console.log(err));
     }, []);

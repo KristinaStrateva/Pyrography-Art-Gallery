@@ -1,9 +1,12 @@
+import { useNavigate } from 'react-router-dom';
+
+import useForm from '../../hooks/useForm';
+import formCollectionName from '../../utils/formCollectionName';
+
+import * as itemsService from '../../services/itemsService';
+
 import styles from './AddItemPage.module.css';
 import mainStyle from '../../App.module.css';
-import { formCollectionName } from './utils';
-import * as itemsService from '../../services/itemsService';
-import { useNavigate } from 'react-router-dom';
-import useForm from '../../hooks/useForm';
 
 const AddItemFormKeys = {
     CollectionName: 'collectionName',

@@ -7,7 +7,7 @@ export const getAllItems = async () => {
     const giftSets = await request.get(`${baseUrl}/giftSets`);
     const customTextOnWood = await request.get(`${baseUrl}/customTextOnWood`);
 
-    const allItems = {...homeDecorations, ...giftSets, ...customTextOnWood};
+    const allItems = [...homeDecorations, ...giftSets, ...customTextOnWood];
 
     return allItems;
 };
