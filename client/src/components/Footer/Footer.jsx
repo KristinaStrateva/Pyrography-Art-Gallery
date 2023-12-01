@@ -8,7 +8,7 @@ export default function Footer() {
             <div className={mainStyle["max-width-container"]}>
                 <footer className={styles["home-footer1"]}>
                     <div className={styles["home-container09"]}>
-                        <h3 className={`${styles["home-text32"]} ${mainStyle["Heading-3"]}`}>VESSEY'S ART SHOP</h3>
+                        <h3 className={`${styles["home-text32"]} ${mainStyle["Heading-3"]}`}>PYROGRAPHY ART GALLERY</h3>
                         <span className={styles["home-text33"]}>
                             <span>25th September, Dobritch</span>
                             <br />
@@ -18,25 +18,13 @@ export default function Footer() {
                         <span className={styles["home-text37"]}>veselina_hendry@gmail.com</span>
                     </div>
                     <div className={styles["home-links-container"]}>
-                        {/* <div className={styles["home-container10"]}>
-                            <span className={styles["home-text38"]}>Categories</span>
-                            <Link to="/homeDecorations" className={styles["home-text39"]}>Home Decoration</Link>
-                            <Link to="/giftSets" className={styles["home-text40"]}>Gift Sets</Link>
-                            <Link to="/customTextOnWood" className={styles["home-text41"]}>Custom text on wood</Link>
-                        </div> */}
                         <div className={styles["home-container11"]}>
                             <span className={styles["home-text45"]}>Company</span>
                             <Link to="/about" className={styles["home-text49"]}>About</Link>
-                            {/* <Link to="#" className={styles["home-text46"]}>Shop</Link> */}
-                            {/* <Link to="#" className={styles["home-text47"]}>Lookbook</Link> */}
-                            {/* <Link to="#" className={styles["home-text48"]}>Specials</Link> */}
                         </div>
                         <div className={styles["home-container12"]}>
                             <span className={styles["home-text51"]}>Resources</span>
-                            {/* <Link to="#" className={styles["home-text52"]}>Contact us</Link> */}
-                            <Link to="#" className={styles["home-text53"]}>Order</Link>
-                            {/* <Link to="#" className={styles["home-text54"]}>Track your order</Link> */}
-                            <Link to="#" className={styles["home-text55"]}>Shipping &amp; Delivery</Link>
+                            <Link to="#" className={styles["home-text53"]}>My Items</Link>
                         </div>
                     </div>
                 </footer>

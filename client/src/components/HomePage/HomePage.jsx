@@ -22,11 +22,11 @@ export default function HomePage() {
     return (
         <div className={mainStyle["home-main"]}>
 
-            <HomeBanner />
 
             {lastItems.length > 0 && <LastThreeAdded lastItems={lastItems} />}
 
             {!lastItems.length && <p className={mainStyle["home-paragraph"]}>There are no items yet, but you can add the first one!</p>}
+            <HomeBanner />
 
         </div>
     );

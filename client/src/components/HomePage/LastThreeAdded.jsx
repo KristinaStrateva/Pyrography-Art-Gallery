@@ -28,7 +28,7 @@ export default function LastThreeAdded({
                         return (
                             <div key={item._id} className={styles["category-card-category-card"]}>
                                 <img alt="image" src={item.imageUrl} className={styles["category-card-image"]} />
-                                <h3>{item.name}</h3>
+                                <h5>{item.name}</h5>
                                 <Link to={`/${collectionName}/${item._id}/details`} className={mainStyle.button}>More details</Link>
                             </div>
                         )
