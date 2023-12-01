@@ -13,9 +13,6 @@ export default function Navigation() {
         <div className={styles["home-navbar"]}>
             <header data-role="Header" className={`${styles["home-header"]} ${styles["max-width-container"]}`}>
                 <div className={styles["home-navbar1"]}>
-                    <div className={styles["home-container01"]}>
-                        <input type="text" placeholder="search" className={`${styles["home-textinput"]} ${mainStyle["input"]}`} />
-                    </div>
                     <div className={styles["home-middle"]}>
                         <ul className={styles["home-left"]}>
                             <li className={styles["navbar-link"]}><Link to="/homeDecorations">HOME DECORATIONS</Link></li>
