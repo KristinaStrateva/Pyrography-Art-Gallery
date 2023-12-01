@@ -62,35 +62,41 @@ export default function CollectionPage() {
     return (
         <div className={`${mainStyle["section-container"]} ${mainStyle["column"]}`}>
             <div className={mainStyle["section-container"]}>
-                <div className={styles["max-width-container"]}>
-                    <div className={mainStyle["section-heading-section-heading"]}>
-                        <h1 className={`${mainStyle["section-heading-text"]} ${mainStyle["Heading-2"]}`}>
-                            <span>{collectionName} COLLECTION</span>
-                        </h1>
-                        <span className={mainStyle["section-heading-text1"]}>
-                            <span>
-                                You can choose an item from this category
+                {collection.length > 0 &&
+                    <div className={styles["max-width-container"]}>
+                        <div className={mainStyle["section-heading-section-heading"]}>
+                            <h1 className={`${mainStyle["section-heading-text"]} ${mainStyle["Heading-2"]}`}>
+                                <span>{collectionName} COLLECTION</span>
+                            </h1>
+                            <span className={mainStyle["section-heading-text1"]}>
+                                <span>
+                                    You can choose an item from this category
+                                </span>
                             </span>
-                        </span>
+                        </div>
+                        <div className={styles["home-container08"]}>
+
+                            <Carousel slide={false} className={styles.carousel}>
+
+                                {collection.map((item, index) => (
+                                    <CarouselItem key={`${item._id}-${index}`} className={styles["carousel-item"]}>
+                                        <img alt={item.name} src={item.imageUrl} className={styles["blog-post-card-image"]} />
+                                        <CarouselCaption>
+                                            <h3>{item.name}</h3>
+                                            <Link to={`/${locationName}/${item._id}/details`} className={mainStyle.button}>More details</Link>
+                                        </CarouselCaption>
+                                    </CarouselItem >
+                                ))}
+
+
+                            </Carousel>
+
+                        </div>
                     </div>
-                    <div className={styles["home-container08"]}>
+                }
 
-                        <Carousel slide={false} className={styles.carousel}>
+                {!collection.length && <p className={mainStyle["home-paragraph"]}>There are no items in this collection yet, but you can add the first one!</p>}
 
-                            {collection.map((item, index) => (
-                                <CarouselItem key={`${item._id}-${index}`} className={styles["carousel-item"]}>
-                                    <img alt={item.name} src={item.imageUrl} className={styles["blog-post-card-image"]} />
-                                    <CarouselCaption>
-                                        <h3>{item.name}</h3>
-                                        <Link to={`/${locationName}/${item._id}/details`} className={mainStyle.button}>More details</Link>
-                                    </CarouselCaption>
-                                </CarouselItem >
-                            ))}
-
-                        </Carousel>
-
-                    </div>
-                </div>
             </div>
         </div>
     );
