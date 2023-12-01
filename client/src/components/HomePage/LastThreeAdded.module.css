@@ -29,8 +29,8 @@
 }
 
 .category-card-image {
-    max-width: 250px;
-    max-height: 150px;
+    max-width: 350px;
+    max-height: 250px;
     object-fit: cover;
     margin-bottom: 16px;
     object-position: bottom;

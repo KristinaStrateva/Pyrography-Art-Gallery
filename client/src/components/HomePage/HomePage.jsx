@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import BestOffer from "./BestOffer";
 import * as itemsService from '../../services/itemsService';
-import ShopByCategories from "./ShopByCategories";
+import LastThreeAdded from "./LastThreeAdded";
 import HomeBanner from "./HomeBanner";
 import mainStyle from '../../App.module.css';
 
@@ -28,7 +28,7 @@ export default function HomePage() {
 
             <HomeBanner />
 
-            <ShopByCategories />
+            <LastThreeAdded />
 
         </div>
     );
