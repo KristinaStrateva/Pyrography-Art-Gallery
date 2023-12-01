@@ -154,3 +154,7 @@ body {
     text-transform: uppercase;
     text-decoration: none;
 }
+
+.home-paragraph {
+padding: 4.5em;
+}

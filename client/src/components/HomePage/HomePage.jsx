@@ -1,22 +1,20 @@
-import { useEffect, useState } from "react";
-import BestOffer from "./BestOffer";
+import { useEffect, useState } from 'react';
+
 import * as itemsService from '../../services/itemsService';
+
 import LastThreeAdded from "./LastThreeAdded";
 import HomeBanner from "./HomeBanner";
 import mainStyle from '../../App.module.css';
 
 export default function HomePage() {
-    const [bestItem, setBestItem] = useState(null);
+    const [lastItems, setLastItems] = useState([]);
 
     useEffect(() => {
         itemsService.getAllItems()
             .then(items => {
-                if (items) {
-                    const currBestItemPrice = Math.max(...items.map(item => item.purchasesAmount));
-                    const currBestItem = items.find(item => item.purchasesAmount === currBestItemPrice);
+                const sortedLastThreeItems = items.sort((a, b) => b._createdOn - a._createdOn).slice(0, 3);
 
-                    setBestItem(currBestItem);
-                }
+                setLastItems(sortedLastThreeItems);
             })
             .catch(err => console.log(err));
     }, []);
@@ -26,7 +24,9 @@ export default function HomePage() {
 
             <HomeBanner />
 
-            <LastThreeAdded />
+            {lastItems.length > 0 && <LastThreeAdded lastItems={lastItems} />}
+
+            {!lastItems.length && <p className={mainStyle["home-paragraph"]}>There are no items yet, but you can add the first one!</p>}
 
         </div>
     );
