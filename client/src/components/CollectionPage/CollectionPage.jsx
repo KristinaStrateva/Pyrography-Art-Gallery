@@ -56,9 +56,6 @@ export default function CollectionPage() {
         controlNext.style.right = '-5em';
     }
 
-    if (controlNext) {
-    }
-
     return (
         <div className={`${mainStyle["section-container"]} ${mainStyle["column"]}`}>
             <div className={mainStyle["section-container"]}>
