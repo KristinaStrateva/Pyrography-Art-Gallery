@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import ErrorBoundary from './components/ErrorBoundary';
 import { AuthProvider } from './contexts/authContext';
-import Path from './paths';
+import Path from './utils/paths';
 
 import Footer from './components/Footer/Footer';
 import HomePage from './components/HomePage/HomePage';
