@@ -1,10 +1,11 @@
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('http'), require('fs'), require('crypto')) :
-    typeof define === 'function' && define.amd ? define(['http', 'fs', 'crypto'], factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Server = factory(global.http, global.fs, global.crypto));
-}(this, (function (http, fs, crypto) { 'use strict';
+        typeof define === 'function' && define.amd ? define(['http', 'fs', 'crypto'], factory) :
+            (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Server = factory(global.http, global.fs, global.crypto));
+}(this, (function (http, fs, crypto) {
+    'use strict';
 
-    function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+    function _interopDefaultLegacy(e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
     var http__default = /*#__PURE__*/_interopDefaultLegacy(http);
     var fs__default = /*#__PURE__*/_interopDefaultLegacy(fs);
@@ -13,14 +14,14 @@
     class ServiceError extends Error {
         constructor(message = 'Service Error') {
             super(message);
-            this.name = 'ServiceError'; 
+            this.name = 'ServiceError';
         }
     }
 
     class NotFoundError extends ServiceError {
         constructor(message = 'Resource not found') {
             super(message);
-            this.name = 'NotFoundError'; 
+            this.name = 'NotFoundError';
             this.status = 404;
         }
     }
@@ -28,7 +29,7 @@
     class RequestError extends ServiceError {
         constructor(message = 'Request error') {
             super(message);
-            this.name = 'RequestError'; 
+            this.name = 'RequestError';
             this.status = 400;
         }
     }
@@ -36,7 +37,7 @@
     class ConflictError extends ServiceError {
         constructor(message = 'Resource conflict') {
             super(message);
-            this.name = 'ConflictError'; 
+            this.name = 'ConflictError';
             this.status = 409;
         }
     }
@@ -44,7 +45,7 @@
     class AuthorizationError extends ServiceError {
         constructor(message = 'Unauthorized') {
             super(message);
-            this.name = 'AuthorizationError'; 
+            this.name = 'AuthorizationError';
             this.status = 401;
         }
     }
@@ -52,7 +53,7 @@
     class CredentialError extends ServiceError {
         constructor(message = 'Forbidden') {
             super(message);
-            this.name = 'CredentialError'; 
+            this.name = 'CredentialError';
             this.status = 403;
         }
     }
@@ -556,8 +557,8 @@
             if (query.pageSize) {
                 responseData = responseData.slice(0, pageSize);
             }
-    		
-    		if (query.distinct) {
+
+            if (query.distinct) {
                 const props = query.distinct.split(',').filter(p => p != '');
                 responseData = Object.values(responseData.reduce((distinct, c) => {
                     const key = props.map(p => c[p]).join('::');
@@ -793,7 +794,7 @@
     }
 
     function onRequest(context, tokens, query, body) {
-        Object.entries(body).forEach(([k,v]) => {
+        Object.entries(body).forEach(([k, v]) => {
             console.log(`${k} ${v ? 'enabled' : 'disabled'}`);
             context.util[k] = v;
         });
@@ -931,7 +932,7 @@
          * @param {Object} data Value to store. Shallow merge will be performed!
          * @return {Object} Updated entry.
          */
-         function merge(collection, id, data) {
+        function merge(collection, id, data) {
             if (!collections.has(collection)) {
                 throw new ReferenceError('Collection does not exist: ' + collection);
             }
@@ -1318,164 +1319,118 @@
 
     var identity = "email";
     var protectedData = {
-    	users: {
-    		"35c62d76-8152-4626-8712-eeb96381bea8": {
-    			email: "peter@abv.bg",
-    			username: "Peter",
-    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-    		},
-    		"847ec027-f659-4086-8032-5173e2f9c93a": {
-    			email: "george@abv.bg",
-    			username: "George",
-    			hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
-    		},
-    		"60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
-    			email: "admin@abv.bg",
-    			username: "Admin",
-    			hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
-    		}
-    	},
-    	sessions: {
-    	}
+        users: {
+            "35c62d76-8152-4626-8712-eeb96381bea8": {
+                email: "peter@abv.bg",
+                username: "Peter",
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+            },
+            "847ec027-f659-4086-8032-5173e2f9c93a": {
+                email: "george@abv.bg",
+                username: "George",
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+            },
+            "60f0cf0b-34b0-4abd-9769-8c42f830dffc": {
+                email: "admin@abv.bg",
+                username: "Admin",
+                hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
+            }
+        },
+        sessions: {
+        }
     };
     var seedData = {
-    	homeDecorations: {
-            // "item1": {
-            //     "_id": "item1",
-            //     "collectionName": "Home Decorations",
-            //     "name": "Bulgaria magnets",
-            //     "price": 2,
-            //     "imageUrl": "images/categories/homeDecorations/Bulgaria_magnets.jpg",
-            //     "description": "",
-            //     "purchasesAmount": 20,
-            //     "likesAmount": 0
-            // },
-            // "item2": {
-            //     "_id": "item2",
-            //     "collectionName": "Home Decorations",
-            //     "name": "Keep it simple magnet",
-            //     "price": 2,
-            //     "imageUrl": "images/categories/homeDecorations/keep_it_simple_magnet.jpg",
-            //     "description": "",
-            //     "purchasesAmount": 3,
-            //     "likesAmount": 0
-            // },
-            // "item3": {
-            //     "_id": "item3",
-            //     "collectionName": "Home Decorations",
-            //     "name": "Motorcycle magnet",
-            //     "price": 2,
-            //     "imageUrl": "images/categories/homeDecorations/moto_magnet.jpg",
-            //     "description": "",
-            //     "purchasesAmount": 25,
-            //     "likesAmount": 0
-            // },
-            // "item4": {
-            //     "_id": "item4",
-            //     "collectionName": "Home Decorations",
-            //     "name": "Napkin holder",
-            //     "price": 5,
-            //     "imageUrl": "images/categories/homeDecorations/napkin_holder.jpg",
-            //     "description": "",
-            //     "purchasesAmount": 6,
-            //     "likesAmount": 0
-            // },
-            // "item5": {
-            //     "_id": "item5",
-            //     "collectionName": "Home Decorations",
-            //     "name": "Termometer",
-            //     "price": 7,
-            //     "imageUrl": "images/categories/homeDecorations/termometer.jpg",
-            //     "description": "",
-            //     "purchasesAmount": 9,
-            //     "likesAmount": 0
-            // }
+        homeDecorations: {
+            "950f155b-36b7-4e4e-9f08-4270b1596de8": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "collectionName": "Home Decorations",
+                "name": "Wooden Forest Magnet",
+                "imageUrl": "https://i.etsystatic.com/7450618/r/il/7bc0c7/4897859506/il_600x600.4897859506_rzkm.jpg",
+                "description": "Little magnet for your fridge",
+                "_createdOn": 1701477713582,
+                "_id": "950f155b-36b7-4e4e-9f08-4270b1596de8"
+            },
+            "ba162633-c25a-4716-9faa-dd156e81d332": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "collectionName": "Home Decorations",
+                "name": "Mushroom Cabin Magnet",
+                "imageUrl": "https://i.etsystatic.com/5393016/r/il/3c7a9b/5392014576/il_600x600.5392014576_a16h.jpg",
+                "description": "Cute wooden magnet",
+                "_createdOn": 1701478362291,
+                "_id": "ba162633-c25a-4716-9faa-dd156e81d332"
+            },
         },
         giftSets: {
-            // "item6": {
-            //     "_id": "item6",
-            //     "collectionName": "Gift Sets",
-            //     "name": "Coffee set",
-            //     "price": 10,
-            //     "imageUrl": "images/categories/giftSets/coffee_set.jpg",
-            //     "description": "",
-            //     "purchasesAmount": 30,
-            //     "likesAmount": 0
-            // },
-            // "item7": {
-            //     "_id": "item7",
-            //     "collectionName": "Gift Sets",
-            //     "name": "Gift box",
-            //     "price": 15,
-            //     "imageUrl": "images/categories/giftSets/gift-box_1.jpg",
-            //     "description": "",
-            //     "purchasesAmount": 10,
-            //     "likesAmount": 0
-            // },
-            // "item8": {
-            //     "_id": "item8",
-            //     "collectionName": "Gift Sets",
-            //     "name": "Gift box",
-            //     "price": 15,
-            //     "imageUrl": "images/categories/giftSets/gift_box_2.jpg",
-            //     "description": "",
-            //     "purchasesAmount": 40,
-            //     "likesAmount": 0
-            // }
+            "9e050a8c-b385-47b0-a6f9-dc6c79727120": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "collectionName": "Gift Sets",
+                "name": "Lovely Set Of Spoons",
+                "imageUrl": "https://imgs.search.brave.com/YFzNwhw4SVKiExSM_1rga1GRoLQFktVVCUMewq3Z3do/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzIxNDA3ODQ0L3Iv/aWwvYTI2ZGZiLzQ1/ODQ5MTEwMTIvaWxf/NjAweDYwMC40NTg0/OTExMDEyX2hoNTAu/anBn",
+                "description": "Beautiful set of wooden spoons",
+                "_createdOn": 1701477815225,
+                "_id": "9e050a8c-b385-47b0-a6f9-dc6c79727120"
+            },
+            "ba162633-c25a-4716-9faa-dd156e81d332": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "collectionName": "Gift Sets",
+                "name": "Mug Pads",
+                "imageUrl": "https://imgs.search.brave.com/5wNgD_TjLFGTG-xyIRpWr7Z_lDVp0CygmqPDmfoYAU8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzIwNDI1MjUzL2Mv/MjI1Mi8yMjUyLzM3/NC8wL2lsL2U4OWU5/NC8zNjkwNzkzNzU2/L2lsXzYwMHg2MDAu/MzY5MDc5Mzc1Nl82/bG8wLmpwZw",
+                "description": "Perfect gift for Mother's Day",
+                "_createdOn": 1701478738850,
+                "_id": "ba162633-c25a-4716-9faa-dd156e81d332"
+            },
         },
         customTextOnWood: {
-            // "item9": {
-            //     "_id": "item9",
-            //     "collectionName": "Custom Text On Wood",
-            //     "name": "Mug pad",
-            //     "price": 5,
-            //     "imageUrl": "images/categories/customTextOnWood/custom_mug_pad.jpg",
-            //     "description": "",
-            //     "purchasesAmount": 32,
-            //     "likesAmount": 0
-            // },
-            // "item10": {
-            //     "_id": "item10",
-            //     "collectionName": "Custom Text On Wood",
-            //     "name": "Wooden spoons",
-            //     "price": 7,
-            //     "imageUrl": "images/categories/customTextOnWood/wooden_spoons.jpg",
-            //     "description": "",
-            //     "purchasesAmount": 4,
-            //     "likesAmount": 0
-            // }
+            "4d56ea2b-7f0c-4498-b1cc-79ae173041fa": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "collectionName": "Custom Text On Wood",
+                "name": "Customized Wood Makeup Hand Bottle Opener",
+                "imageUrl": "https://i.etsystatic.com/43953757/r/il/9baa43/5246555906/il_600x600.5246555906_vwxi.jpg",
+                "description": "Perfect gift for your partner",
+                "_createdOn": 1701478726417,
+                "_id": "4d56ea2b-7f0c-4498-b1cc-79ae173041fa"
+            },
+            "94c8bf45-609c-49ae-99a3-c936f54ccef1": {
+                "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+                "collectionName": "Custom Text On Wood",
+                "name": "Customized family heart of magnets",
+                "imageUrl": "https://i.etsystatic.com/12427515/r/il/28169b/1757790086/il_600x600.1757790086_8i0p.jpg",
+                "description": "Unique gift for your family",
+                "_createdOn": 1701478762212,
+                "_id": "94c8bf45-609c-49ae-99a3-c936f54ccef1"
+            },
         },
         likes: {
-            
+
         }
     };
     var rules$1 = {
-    	users: {
-    		".create": false,
-    		".read": [
-    			"Owner"
-    		],
-    		".update": false,
-    		".delete": false
-    	},
-    	members: {
-    		".update": "isOwner(user, get('teams', data.teamId))",
-    		".delete": "isOwner(user, get('teams', data.teamId)) || isOwner(user, data)",
-    		"*": {
-    			teamId: {
-    				".update": "newData.teamId = data.teamId"
-    			},
-    			status: {
-    				".create": "newData.status = 'pending'"
-    			}
-    		}
-    	}
+        users: {
+            ".create": false,
+            ".read": [
+                "Owner"
+            ],
+            ".update": false,
+            ".delete": false
+        },
+        members: {
+            ".update": "isOwner(user, get('teams', data.teamId))",
+            ".delete": "isOwner(user, get('teams', data.teamId)) || isOwner(user, data)",
+            "*": {
+                teamId: {
+                    ".update": "newData.teamId = data.teamId"
+                },
+                status: {
+                    ".create": "newData.status = 'pending'"
+                }
+            }
+        }
     };
     var settings = {
-    	identity: identity,
-    	protectedData: protectedData,
-    	seedData: seedData,
-    	rules: rules$1
+        identity: identity,
+        protectedData: protectedData,
+        seedData: seedData,
+        rules: rules$1
     };
 
     const plugins = [
