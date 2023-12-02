@@ -8,7 +8,6 @@ import * as itemsService from '../../../services/itemsService';
 const EditFormKeys = {
     CollectionName: 'collectionName',
     Name: 'name',
-    Price: 'price',
     ImageUrl: 'imageUrl',
     Description: 'description',
 }
@@ -20,7 +19,6 @@ export default function EditPage() {
     const [item, setItem] = useState({
         [EditFormKeys.CollectionName]: '',
         [EditFormKeys.Name]: '',
-        [EditFormKeys.Price]: '',
         [EditFormKeys.ImageUrl]: '',
         [EditFormKeys.Description]: '',
     });
@@ -72,13 +70,6 @@ export default function EditPage() {
                         name="name"
                         placeholder="Name"
                         value={item[EditFormKeys.Name]}
-                        onChange={onChange}
-                    />
-                    <input
-                        type="number"
-                        name="price"
-                        placeholder="Price"
-                        value={item[EditFormKeys.Price]}
                         onChange={onChange}
                     />
                     <input

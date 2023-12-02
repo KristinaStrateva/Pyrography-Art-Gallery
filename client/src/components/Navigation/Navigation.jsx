@@ -5,6 +5,7 @@ import AuthContext from '../../contexts/authContext';
 
 import styles from './Navigation.module.css';
 import mainStyle from '../../App.module.css';
+import Path from '../../utils/paths';
 
 export default function Navigation() {
     const { username, isAuthenticated } = useContext(AuthContext);
@@ -15,10 +16,10 @@ export default function Navigation() {
                 <div className={styles["home-navbar1"]}>
                     <div className={styles["home-middle"]}>
                         <ul className={styles["home-left"]}>
-                            <li className={styles["navbar-link"]}><Link to="/homeDecorations">HOME DECORATIONS</Link></li>
+                            <li className={styles["navbar-link"]}><Link to={Path.HomeDecorationsPage}>HOME DECORATIONS</Link></li>
 
-                            <li className={styles["navbar-link"]}><Link to="/giftSets">GIFT SETS</Link></li>
-                            <li className={styles["navbar-link"]}><Link to="/customTextOnWood">CUSTOM TEXT ON WOOD</Link></li>
+                            <li className={styles["navbar-link"]}><Link to={Path.GiftSetsPage}>GIFT SETS</Link></li>
+                            <li className={styles["navbar-link"]}><Link to={Path.CustomTextOnWoodPage}>CUSTOM TEXT ON WOOD</Link></li>
                         </ul>
                         <div className={`${styles["navbar-logo-title"]} ${styles["navbar-link"]}`}>
                             <Link to="/"><img src="images/2.png" alt="logo" /></Link>
@@ -26,16 +27,16 @@ export default function Navigation() {
 
                         {isAuthenticated && (
                             <ul className={styles["home-right"]}>
-                                <li className={styles["navbar-link"]}><Link to="#">Hello, {username}</Link></li>
-                                <li className={styles["navbar-link"]}><Link to="/add-item">ADD ITEM</Link></li>
-                                <li className={styles["navbar-link"]}><Link to="/logout">LOGOUT</Link></li>
+                                <li className={styles["navbar-link"]}><Link to={Path.MyItems}>Hello, {username}</Link></li>
+                                <li className={styles["navbar-link"]}><Link to={Path.AddItemPage}>ADD ITEM</Link></li>
+                                <li className={styles["navbar-link"]}><Link to={Path.Logout}>LOGOUT</Link></li>
                             </ul>
                         )}
 
                         {!isAuthenticated && (
                             <ul className={styles["home-right"]}>
-                                <li className={styles["navbar-link"]}><Link to="/login">LOGIN</Link></li>
-                                <li className={styles["navbar-link"]}><Link to="/register">REGISTER</Link></li>
+                                <li className={styles["navbar-link"]}><Link to={Path.LoginPage}>LOGIN</Link></li>
+                                <li className={styles["navbar-link"]}><Link to={Path.RegisterPage}>REGISTER</Link></li>
                             </ul>
                         )}
 

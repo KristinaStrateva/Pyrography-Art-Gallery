@@ -61,7 +61,6 @@ export default function DetailsPage() {
                 <div className={styles["info-wrapper"]}>
                     <div>
                         <p className={styles["details-title"]}>Name: {item.name}</p>
-                        <p>Price: <span className={styles["details-price"]}>€{item.price}</span></p>
                         <p>Description: <span className={styles["details-description"]}>{item.description}</span></p>
                     </div>
                     <div className={styles["action-buttons"]}>

@@ -11,7 +11,6 @@ import mainStyle from '../../App.module.css';
 const AddItemFormKeys = {
     CollectionName: 'collectionName',
     Name: 'name',
-    Price: 'price',
     ImageUrl: 'imageUrl',
     Description: 'description',
 }
@@ -37,7 +36,6 @@ export default function AddItemPage() {
     const { values, onChange, onSubmit } = useForm({
         [AddItemFormKeys.CollectionName]: 'Home Decorations',
         [AddItemFormKeys.Name]: '',
-        [AddItemFormKeys.Price]: '',
         [AddItemFormKeys.ImageUrl]: '',
         [AddItemFormKeys.Description]: '',
     }, addItemSubmitHandler);
@@ -47,34 +45,27 @@ export default function AddItemPage() {
             <div className={styles.form}>
                 <h2>Add item</h2>
                 <form className={styles["create-form"]} onSubmit={onSubmit}>
-                    <select name="collectionName" value={values[AddItemFormKeys.CollectionName]} onChange={onChange}>
+                    <select name={AddItemFormKeys.CollectionName} value={values[AddItemFormKeys.CollectionName]} onChange={onChange}>
                         <option value="Home Decorations">Home Decorations</option>
                         <option value="Gift Sets">Gift Sets</option>
                         <option value="Custom Text On Wood">Custom Text On Wood</option>
                     </select>
                     <input
                         type="text"
-                        name="name"
+                        name={AddItemFormKeys.Name}
                         placeholder="Name"
                         value={values[AddItemFormKeys.Name]}
                         onChange={onChange}
                     />
                     <input
-                        type="number"
-                        name="price"
-                        placeholder="Price"
-                        value={values[AddItemFormKeys.Price]}
-                        onChange={onChange}
-                    />
-                    <input
                         type="text"
-                        name="imageUrl"
+                        name={AddItemFormKeys.ImageUrl}
                         placeholder="Image url starting with http:// or https://"
                         value={values[AddItemFormKeys.ImageUrl]}
                         onChange={onChange}
                     />
                     <textarea
-                        name="description"
+                        name={AddItemFormKeys.Description}
                         placeholder="Description..."
                         value={values[AddItemFormKeys.Description]}
                         onChange={onChange}
