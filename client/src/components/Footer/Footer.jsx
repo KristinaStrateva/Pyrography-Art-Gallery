@@ -1,9 +1,14 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Footer.module.css';
-import mainStyle from '../../App.module.css';
+
+import AuthContext from '../../contexts/authContext';
 import Path from '../../utils/paths';
 
+import styles from './Footer.module.css';
+import mainStyle from '../../App.module.css';
+
 export default function Footer() {
+    const { isAuthenticated } = useContext(AuthContext);
     return (
         <div className={styles["home-footer"]}>
             <div className={mainStyle["max-width-container"]}>
@@ -23,10 +28,12 @@ export default function Footer() {
                             <span className={styles["home-text45"]}>Company</span>
                             <Link to="/about" className={styles["home-text49"]}>About</Link>
                         </div>
-                        <div className={styles["home-container12"]}>
-                            <span className={styles["home-text51"]}>Resources</span>
-                            <Link to={Path.MyItems} className={styles["home-text53"]}>My Items</Link>
-                        </div>
+                        {isAuthenticated && (
+                            <div className={styles["home-container12"]}>
+                                <span className={styles["home-text51"]}>Resources</span>
+                                <Link to={Path.MyItems} className={styles["home-text53"]}>My Items</Link>
+                            </div>
+                        )}
                     </div>
                 </footer>
             </div>
