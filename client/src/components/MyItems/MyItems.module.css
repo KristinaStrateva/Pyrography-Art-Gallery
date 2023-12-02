@@ -1,9 +1,10 @@
 .wrapper {
     display: flex;
     justify-content: space-evenly;
-    gap: 2em;
+    gap: 5em;
     max-width: 1360px;
     margin-block: 5em;
+    flex-wrap: wrap;
 }
 
 .category-card-category-card {
