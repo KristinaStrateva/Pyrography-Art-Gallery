@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
 import mainStyle from '../../App.module.css';
+import Path from '../../utils/paths';
 
 export default function Footer() {
     return (
@@ -24,7 +25,7 @@ export default function Footer() {
                         </div>
                         <div className={styles["home-container12"]}>
                             <span className={styles["home-text51"]}>Resources</span>
-                            <Link to="#" className={styles["home-text53"]}>My Items</Link>
+                            <Link to={Path.MyItems} className={styles["home-text53"]}>My Items</Link>
                         </div>
                     </div>
                 </footer>

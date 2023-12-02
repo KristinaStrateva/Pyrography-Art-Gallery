@@ -24,28 +24,20 @@ export const getItemById = async (collectionName, itemId) => {
     return result;
 };
 
-export const addItem = async (collectionName, itemData) => {
-    const data = {
-        ...itemData,
-        price: Number(itemData.price),
-        'purchasesAmount': 0,
-        'likesAmount': 0,
-    };
+export const getMyItems = async (userId) => {
+    const result = (await getAllItems()).filter(item => item._ownerId === userId);
 
-    const result = await request.post(`${baseUrl}/${collectionName}`, data);
+    return result;
+}
+
+export const addItem = async (collectionName, itemData) => {
+    const result = await request.post(`${baseUrl}/${collectionName}`, itemData);
 
     return result;
 }
 
 export const updateItem = async (collectionName, itemId, itemData) => {
-    const data = {
-        ...itemData,
-        price: Number(itemData.price),
-        'purchasesAmount': 0,
-        'likesAmount': 0,
-    };
-
-    const result = await request.put(`${baseUrl}/${collectionName}/${itemId}`, data);
+    const result = await request.put(`${baseUrl}/${collectionName}/${itemId}`, itemData);
 
     return result;
 }

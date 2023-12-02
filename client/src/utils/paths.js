@@ -10,6 +10,7 @@ const Path = {
     DetailsPage: '/:collectionName/:itemId/details',
     EditPage: '/:collectionName/:itemId/edit-item',
     AddItemPage: '/add-item',
+    MyItems: '/my-items',
 };
 
 export default Path;

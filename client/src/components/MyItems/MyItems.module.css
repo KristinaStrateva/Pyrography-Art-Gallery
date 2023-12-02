@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2em;
+    max-width: 1360px;
+    margin-block: 5em;
+}
+
+.category-card-category-card {
+    flex: 0 0 auto;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+    transition: 0.3s;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0.7em 0.5em 1em #ccc;
+    background-color: #fefafa;
+    border: 1px solid #e5e5e5ff;
+}
+
+.category-card-image {
+    max-width: 350px;
+    max-height: 250px;
+    object-fit: cover;
+    margin-bottom: 16px;
+    object-position: bottom;
+}

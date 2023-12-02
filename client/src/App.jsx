@@ -18,6 +18,7 @@ import AddItemPage from './components/AddItemPage/AddItemPage';
 
 import styles from './App.module.css';
 import AuthGuard from './components/Guards/AuthGuard';
+import MyItems from './components/MyItems/MyItems';
 
 export default function App() {
 
@@ -41,6 +42,7 @@ export default function App() {
                             <Route path={Path.Logout} element={<Logout />} />
                             <Route path={Path.EditPage} element={<EditPage />} />
                             <Route path={Path.AddItemPage} element={<AddItemPage />} />
+                            <Route path={Path.MyItems} element={<MyItems />} />
                         </Route>
                     </Routes>
 
