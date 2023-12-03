@@ -6,6 +6,8 @@ export default class ErrorBoundary extends Component {
 
         this.state = {
             hasError: false,
+            error: null,
+            errorInfo: null,
         }
     }
 
@@ -14,14 +16,43 @@ export default class ErrorBoundary extends Component {
 
         return {
             hasError: true,
+            error: err,
         }
     }
 
-    render() {
-        if (this.state.hasError) {
-            return <h1>404</h1>
+    componentDidCatch(err, errInfo) {
+        this.setState({
+            hasError: true,
+            error: err,
+            errorInfo: errInfo,
+        });
+
+        if (this.props.onError) {
+            this.props.onError(err);
         }
-        
+    }
+
+    componentDidMount() {
+        window.addEventListener('unhandledrejection', this.handlePromiseError);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('unhandledrejection', this.handlePromiseError);
+    }
+
+    handlePromiseError = (event) => {
+        const err = event.reason;
+        this.setState({
+            hasError: true,
+            error: err,
+        });
+
+        if (this.props.onError) {
+            this.props.onError(err);
+        }
+    };
+
+    render() {
         return this.props.children;
     }
 }

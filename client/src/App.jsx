@@ -19,36 +19,58 @@ import AddItemPage from './components/AddItemPage/AddItemPage';
 import styles from './App.module.css';
 import AuthGuard from './components/Guards/AuthGuard';
 import MyItems from './components/MyItems/MyItems';
+import { useEffect, useState } from 'react';
 
 export default function App() {
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        if (error) {
+            setTimeout(() => {
+                setError(null);
+            }, 3000);
+        }
+    }, [error]);
+
+    const handleOnError = (err) => {
+        setError(err);
+    };
 
     return (
-        <ErrorBoundary>
-            <AuthProvider>
-                <div className={styles["home-container"]}>
-                    <Navigation />
+        <>
+            <ErrorBoundary onError={handleOnError}>
+                <AuthProvider>
 
-                    <Routes>
-                        <Route path={Path.HomePage} element={<HomePage />} />
-                        <Route path={Path.LoginPage} element={<LoginPage />} />
-                        <Route path={Path.RegisterPage} element={<RegisterPage />} />
-                        <Route path={Path.AboutPage} element={<About />} />
-                        <Route path={Path.HomeDecorationsPage} element={<CollectionPage />} />
-                        <Route path={Path.GiftSetsPage} element={<CollectionPage />} />
-                        <Route path={Path.CustomTextOnWoodPage} element={<CollectionPage />} />
-                        <Route path={Path.DetailsPage} element={<DetailsPage />} />
+                    <div className={styles["home-container"]}>
+                        <Navigation />
 
-                        <Route element={<AuthGuard />}>
-                            <Route path={Path.Logout} element={<Logout />} />
-                            <Route path={Path.EditPage} element={<EditPage />} />
-                            <Route path={Path.AddItemPage} element={<AddItemPage />} />
-                            <Route path={Path.MyItems} element={<MyItems />} />
-                        </Route>
-                    </Routes>
+                        <Routes>
+                            <Route path={Path.HomePage} element={<HomePage />} />
+                            <Route path={Path.LoginPage} element={<LoginPage />} />
+                            <Route path={Path.RegisterPage} element={<RegisterPage />} />
+                            <Route path={Path.AboutPage} element={<About />} />
+                            <Route path={Path.HomeDecorationsPage} element={<CollectionPage />} />
+                            <Route path={Path.GiftSetsPage} element={<CollectionPage />} />
+                            <Route path={Path.CustomItemsPage} element={<CollectionPage />} />
+                            <Route path={Path.DetailsPage} element={<DetailsPage />} />
 
-                    <Footer />
+                            <Route element={<AuthGuard />}>
+                                <Route path={Path.Logout} element={<Logout />} />
+                                <Route path={Path.EditPage} element={<EditPage />} />
+                                <Route path={Path.AddItemPage} element={<AddItemPage />} />
+                                <Route path={Path.MyItems} element={<MyItems />} />
+                            </Route>
+                        </Routes>
+
+                        <Footer />
+                    </div>
+                </AuthProvider>
+            </ErrorBoundary>
+            {error && (
+                <div className={styles["error-container"]}>
+                    <p>{error.message}</p>
                 </div>
-            </AuthProvider>
-        </ErrorBoundary>
+            )}
+        </>
     )
 };
