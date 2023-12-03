@@ -15,7 +15,7 @@ const EditFormKeys = {
 export default function EditPage() {
     const navigate = useNavigate();
     const { collectionName, itemId } = useParams();
-    const [currentCollectionName, setCurrentCollectionName] = useState(collectionName);
+    const [currentCollectionName, setCurrentCollectionName] = useState('');
     const [item, setItem] = useState({
         [EditFormKeys.CollectionName]: '',
         [EditFormKeys.Name]: '',
@@ -63,7 +63,7 @@ export default function EditPage() {
                     <select name="collectionName" value={currentCollectionName} onChange={onChange}>
                         <option value="homeDecorations">Home Decorations</option>
                         <option value="giftSets">Gift Sets</option>
-                        <option value="customTextOnWood">Custom Text On Wood</option>
+                        <option value="customTextOnWood">Custom Items</option>
                     </select>
                     <input
                         type="text"

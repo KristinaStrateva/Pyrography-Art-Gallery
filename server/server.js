@@ -1340,7 +1340,7 @@
         }
     };
     var seedData = {
-        homeDecorations: {
+        "home-decorations": {
             "950f155b-36b7-4e4e-9f08-4270b1596de8": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "collectionName": "Home Decorations",
@@ -1350,17 +1350,17 @@
                 "_createdOn": 1701477713582,
                 "_id": "950f155b-36b7-4e4e-9f08-4270b1596de8"
             },
-            "ba162633-c25a-4716-9faa-dd156e81d332": {
+            "ba162633-c25a-4716-9faa-dd156e81d333": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "collectionName": "Home Decorations",
                 "name": "Mushroom Cabin Magnet",
                 "imageUrl": "https://i.etsystatic.com/5393016/r/il/3c7a9b/5392014576/il_600x600.5392014576_a16h.jpg",
                 "description": "Cute wooden magnet",
                 "_createdOn": 1701478362291,
-                "_id": "ba162633-c25a-4716-9faa-dd156e81d332"
+                "_id": "ba162633-c25a-4716-9faa-dd156e81d333"
             },
         },
-        giftSets: {
+        "gift-sets": {
             "9e050a8c-b385-47b0-a6f9-dc6c79727120": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
                 "collectionName": "Gift Sets",
@@ -1380,10 +1380,10 @@
                 "_id": "ba162633-c25a-4716-9faa-dd156e81d332"
             },
         },
-        customTextOnWood: {
+        "custom-items": {
             "4d56ea2b-7f0c-4498-b1cc-79ae173041fa": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "collectionName": "Custom Text On Wood",
+                "collectionName": "Custom Items",
                 "name": "Customized Wood Makeup Hand Bottle Opener",
                 "imageUrl": "https://i.etsystatic.com/43953757/r/il/9baa43/5246555906/il_600x600.5246555906_vwxi.jpg",
                 "description": "Perfect gift for your partner",
@@ -1392,7 +1392,7 @@
             },
             "94c8bf45-609c-49ae-99a3-c936f54ccef1": {
                 "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
-                "collectionName": "Custom Text On Wood",
+                "collectionName": "Custom Items",
                 "name": "Customized family heart of magnets",
                 "imageUrl": "https://i.etsystatic.com/12427515/r/il/28169b/1757790086/il_600x600.1757790086_8i0p.jpg",
                 "description": "Unique gift for your family",

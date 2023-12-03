@@ -3,9 +3,9 @@ import * as request from '../lib/request';
 const baseUrl = 'http://localhost:3030/data';
 
 export const getAllItems = async () => {
-    const homeDecorations = await request.get(`${baseUrl}/homeDecorations`);
-    const giftSets = await request.get(`${baseUrl}/giftSets`);
-    const customTextOnWood = await request.get(`${baseUrl}/customTextOnWood`);
+    const homeDecorations = await request.get(`${baseUrl}/home-decorations`);
+    const giftSets = await request.get(`${baseUrl}/gift-sets`);
+    const customTextOnWood = await request.get(`${baseUrl}/custom-items`);
 
     const allItems = [...homeDecorations, ...giftSets, ...customTextOnWood];
 

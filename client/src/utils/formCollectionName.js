@@ -1,8 +1,5 @@
 export default function formCollectionName(collection) {
-    const collectionNameWordsArr = collection.split(' ');
-    collectionNameWordsArr[0] = collectionNameWordsArr[0].toLowerCase();
-
-    const collectionName = collectionNameWordsArr.join('');
+    let collectionName = collection.toLowerCase().replace(' ', '-');
 
     return collectionName;
 }
