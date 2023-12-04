@@ -70,8 +70,10 @@ export default function App() {
                 </AuthProvider>
             </ErrorBoundary >
             {error && (
-                <div className={styles["error-container"]}>
-                    <p>{error.message}</p>
+                <div>
+                    <div className={styles["error-container"]}>
+                        <p>{error.message}</p>
+                    </div>
                 </div>
             )
             }
