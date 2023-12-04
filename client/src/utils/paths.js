@@ -11,6 +11,7 @@ const Path = {
     EditPage: '/:collectionName/:itemId/edit-item',
     AddItemPage: '/add-item',
     MyItems: '/my-items',
+    NotFound: '/404',
 };
 
 export default Path;
