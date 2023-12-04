@@ -28,9 +28,6 @@ export const OwnerGuardProvider = ({
         }
     }, [userId, collectionName, itemId]);
 
-
-    console.log(isOwner)
-
     if (!isOwner) {
         return <Navigate to={Path.NotFound} />;
     }
