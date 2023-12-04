@@ -24,9 +24,6 @@ export default function MyItems() {
             {myItems.length > 0 && myItems.map(item => {
                 const collectionName = formCollectionName(item.collectionName);
 
-                console.log(collectionName)
-                console.log(item.collectionName);
-
                 return (
                     <div key={item._id} className={styles["category-card-category-card"]}>
                         <img alt="image" src={item.imageUrl} className={styles["category-card-image"]} />
