@@ -61,9 +61,9 @@ export default function EditPage() {
                 <h2>Edit item</h2>
                 <form className={styles["edit-form"]} onSubmit={updateItemSubmitHandler}>
                     <select name="collectionName" value={currentCollectionName} onChange={onChange}>
-                        <option value="homeDecorations">Home Decorations</option>
-                        <option value="giftSets">Gift Sets</option>
-                        <option value="customTextOnWood">Custom Items</option>
+                        <option value="home-decorations">Home Decorations</option>
+                        <option value="gift-sets">Gift Sets</option>
+                        <option value="custom-items">Custom Items</option>
                     </select>
                     <input
                         type="text"

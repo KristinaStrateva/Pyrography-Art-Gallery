@@ -48,7 +48,7 @@ export default function AddItemPage() {
                     <select name={AddItemFormKeys.CollectionName} value={values[AddItemFormKeys.CollectionName]} onChange={onChange}>
                         <option value="Home Decorations">Home Decorations</option>
                         <option value="Gift Sets">Gift Sets</option>
-                        <option value="Custom Text On Wood">Custom Items</option>
+                        <option value="Custom Items">Custom Items</option>
                     </select>
                     <input
                         type="text"
