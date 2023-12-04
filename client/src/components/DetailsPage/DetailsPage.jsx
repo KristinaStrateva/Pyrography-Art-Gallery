@@ -64,7 +64,7 @@ export default function DetailsPage() {
                         <p>Description: <span className={styles["details-description"]}>{item.description}</span></p>
                     </div>
                     <div className={styles["action-buttons"]}>
-                        {isAuthenticated && isOwner &&
+                        {isAuthenticated && isOwner && (
                             <>
                                 <Link to={`/${collectionName}/${itemId}/edit-item`} className={mainStyle.button}>Edit</Link>
                                 <DeleteModal
@@ -75,7 +75,7 @@ export default function DetailsPage() {
                                 />
                                 <button className={mainStyle.button} onClick={handleShow}>Delete</button>
                             </>
-                        }
+                        )}
                         {!like && isAuthenticated && !isOwner && <button className={mainStyle.button} onClick={likeHandle}>Like</button>}
                     </div>
                 </div>
