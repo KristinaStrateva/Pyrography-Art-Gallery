@@ -18,7 +18,9 @@ export const OwnerGuardProvider = ({
     useEffect(() => {
         if (userId) {
             itemsService.getItemById(collectionName, itemId)
-                .then(result => setIsOwner(result._ownerId === userId))
+                .then(result => {
+                    setIsOwner(result._ownerId === userId)
+                })
                 .catch(err => {
                     console.log(err)
                     setIsOwner(false);
@@ -28,15 +30,13 @@ export const OwnerGuardProvider = ({
         }
     }, [userId, collectionName, itemId]);
 
-    if (!isOwner) {
-        return <Navigate to={Path.NotFound} />;
-    }
-
-    return (
-        <OwnerContext.Provider value={isOwner}>
-            {children}
-        </OwnerContext.Provider>
-    );
+    return isOwner
+        ? (
+            <OwnerContext.Provider value={isOwner}>
+                {children}
+            </OwnerContext.Provider>
+        )
+        : <Navigate to={Path.NotFound} />;
 };
 
 export default OwnerContext;
