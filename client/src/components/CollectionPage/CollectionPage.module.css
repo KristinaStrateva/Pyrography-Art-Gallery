@@ -15,7 +15,10 @@
     align-items: center;
     flex-direction: row;
     justify-content: center;
-    background-color: #d99595;
+}
+
+.home-container08 h3 {
+    color: #00000099;
 }
 
 .blog-post-card-blog-post-card {

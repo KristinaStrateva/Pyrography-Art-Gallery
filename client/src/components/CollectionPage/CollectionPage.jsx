@@ -41,6 +41,8 @@ export default function CollectionPage() {
     const captions = Array.from(document.querySelectorAll('.carousel-caption'));
     const controlPrev = document.querySelector('.carousel-control-prev');
     const controlNext = document.querySelector('.carousel-control-next');
+    const prevArrow = document.querySelector('.carousel-control-prev-icon');
+    const nextArrow = document.querySelector('.carousel-control-next-icon');
 
     captions.forEach(caption => {
         caption.style.position = 'initial';
@@ -53,9 +55,11 @@ export default function CollectionPage() {
     if (controlPrev && controlNext) {
         controlPrev.style.top = '-5em';
         controlPrev.style.left = '-5em';
+        prevArrow.style.backgroundColor = '#d99595';
 
         controlNext.style.top = '-5em';
         controlNext.style.right = '-5em';
+        nextArrow.style.backgroundColor = '#d99595';
     }
 
     return (

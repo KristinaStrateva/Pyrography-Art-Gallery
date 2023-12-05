@@ -3,7 +3,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: #d99595;
 }
 
 .max-width-container {

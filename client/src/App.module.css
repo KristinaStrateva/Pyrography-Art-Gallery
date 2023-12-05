@@ -6,7 +6,9 @@ body {
     letter-spacing: 0.02;
     line-height: 1.55;
     color: #000000;
-    background-color: #ffffff;
+    /* background-image: url(images/240_F_86904934_koKCfeNGJBRjelMnbBZVgCZ8q7t2JYzu.jpg); */
+    background-image: url(https://t4.ftcdn.net/jpg/00/86/90/49/240_F_86904934_koKCfeNGJBRjelMnbBZVgCZ8q7t2JYzu.jpg);
+    background-size: cover;
     margin: 0;
 }
 
