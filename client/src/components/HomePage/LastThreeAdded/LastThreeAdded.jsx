@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
-import formCollectionName from '../../utils/formCollectionName';
+import formCollectionName from '../../../utils/formCollectionName';
 
 import styles from './LastThreeAdded.module.css';
-import mainStyle from '../../App.module.css';
+import mainStyle from '../../../App.module.css';
 
 export default function LastThreeAdded({
     lastItems,

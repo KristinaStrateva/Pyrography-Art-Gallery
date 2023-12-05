@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 
 import * as itemsService from '../../services/itemsService';
 
-import LastThreeAdded from "./LastThreeAdded";
-import HomeBanner from "./HomeBanner";
+import LastThreeAdded from "./LastThreeAdded/LastThreeAdded";
+import HomeBanner from "./HomeBanner/HomeBanner";
 
 import mainStyle from '../../App.module.css';
 
@@ -15,7 +15,7 @@ export default function HomePage() {
             .then(items => {
                 const sortedLastThreeItems = items.sort((a, b) => b._createdOn - a._createdOn).slice(0, 3);
 
-                setLastItems(sortedLastThreeItems);
+                setLastItems(state => state = [...sortedLastThreeItems]);
             })
             .catch(err => console.log(err));
     }, []);
