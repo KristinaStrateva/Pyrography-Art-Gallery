@@ -12,6 +12,7 @@ const Path = {
     AddItemPage: '/add-item',
     MyItems: '/my-items',
     NotFound: '/404',
+    AnyOther: '/*',
 };
 
 export default Path;

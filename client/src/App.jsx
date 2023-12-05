@@ -63,6 +63,7 @@ export default function App() {
                             </Route>
 
                             <Route path={Path.NotFound} element={<NotFoundPage />} />
+                            <Route path={Path.AnyOther} element={<NotFoundPage />} />
                         </Routes>
 
                         <Footer />
