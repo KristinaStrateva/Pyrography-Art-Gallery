@@ -15,27 +15,58 @@ export const AuthProvider = ({
     const [auth, setAuth] = usePersistedState('auth', {});
 
     const loginSubmitHandler = async (values) => {
-        const result = await authService.login(values.email, values.password);
+        try {
+            if (values.email === '') {
+                throw new Error('Email is required!');
+            }
 
-        setAuth(result);
+            if (values.password === '') {
+                throw new Error('Password is required!');
+            }
 
-        localStorage.setItem('accessToken', result.accessToken);
+            const result = await authService.login(values.email, values.password);
+    
+            setAuth(result);
+    
+            localStorage.setItem('accessToken', result.accessToken);
+    
+            navigate(Path.HomePage);
 
-        navigate(Path.HomePage);
+        } catch (error) {
+            throw error;
+        }
     };
 
     const registerSubmitHandler = async (values) => {
-        const result = await authService.register(values.username, values.email, values.password, values.repeatPass);
+        
+        try {
+            if (values.username === '') {
+                throw new Error('Username is required!');
+            }
 
-        if (values.password !== values.repeatPass) {
-            throw new Error('Passwords don\'t match!');
+            if (values.email === '') {
+                throw new Error('Email is required!');
+            }
+
+            if (values.password === '') {
+                throw new Error('Password is required!');
+            }
+
+            if (values.password !== values.repeatPass) {
+                throw new Error('Passwords don\'t match!');
+            }
+            
+            const result = await authService.register(values.username, values.email, values.password);
+            
+            setAuth(result);
+    
+            localStorage.setItem('accessToken', result.accessToken);
+    
+            navigate(Path.HomePage);
+
+        } catch (error) {
+            throw error;
         }
-
-        setAuth(result);
-
-        localStorage.setItem('accessToken', result.accessToken);
-
-        navigate(Path.HomePage);
     };
 
     const logoutHandler = () => {
