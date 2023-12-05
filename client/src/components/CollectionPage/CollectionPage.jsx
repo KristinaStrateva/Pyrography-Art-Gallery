@@ -1,13 +1,15 @@
+import { useEffect, useState } from 'react';
+import { useLocation, Link } from 'react-router-dom';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
 import CarouselItem from 'react-bootstrap/CarouselItem';
 import CarouselCaption from 'react-bootstrap/CarouselCaption';
 
-import { useLocation, Link } from 'react-router-dom';
 import * as itemsService from '../../services/itemsService';
+
 import styles from './CollectionPage.module.css';
 import mainStyle from '../../App.module.css';
-import { useEffect, useState } from 'react';
 
 export default function CollectionPage() {
     const [collection, setCollection] = useState([]);

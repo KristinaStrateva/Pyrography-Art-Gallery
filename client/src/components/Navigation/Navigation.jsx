@@ -2,9 +2,9 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import AuthContext from '../../contexts/authContext';
+import Path from '../../utils/paths';
 
 import styles from './Navigation.module.css';
-import Path from '../../utils/paths';
 
 export default function Navigation() {
     const { username, isAuthenticated } = useContext(AuthContext);

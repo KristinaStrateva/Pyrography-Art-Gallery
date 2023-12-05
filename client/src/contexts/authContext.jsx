@@ -2,8 +2,8 @@ import { createContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import * as authService from '../services/authService';
-import Path from "../utils/paths";
 import usePersistedState from "../hooks/usePersistedState";
+import Path from "../utils/paths";
 
 const AuthContext = createContext();
 AuthContext.displayName = 'AuthContext';

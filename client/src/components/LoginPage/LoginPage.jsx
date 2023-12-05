@@ -46,7 +46,7 @@ export default function LoginPage() {
                     </form>
                 </div>
             </section>
-            
+
             {isAuthenticated && <Navigate to={Path.NotFound} />}
         </>
     );

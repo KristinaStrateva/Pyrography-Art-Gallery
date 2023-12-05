@@ -4,6 +4,7 @@ import * as itemsService from '../../services/itemsService';
 
 import LastThreeAdded from "./LastThreeAdded";
 import HomeBanner from "./HomeBanner";
+
 import mainStyle from '../../App.module.css';
 
 export default function HomePage() {
@@ -26,6 +27,7 @@ export default function HomePage() {
             {lastItems.length > 0 && <LastThreeAdded lastItems={lastItems} />}
 
             {!lastItems.length && <p className={mainStyle["home-paragraph"]}>There are no items yet, but you can add the first one!</p>}
+
             <HomeBanner />
 
         </div>
