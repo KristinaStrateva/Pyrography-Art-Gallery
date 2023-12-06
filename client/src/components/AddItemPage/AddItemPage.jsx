@@ -22,14 +22,24 @@ export default function AddItemPage() {
         const collectionName = formCollectionName(values.collectionName);
 
         try {
+            if (values.name === '') {
+                throw new Error('Name is required!');
+            }
+
+            if (values.imageUrl === '') {
+                throw new Error('Image URL is required!');
+            }
+
+            if (values.description === '') {
+                throw new Error('Description is required!');
+            }
+
             await itemsService.addItem(collectionName, values);
 
             navigate(`/${collectionName}`);
 
         } catch (error) {
-            //Error notification
-
-            console.log(error);
+            throw error;
         }
     };
 
