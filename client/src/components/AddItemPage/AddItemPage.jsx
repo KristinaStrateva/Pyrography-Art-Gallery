@@ -7,6 +7,7 @@ import * as itemsService from '../../services/itemsService';
 
 import styles from './AddItemPage.module.css';
 import mainStyle from '../../App.module.css';
+import validateFormValues from '../../utils/validateFormValues';
 
 const AddItemFormKeys = {
     CollectionName: 'collectionName',
@@ -22,17 +23,8 @@ export default function AddItemPage() {
         const collectionName = formCollectionName(values.collectionName);
 
         try {
-            if (values.name === '') {
-                throw new Error('Name is required!');
-            }
 
-            if (values.imageUrl === '') {
-                throw new Error('Image URL is required!');
-            }
-
-            if (values.description === '') {
-                throw new Error('Description is required!');
-            }
+            validateFormValues(values);
 
             await itemsService.addItem(collectionName, values);
 

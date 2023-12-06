@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import * as itemsService from '../../../services/itemsService';
-import { OwnerGuardProvider } from '../../../contexts/ownerContext';
+// import { OwnerGuardProvider } from '../../../contexts/ownerContext';
 
 import styles from './EditPage.module.css';
 import mainStyle from '../../../App.module.css';
+import AuthContext from '../../../contexts/authContext';
+import validateFormValues from '../../../utils/validateFormValues';
 
 const EditFormKeys = {
     CollectionName: 'collectionName',
@@ -25,15 +27,23 @@ export default function EditPage() {
         [EditFormKeys.Description]: '',
     });
 
+    // const {userId} = useContext(AuthContext);
+
+    // const [isOwner, setIsOwner] = useState('');
+
     useEffect(() => {
         itemsService.getItemById(collectionName, itemId)
             .then(itemData => {
-                setItem(itemData);
+                setItem(state => state = {...itemData});
 
                 setCurrentCollectionName(collectionName);
             })
             .catch(err => console.log(err));
     }, [collectionName, itemId]);
+
+    // useEffect(() => {
+    //     setIsOwner(state => state = item._ownerId === userId);
+    // }, [item]);
 
     const updateItemSubmitHandler = async (event) => {
         event.preventDefault();
@@ -41,12 +51,14 @@ export default function EditPage() {
         const values = Object.fromEntries(new FormData(event.currentTarget));
 
         try {
+            validateFormValues(values);
+
             await itemsService.updateItem(collectionName, itemId, values);
 
             navigate(`/${collectionName}/${itemId}/details`);
 
         } catch (error) {
-            console.log(error);
+            throw error;
         }
     };
 
@@ -58,7 +70,7 @@ export default function EditPage() {
     }
 
     return (
-        <OwnerGuardProvider collectionName={collectionName} itemId={itemId}>
+        // <OwnerGuardProvider collectionName={collectionName} isOwner={isOwner}>
             <section className={styles.edit}>
                 <div className={styles.form}>
                     <h2>Edit item</h2>
@@ -93,6 +105,6 @@ export default function EditPage() {
                     </form>
                 </div>
             </section>
-        </OwnerGuardProvider>
+        // </OwnerGuardProvider>
     );
 }
