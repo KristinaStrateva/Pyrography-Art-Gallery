@@ -8,7 +8,7 @@ export default function validateFormValues(values) {
         username === '' && (() => { throw new Error('Username is required!') })();
         username.length < 8 && (() => { throw new Error('Username must be at least 8 characters!') })();
         username.length > 15 && (() => { throw new Error('Username must be less than 15 characters!') })();
-        !/^[a-zA-Z0-9_\-]+$/.test(username) && (() => { throw new Error('Username can contain only lowercase, uppercase, numbers, "_" and "-" symbols!') })();
+        !/^[a-zA-Z0-9_., -]+$/.test(username) && (() => { throw new Error('Username can contain only lowercase, uppercase, numbers, "_", ".", ",", " " and "-" symbols!') })();
 
         email === '' && (() => { throw new Error('Email is required!') })();
         !/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(email) && (() => { throw new Error('Invalid email!') })();
@@ -35,8 +35,8 @@ export default function validateFormValues(values) {
 
         name === '' && (() => { throw new Error('Name is required!') })();
         name.length < 3 && (() => { throw new Error('Name must be at least 3 characters!') })();
-        name.length > 20 && (() => { throw new Error('Name must be less than 20 characters!') })();
-        !/^[a-zA-Z0-9_\-]+$/.test(name) && (() => { throw new Error('Name can contain only lowercase, uppercase, numbers, "_" and "-" symbols!') })();
+        name.length > 40 && (() => { throw new Error('Name must be less than 40 characters!') })();
+        !/^[a-zA-Z0-9_., -]+$/.test(name) && (() => { throw new Error('Name can contain only lowercase, uppercase, numbers, "_", ".", ",", " " and "-" symbols!') })();
 
         imageUrl === '' && (() => { throw new Error('Image URL is required!') })();
         !/^(https?:\/\/)([a-zA-Z0-9-._~:/?#[\]'*,;=%]+)$/.test(imageUrl) && (() => { throw new Error('Image URL have to begin with "http://" or "https://" and cannot contain any of the following symbols: !\();@&+$,') })();
@@ -44,7 +44,8 @@ export default function validateFormValues(values) {
         description === '' && (() => { throw new Error('Description is required!') })();
         description.length < 10 && (() => { throw new Error('Description must be at least 10 characters!') })();
         description.length > 150 && (() => { throw new Error('Description must be less than 150 characters!') })();
-        !/^[a-zA-Z0-9._\-]+$/.test(description) && (() => { throw new Error('Description can contain only lowercase, uppercase, numbers, "_", "." and "-" symbols!') })();
+        !/^[a-zA-Z0-9_., -]+$/.test(description) && (() => { throw new Error('Description can contain only lowercase, uppercase, numbers, "_", ".", ",", " " and "-" symbols!') })();
+
     }
 
     return null;
