@@ -9,34 +9,45 @@ const OwnerContext = createContext();
 
 export const OwnerGuardProvider = ({
     children,
-    collectionName,
-    itemId
+    // collectionName,
+    isOwner
 }) => {
-    const [isOwner, setIsOwner] = useState(false);
-    const { userId } = useContext(AuthContext);
+    // const [isOwner, setIsOwner] = useState(false);
+    // const { userId } = useContext(AuthContext);
 
-    useEffect(() => {
-        if (userId) {
-            itemsService.getItemById(collectionName, itemId)
-                .then(result => {
-                    setIsOwner(result._ownerId === userId)
-                })
-                .catch(err => {
-                    console.log(err)
-                    setIsOwner(false);
-                });
-        } else {
-            setIsOwner(false);
-        }
-    }, [userId, collectionName, itemId]);
+    // useEffect(() => {
+    //     if (userId) {
+    //         itemsService.getItemById(collectionName, itemId)
+    //             .then(result => setIsOwner(state => state = result._ownerId === userId))
+    //             .catch(err => {
+    //                 console.log(err)
+    //                 setIsOwner(state => state = false);
+    //             });
+    //     } else {
+    //         setIsOwner(state => state = false);
+    //     }
+    // }, [collectionName, itemId, userId]);
 
-    return isOwner
-        ? (
-            <OwnerContext.Provider value={isOwner}>
-                {children}
-            </OwnerContext.Provider>
-        )
-        : <Navigate to={Path.NotFound} />;
+    console.log(isOwner)
+
+    return (
+        <>
+            {isOwner &&
+                <OwnerContext.Provider value={isOwner}>
+                    {children}
+                </OwnerContext.Provider>
+            }
+
+            {!isOwner && <Navigate to={Path.NotFound} />}
+        </>
+    )
+    // isOwner
+    //     ? (
+    //         <OwnerContext.Provider value={isOwner}>
+    //             {children}
+    //         </OwnerContext.Provider>
+    //     )
+    //     : <Navigate to={Path.NotFound} />;
 };
 
 export default OwnerContext;
