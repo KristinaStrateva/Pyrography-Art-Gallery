@@ -158,7 +158,7 @@ body {
 }
 
 .home-paragraph {
-padding: 4.5em;
+    padding: 4.5em;
 }
 
 .error-container {
@@ -174,17 +174,17 @@ padding: 4.5em;
     height: auto;
     width: 320px;
     box-shadow: 0 5px 10px black;
-  }
-  
-  .error-container > p {
+}
+
+.error-container > p {
     background: #d99595;
     font-size: 20px;
     padding: 20px;
     height: auto;
     border-radius: 20px;
-  }
-  
-  .error-container {
+}
+
+.error-container {
     -moz-animation: cssAnimation 0s ease-in 2s forwards;
     /* Firefox */
     -webkit-animation: cssAnimation 0s ease-in 2s forwards;
@@ -194,4 +194,4 @@ padding: 4.5em;
     animation: cssAnimation 0s ease-in 2s forwards;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
-  }
+}

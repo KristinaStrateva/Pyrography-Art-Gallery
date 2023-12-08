@@ -4,7 +4,7 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 
 ## Technologies Used
 
-[![Static Badge](https://img.shields.io/badge/JavaScript-FAFA1A)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)   [![Static Badge](https://img.shields.io/badge/HTML5-FA4E1A)](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)   [![Static Badge](https://img.shields.io/badge/CSS3-1D86EF)](https://developer.mozilla.org/en-US/docs/Web/CSS)   [![Static Badge](https://img.shields.io/badge/React-v18.2.0-35A7FF)](https://react.dev/)   [![Static Badge](https://img.shields.io/badge/Vite-v4.4.5-FFDD35)](https://vitejs.dev/)   [![Static Badge](https://img.shields.io/badge/React%20Router%20Dom-v6.18.0-332767)](https://www.npmjs.com/package/react-router-dom)   [![Static Badge](https://img.shields.io/badge/React%20Bootstrap-v2.9.1-3E23B6)](https://react-bootstrap.netlify.app/)   [![Static Badge](https://img.shields.io/badge/Firebase-F6C12F)](https://firebase.google.com/)   [![Static Badge](https://img.shields.io/badge/License-MIT-2EA74C)]
+[![Static Badge](https://img.shields.io/badge/JavaScript-FAFA1A)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)   [![Static Badge](https://img.shields.io/badge/HTML5-FA4E1A)](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)   [![Static Badge](https://img.shields.io/badge/CSS3-1D86EF)](https://developer.mozilla.org/en-US/docs/Web/CSS)   [![Static Badge](https://img.shields.io/badge/React-v18.2.0-35A7FF)](https://react.dev/)   [![Static Badge](https://img.shields.io/badge/Vite-v4.4.5-FFDD35)](https://vitejs.dev/)   [![Static Badge](https://img.shields.io/badge/React%20Router%20Dom-v6.18.0-332767)](https://www.npmjs.com/package/react-router-dom)   [![Static Badge](https://img.shields.io/badge/React%20Bootstrap-v2.9.1-3E23B6)](https://react-bootstrap.netlify.app/)   [![Static Badge](https://img.shields.io/badge/Firebase-F6C12F)](https://firebase.google.com/)   [![Static Badge](https://img.shields.io/badge/License-MIT-2EA74C)](https://opensource.org/license/mit/)
 
 ## Table of Contents
 
@@ -24,6 +24,12 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 
 - The purpose of Pyrography ART Gallery is to cultivate a thriving community, celebrate artistic talent, facilitate learning, encourage personal expression, overcome existing limitations, and provide a unique online experience for individuals passionate about the art of pyrography.
 
+## Live Demo
+
+Check out the live demo of Pyrography ART Gallery [here](https://your-firebase-project-name.web.app).
+
+**Note:** The website is optimized for the latest versions of Chrome and Mozilla Firefox, with a desktop resolution of 1920x1080.
+
 ## Features
 
 - **Collections:** Explore three distinct collections - Home Decorations, Gift Sets, and Custom Items. Each collection embodies the passion and creativity of pyrography, offering a unique visual journey.
@@ -37,15 +43,19 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 - **Like Functionality:** Express your appreciation for fellow artists with the like functionality. Each like is a virtual nod of approval, creating a sense of camaraderie within the Pyrography ART Gallery community.
 
 ## Screenshots
+
 - **Guest experience:**
+
 <img src="/client/public/images/home_page.jpg" alt="Home Page" width="700" />
 <img src="/client/public/images/details_page_guest.jpg" alt="Details Page" width="700" />
 
 - **Authorized experience:**
+
 <img src="/client//public/images/home_page_logged_in_1.jpg" alt="Home Page" width="700" />
 <img src="/client//public/images/my_items_page_1.jpg" alt="My Items Page" width="700" />
 
 - **Authorized owner experience:**
+
 <img src="/client//public/images/details_page_owner.jpg" alt="Details Page" width="700" />
 
 - **Authorized not owner experience:**
