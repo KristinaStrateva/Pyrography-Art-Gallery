@@ -26,7 +26,7 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 
 ## Live Demo
 
-Check out the live demo of Pyrography ART Gallery [here](https://your-firebase-project-name.web.app).
+Check out the live demo of Pyrography ART Gallery [here](https://pyrographyart-gallery-on-react.web.app/).
 
 **Note:** The website is optimized for the latest versions of Chrome and Mozilla Firefox, with a desktop resolution of 1920x1080.
 
