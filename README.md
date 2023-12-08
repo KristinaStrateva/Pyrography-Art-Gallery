@@ -12,14 +12,7 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 
 ## Technologies Used
 
-- HTML
-- CSS
-- JavaScript
-- React
-- Vite
-- React Router DOM
-- Bootstrap
-- React Bootstrap
+![Static Badge](https://img.shields.io/badge/:JavaScript) ![Static Badge](https://img.shields.io/badge/:HTML-8A2BE2) ![Static Badge](https://img.shields.io/badge/:CSS) ![Static Badge](https://img.shields.io/badge/:React) ![Static Badge](https://img.shields.io/badge/:Vite) ![Static Badge](https://img.shields.io/badge/:React_Router_Dom) ![Static Badge](https://img.shields.io/badge/:Bootstrap) ![Static Badge](https://img.shields.io/badge/:React_Bootstrap)
 
 ## Features
 
@@ -35,34 +28,35 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 
 ## Screenshots
 - **Guest experience:**
-<img src="/client/public/images/home_page.jpg" alt="Home Page" width="800" />
-<img src="/client/public/images/details_page_guest.jpg" alt="Details Page" width="800" />
+<img src="/client/public/images/home_page.jpg" alt="Home Page" width="700" />
+<img src="/client/public/images/details_page_guest.jpg" alt="Details Page" width="700" />
 
 - **Authorized experience:**
-<img src="/client//public/images/home_page_logged_in_1.jpg" alt="Home Page" width="800" />
-<img src="/client//public/images/my_items_page_1.jpg" alt="My Items Page" width="800" />
+<img src="/client//public/images/home_page_logged_in_1.jpg" alt="Home Page" width="700" />
+<img src="/client//public/images/my_items_page_1.jpg" alt="My Items Page" width="700" />
 
 - **Authorized owner experience:**
-<img src="/client//public/images/details_page_owner.jpg" alt="Details Page" width="800" />
+<img src="/client//public/images/details_page_owner.jpg" alt="Details Page" width="700" />
 
 - **Authorized not owner experience:**
 
 before like
 <br>
-<img src="/client//public/images/details_page_not_owner.jpg" alt="Not Liked Item Page" width="800" />
+<img src="/client//public/images/details_page_not_owner.jpg" alt="Not Liked Item Page" width="700" />
 
 after like
 <br>
-<img src="/client//public/images/details_page_with_like.jpg" alt="Liked Item Page" width="800" />
+<img src="/client//public/images/details_page_with_like.jpg" alt="Liked Item Page" width="700" />
 
 ## Acknowledgement
 
-- This project was inspired by my sister's hobby.
+- This project was inspired by my sister, Veselina Hendry's, passion for pyrography crafting. With her guidance, I had the opportunity to immerse myself in this beautiful world of art.
 
-- Many thanks to Mr. Papazov.
+- I extend my sincere gratitude to Mr. Papazov for guiding me through the process of creating a React application with Vite. Thanks to his insightful lectures, I successfully developed and presented a basic application, complete with its core functionalities.
 
 ## Contact
 
-- [LinkedIn](https://www.linkedin.com/in/kristina-strateva-a820ba254/)
+<hr><p><span style="margin-right: 30px;"></span><a href="https://www.linkedin.com/in/kristina-strateva-a820ba254/"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" style="width: 10%;"></a><span style="margin-right: 30px;"></span><a href="https://github.com/KristinaStrateva"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="width: 10%;"></a><span style="margin-right: 30px;"></span><a href="https://www.facebook.com/profile.php?id=100000144024793"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" style="width: 10%;"></a></p>
+<!-- - [LinkedIn](https://www.linkedin.com/in/kristina-strateva-a820ba254/)
 - [GitHub](https://github.com/KristinaStrateva)
-- [Facebook](https://www.facebook.com/profile.php?id=100000144024793)
+- [Facebook](https://www.facebook.com/profile.php?id=100000144024793) -->
