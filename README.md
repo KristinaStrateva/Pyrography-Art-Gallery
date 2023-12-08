@@ -14,6 +14,7 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 - [Project Structure](#project-structure)
 - [Usage](#usage)
 - [Screenshots](#screenshots)
+- [API Endpoints](#api-endpoints)
 - [Improvements](#improvements)
 - [Features that can be Added](#features-that-can-be-added)
 - [Acknowledgement](#acknowledgement)
@@ -49,21 +50,21 @@ Check out the live demo of Pyrography ART Gallery [here](https://pyrographyart-g
 
 This repository hosts the source code for our immersive platform dedicated to the art of pyrography. Below is an overview of the project structure.
 
-- ``/client``: The client-side application built with React and Vite
-    - ``/public``: Contains static assets, including images
-    - ``/src``: Holds the React components, styles, and other client-side code
+- `/client`: The client-side application built with React and Vite
+    - `/public`: Contains static assets, including images
+    - `/src`: Holds the React components, styles, and other client-side code
 
-- ``/server``: The server-side code for handling backend logic and API requests, using SoftUni's practice server
+- `/server`: The server-side code for handling backend logic and API requests, using SoftUni's practice server
 
 Feel free to explore each directory to understand how different components and functionalities are structured within the project.
 
 ## Usage
 
-**1.Clone the Repository**
+**1. Clone the Repository**
 
-``git clone https://github.com/KristinaStrateva/Pyrography-Art-Gallery.git``
+`git clone https://github.com/KristinaStrateva/Pyrography-Art-Gallery.git`
 
-### 2.Start the Server
+**2. Start the Server**
 
 Open a new terminal window in the root directory of the project and navigate to the server:
 
@@ -73,7 +74,7 @@ Start the server by running the following command:
 
 `node server.js`
 
-### 3.Setup the Client
+**3. Setup the Client**
 
 Open a new terminal window in the root directory of the project and navigate to the client:
 
@@ -116,6 +117,30 @@ before like
 after like
 <br>
 <img src="/client//public/images/details_page_with_like.jpg" alt="Liked Item Page" width="700" />
+
+## API Endpoints
+
+The Base URL for the API is: `http://localhost:3030/data`
+
+The documentation below assumes you are pre-pending the Base URL to the endpoints in order to make requests.
+
+### Authentication
+
+    - **POST /users/login**
+        - _Request:_
+        `
+        {
+            "username": "string",
+            "password": "string"
+        }
+        `
+        - _Response:_
+        `
+        {
+            "User Data": "userData"
+        }
+        `
+        - _Description:_ Authenticate and log in a user
 
 ## Room for Improvements
 
