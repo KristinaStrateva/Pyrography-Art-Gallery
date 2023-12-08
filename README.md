@@ -11,6 +11,7 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 - [General Information](#general-information)
 - [Project Deployment](#live-demo)
 - [Features](#features)
+- [Project Structure](#project-structure)
 - [Screenshots](#screenshots)
 - [Improvements](#improvements)
 - [Features that can be Added](#features-that-can-be-added)
@@ -47,13 +48,45 @@ Check out the live demo of Pyrography ART Gallery [here](https://pyrographyart-g
 
 This repository hosts the source code for our immersive platform dedicated to the art of pyrography. Below is an overview of the project structure.
 
-- ```/client```: The client-side application built with React and Vite
-    - ```/public```: Contains static assets, including images
+- ``/client``: The client-side application built with React and Vite
+    - ``/public``: Contains static assets, including images
     - ``/src``: Holds the React components, styles, and other client-side code
 
 - ``/server``: The server-side code for handling backend logic and API requests, using SoftUni's practice server
 
 Feel free to explore each directory to understand how different components and functionalities are structured within the project.
+
+## Usage
+
+### Clone the Repository
+
+``git clone https://github.com/KristinaStrateva/Pyrography-Art-Gallery.git``
+
+### Start the Server
+
+Open a new terminal window in the root directory of the project and navigate to the server:
+
+`cd server`
+
+Start the server by running the following command:
+
+`node server.js`
+
+### Setup the Client
+
+Open a new terminal window in the root directory of the project and navigate to the client:
+
+`cd client`
+
+Install client dependencies:
+
+`npm install`
+
+Start the client in development mode:
+
+`npm run dev`
+
+Now when the client setup is complete you can open the following link in your web browser: [http://localhost:5173](http://localhost:5173)
 
 ## Screenshots
 
@@ -81,19 +114,21 @@ after like
 <br>
 <img src="/client//public/images/details_page_with_like.jpg" alt="Liked Item Page" width="700" />
 
-## Improvements
+## Room for Improvements
 
-- **Improvement 1:** Stronger validations can be implemented on the server side.
+- ### Improvements
 
-- **Improvement 2:** Enhance user experience with additional effects.
+    - **Improvement 1:** Stronger validations can be implemented on the server side.
 
-## Features that can be Added
+    - **Improvement 2:** Enhance user experience with additional effects.
 
-- **Feature to be added 1:** Implement buy functionality.
+- ### Features that can be Added
 
-- **Feature to be added 2:** Introduce a search bar.
+    - **Feature to be added 1:** Implement buy functionality.
 
-- **Feature to be added 3:** Enable corresponding by email.
+    - **Feature to be added 2:** Introduce a search bar.
+
+    - **Feature to be added 3:** Enable corresponding by email.
 
 ## Acknowledgement
 
