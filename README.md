@@ -4,7 +4,7 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 
 ## Technologies Used
 
-![Static Badge](https://img.shields.io/badge/JavaScript-FAFA1A) ![Static Badge](https://img.shields.io/badge/HTML5-FA4E1A) ![Static Badge](https://img.shields.io/badge/CSS3-1D86EF) ![Static Badge](https://img.shields.io/badge/React-v18.2.0-35A7FF) ![Static Badge](https://img.shields.io/badge/Vite-v4.4.5-FFDD35) ![Static Badge](https://img.shields.io/badge/React%20Router%20Dom-332767) ![Static Badge](https://img.shields.io/badge/React%20Bootstrap-3E23B6)
+![Static Badge](https://img.shields.io/badge/JavaScript-FAFA1A)   ![Static Badge](https://img.shields.io/badge/HTML5-FA4E1A)   ![Static Badge](https://img.shields.io/badge/CSS3-1D86EF)   ![Static Badge](https://img.shields.io/badge/React-v18.2.0-35A7FF)   ![Static Badge](https://img.shields.io/badge/Vite-v4.4.5-FFDD35)   ![Static Badge](https://img.shields.io/badge/React%20Router%20Dom-v6.18.0-332767)   ![Static Badge](https://img.shields.io/badge/React%20Bootstrap-v2.9.1-3E23B6)
 
 ## Table of Contents
 
@@ -76,8 +76,8 @@ after like
 
 - This project was inspired by my sister, Veselina Hendry's, passion for pyrography crafting. With her guidance, I had the opportunity to immerse myself in this beautiful world of art.
 
-- I extend my sincere gratitude to Mr. Papazov for guiding me through the process of creating a React application with Vite. Thanks to his insightful lectures, I successfully developed and presented a basic application, complete with its core functionalities.
+- I extend my sincere gratitude to Mr. Ivaylo Papazov for guiding me through the process of creating a React application with Vite. Thanks to his insightful lectures, I successfully developed and presented a basic application, complete with its core functionalities.
 
 ## Contacts
 
-<p><span style="margin-right: 30px;"></span><a href="https://www.linkedin.com/in/kristina-strateva-a820ba254/"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" style="width: 5%;"></a>    <span style="margin-right: 30px;"></span><a href="https://github.com/KristinaStrateva"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="width: 5%;"></a>    <span style="margin-right: 30px;"></span><a href="https://www.facebook.com/profile.php?id=100000144024793"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" style="width: 5%;"></a></p>
+<p><span style="margin-right: 30px;"></span><a href="https://www.linkedin.com/in/kristina-strateva-a820ba254/"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" style="width: 5%;"></a>         <span style="margin-right: 30px;"></span><a href="https://github.com/KristinaStrateva"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="width: 5%;"></a>         <span style="margin-right: 30px;"></span><a href="https://www.facebook.com/profile.php?id=100000144024793"><img target="_blank" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" style="width: 5%;"></a></p>
