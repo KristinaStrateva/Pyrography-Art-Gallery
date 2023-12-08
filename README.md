@@ -37,7 +37,7 @@
 </ul>
 <h2>Screenshots</h2>
 <hr>
-![Home Page](client/public/images/home_page.jpg)
+<img src="client/public/images/home_page.jpg" alt="Home Page" />
 <h2>Acknowledgement</h2>
 <hr><ul>
 <li>This project was inspired by my sister Veselina Hendry</li>
