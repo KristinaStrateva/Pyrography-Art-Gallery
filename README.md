@@ -47,11 +47,11 @@ Check out the live demo of Pyrography ART Gallery [here](https://pyrographyart-g
 
 This repository hosts the source code for our immersive platform dedicated to the art of pyrography. Below is an overview of the project structure.
 
-- '''/client''': The client-side application built with React and Vite
-    - '''/public''': Contains static assets, including images
-    - '''/src''': Holds the React components, styles, and other client-side code
+- ```/client```: The client-side application built with React and Vite
+    - ```/public```: Contains static assets, including images
+    - ``/src``: Holds the React components, styles, and other client-side code
 
-- '''/server''': The server-side code for handling backend logic and API requests, using SoftUni's practice server
+- ``/server``: The server-side code for handling backend logic and API requests, using SoftUni's practice server
 
 Feel free to explore each directory to understand how different components and functionalities are structured within the project.
 
