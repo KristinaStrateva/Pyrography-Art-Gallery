@@ -34,8 +34,8 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 - **Like Functionality:** Express your appreciation for fellow artists with the like functionality. Each like is a virtual nod of approval, creating a sense of camaraderie within the Pyrography ART Gallery community.
 
 ## Screenshots
-
-![Home Page](/client/public/images/homepage.jpg?raw=true)
+- **Guest experience:**
+![Home Page](/client/public/images/home_page.jpg?raw=true)![Details Page](/client/public/images/home_page_logged_in.jpg)
 
 ## Acknowledgement
 
