@@ -124,23 +124,23 @@ The Base URL for the API is: `http://localhost:3030/data`
 
 The documentation below assumes you are pre-pending the Base URL to the endpoints in order to make requests.
 
-### Authentication
+**Authentication**
 
-    - **POST /users/login**
-        - _Request:_
-        `
-        {
-            "username": "string",
-            "password": "string"
-        }
-        `
-        - _Response:_
-        `
-        {
-            "User Data": "userData"
-        }
-        `
-        - _Description:_ Authenticate and log in a user
+- **POST /users/login**
+    - _Request:_
+    {
+    `
+        username": "string",
+        "password": "string"
+    }
+    `
+    - _Response:_
+    `
+    {
+        "User Data": "userData"
+    }
+    `
+    - _Description:_ Authenticate and log in a user
 
 ## Room for Improvements
 
