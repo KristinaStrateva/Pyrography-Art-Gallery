@@ -12,6 +12,7 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 - [Project Deployment](#live-demo)
 - [Features](#features)
 - [Project Structure](#project-structure)
+- [Usage](#usage)
 - [Screenshots](#screenshots)
 - [Improvements](#improvements)
 - [Features that can be Added](#features-that-can-be-added)
@@ -58,11 +59,11 @@ Feel free to explore each directory to understand how different components and f
 
 ## Usage
 
-### Clone the Repository
+**1.Clone the Repository**
 
 ``git clone https://github.com/KristinaStrateva/Pyrography-Art-Gallery.git``
 
-### Start the Server
+### 2.Start the Server
 
 Open a new terminal window in the root directory of the project and navigate to the server:
 
@@ -72,7 +73,7 @@ Start the server by running the following command:
 
 `node server.js`
 
-### Setup the Client
+### 3.Setup the Client
 
 Open a new terminal window in the root directory of the project and navigate to the client:
 
@@ -87,6 +88,8 @@ Start the client in development mode:
 `npm run dev`
 
 Now when the client setup is complete you can open the following link in your web browser: [http://localhost:5173](http://localhost:5173)
+
+**Note:** These instructions are intended for users operating on the Windows OS.
 
 ## Screenshots
 
