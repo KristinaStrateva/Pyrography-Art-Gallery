@@ -1,9 +1,14 @@
 .wrapper {
     display: flex;
+    flex-direction: column;
+}
+
+.main-section {
+    display: flex;
     justify-content: space-evenly;
     gap: 5em;
     max-width: 1360px;
-    margin-block: 5em;
+    margin-block: 2em;
     flex-wrap: wrap;
 }
 

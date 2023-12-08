@@ -21,17 +21,27 @@ export default function MyItems() {
 
     return (
         <div className={styles.wrapper}>
-            {myItems.length > 0 && myItems.map(item => {
-                const collectionName = formCollectionName(item.collectionName);
 
-                return (
-                    <div key={item._id} className={styles["category-card-category-card"]}>
-                        <img alt="image" src={item.imageUrl} className={styles["category-card-image"]} />
-                        <h5>{item.name}</h5>
-                        <Link to={`/${collectionName}/${item._id}/details`} className={mainStyle.button}>More details</Link>
+            {myItems.length > 0 && (
+                <>
+                    <h1 className={`${mainStyle["section-heading-text"]} ${mainStyle["Heading-2"]}`}>
+                        <span>MY ITEMS</span>
+                    </h1>
+                    <div className={styles["main-section"]}>
+                        {myItems.map(item => {
+                            const collectionName = formCollectionName(item.collectionName);
+
+                            return (
+                                <div key={item._id} className={styles["category-card-category-card"]}>
+                                    <img alt="image" src={item.imageUrl} className={styles["category-card-image"]} />
+                                    <h5>{item.name}</h5>
+                                    <Link to={`/${collectionName}/${item._id}/details`} className={mainStyle.button}>More details</Link>
+                                </div>
+                            )
+                        })}
                     </div>
-                )
-            })}
+                </>
+            )}
 
             {!myItems.length && <p>You don't have any items added yet!</p>}
         </div>
