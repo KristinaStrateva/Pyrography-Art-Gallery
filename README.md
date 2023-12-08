@@ -9,6 +9,7 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 ## Table of Contents
 
 - [General Information](#general-information)
+- [Project Deployment](#live-demo)
 - [Features](#features)
 - [Screenshots](#screenshots)
 - [Improvements](#improvements)
@@ -41,6 +42,18 @@ Check out the live demo of Pyrography ART Gallery [here](https://pyrographyart-g
 - **Authentication Tracking:** A custom hook ensures seamless authentication for users, tracking login, register, and logout activities across various routes. Feel the connection with the community as you navigate through Pyrography ART Gallery.
 
 - **Like Functionality:** Express your appreciation for fellow artists with the like functionality. Each like is a virtual nod of approval, creating a sense of camaraderie within the Pyrography ART Gallery community.
+
+## Project Structure
+
+This repository hosts the source code for our immersive platform dedicated to the art of pyrography. Below is an overview of the project structure.
+
+- '''/client''': The client-side application built with React and Vite
+    - '''/public''': Contains static assets, including images
+    - '''/src''': Holds the React components, styles, and other client-side code
+
+- '''/server''': The server-side code for handling backend logic and API requests, using SoftUni's practice server
+
+Feel free to explore each directory to understand how different components and functionalities are structured within the project.
 
 ## Screenshots
 
