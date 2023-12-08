@@ -40,7 +40,7 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 
 - **Authorized experience:**
 <img src="/client//public/images/home_page_logged_in_1.jpg" alt="Home Page" width="800" />
-<img src="/client//public/images/my_items_page.jpg" alt="My Items Page" width="800" />
+<img src="/client//public/images/my_items_page_1.jpg" alt="My Items Page" width="800" />
 
 - **Authorized owner experience:**
 <img src="/client//public/images/details_page_owner.jpg" alt="Details Page" width="800" />
