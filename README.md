@@ -37,7 +37,7 @@
 </ul>
 <h2>Screenshots</h2>
 <hr><ul>
-<li>![Home Page](public/images/home_page.jpg)</li>
+<li>![Home Page](client/public/images/home_page.jpg)</li>
 </ul>
 <h2>Acknowledgement</h2>
 <hr><ul>
