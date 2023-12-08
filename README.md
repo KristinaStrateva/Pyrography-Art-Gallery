@@ -35,11 +35,11 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 
 ## Screenshots
 
-![Home Page](./client/public/images/home_page.jpg)
+![Home Page](/client/public/images/home_page.jpg)
 
 ## Acknowledgement
 
-- This project was inspired by my sister Veselina Hendry.
+- This project was inspired by my sister's hobby.
 
 - Many thanks to Mr. Papazov.
 
