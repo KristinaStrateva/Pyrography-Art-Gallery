@@ -35,8 +35,7 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 
 ## Screenshots
 - **Guest experience:**
-<img src="/client/public/images/home_page.jpg" alt="Home Page" width="400" />
-<img src="/client/public/images/home_page_logged_in.jpg" alt="Home Page2" width="400" />
+<img src="/client/public/images/home_page.jpg" alt="Home Page" width="300" /> <img src="/client/public/images/home_page_logged_in.jpg" alt="Home Page2" width="300" />
 <!-- ![Home Page](/client/public/images/home_page.jpg?raw=true) ![Details Page](/client/public/images/home_page_logged_in.jpg) -->
 
 ## Acknowledgement
