@@ -48,9 +48,11 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 - **Authorized not owner experience:**
 
 before like
+<br>
 <img src="/client//public/images/details_page_not_owner.jpg" alt="Home Page" width="800" />
 
 after like
+<br>
 <img src="/client//public/images/details_page_with_like.jpg" alt="Home Page" width="800" />
 
 ## Acknowledgement
