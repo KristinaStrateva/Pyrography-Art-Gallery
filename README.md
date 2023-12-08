@@ -4,7 +4,7 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 
 ## Technologies Used
 
-[![Static Badge](https://img.shields.io/badge/JavaScript-FAFA1A)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)   ![Static Badge](https://img.shields.io/badge/HTML5-FA4E1A)   ![Static Badge](https://img.shields.io/badge/CSS3-1D86EF)   ![Static Badge](https://img.shields.io/badge/React-v18.2.0-35A7FF)   ![Static Badge](https://img.shields.io/badge/Vite-v4.4.5-FFDD35)   ![Static Badge](https://img.shields.io/badge/React%20Router%20Dom-v6.18.0-332767)   ![Static Badge](https://img.shields.io/badge/React%20Bootstrap-v2.9.1-3E23B6)
+[![Static Badge](https://img.shields.io/badge/JavaScript-FAFA1A)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)   [![Static Badge](https://img.shields.io/badge/HTML5-FA4E1A)](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)   [![Static Badge](https://img.shields.io/badge/CSS3-1D86EF)](https://developer.mozilla.org/en-US/docs/Web/CSS)   [![Static Badge](https://img.shields.io/badge/React-v18.2.0-35A7FF)](https://react.dev/)   [![Static Badge](https://img.shields.io/badge/Vite-v4.4.5-FFDD35)](https://vitejs.dev/)   [![Static Badge](https://img.shields.io/badge/React%20Router%20Dom-v6.18.0-332767)](https://www.npmjs.com/package/react-router-dom)   [![Static Badge](https://img.shields.io/badge/React%20Bootstrap-v2.9.1-3E23B6)](https://react-bootstrap.netlify.app/)   [![Static Badge](https://img.shields.io/badge/Firebase-F6C12F)](https://firebase.google.com/)   [![Static Badge](https://img.shields.io/badge/License-MIT-2EA74C)]
 
 ## Table of Contents
 
