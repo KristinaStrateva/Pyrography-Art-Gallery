@@ -35,7 +35,7 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 
 ## Screenshots
 
-![Home Page](/client/public/images/home_page.jpg)
+![Home Page](/client/public/images/home_page.jpg?raw=true)
 
 ## Acknowledgement
 
