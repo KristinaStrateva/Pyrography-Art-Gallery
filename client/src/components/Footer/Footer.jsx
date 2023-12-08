@@ -23,17 +23,22 @@ export default function Footer() {
                         <span className={styles["home-text36"]}>(359) 8994 292 80</span>
                         <span className={styles["home-text37"]}>veselina_hendry@gmail.com</span>
                     </div>
-                    <div className={styles["home-links-container"]}>
-                        <div className={styles["home-container11"]}>
-                            <span className={styles["home-text45"]}>Company</span>
-                            <Link to="/about" className={styles["home-text49"]}>About</Link>
-                        </div>
-                        {isAuthenticated && (
-                            <div className={styles["home-container12"]}>
-                                <span className={styles["home-text51"]}>Resources</span>
-                                <Link to={Path.MyItems} className={styles["home-text53"]}>My Items</Link>
+                    <div className={styles["home-container10"]}>
+                        <div className={styles["home-links-container"]}>
+                            <div className={styles["home-container11"]}>
+                                <span className={styles["home-text45"]}>Company</span>
+                                <Link to="/about" className={styles["home-text49"]}>About</Link>
                             </div>
-                        )}
+                            {isAuthenticated && (
+                                <div className={styles["home-container12"]}>
+                                    <span className={styles["home-text51"]}>Resources</span>
+                                    <Link to={Path.MyItems} className={styles["home-text53"]}>My Items</Link>
+                                </div>
+                            )}
+                        </div>
+                        <div className={styles["home-text50"]}>
+                            <span>&copy; Kristina Strateva, {new Date().getFullYear()}</span>
+                        </div>
                     </div>
                 </footer>
             </div>

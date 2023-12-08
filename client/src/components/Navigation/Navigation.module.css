@@ -20,8 +20,8 @@
     width: 100%;
     display: flex;
     align-items: center;
-    padding-left: 24px;
-    padding-right: 24px;
+    /* padding-left: 24px; */
+    padding-right: 60px;
     flex-direction: column;
 }
 
@@ -68,6 +68,7 @@
     position: relative;
     align-items: flex-start;
     flex-direction: row;
+    padding-left: 0;
 }
 
 .home-right .navbar-link a {
