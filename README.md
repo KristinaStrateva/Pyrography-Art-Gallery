@@ -36,9 +36,8 @@
 <li><b>Like Functionality:</b> Express your appreciation for fellow artists with the like functionality. Each like is a virtual nod of approval, creating a sense of camaraderie within the Pyrography ART Gallery community.</li>
 </ul>
 <h2>Screenshots</h2>
-<hr><ul>
-<li>![Home Page](client/public/images/home_page.jpg)</li>
-</ul>
+<hr>
+![Home Page](client/public/images/home_page.jpg)
 <h2>Acknowledgement</h2>
 <hr><ul>
 <li>This project was inspired by my sister Veselina Hendry</li>
