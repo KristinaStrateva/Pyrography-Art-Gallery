@@ -25,15 +25,15 @@
 <li>React Bootstrap</li>
 </ul><h2>Features</h2>
 <hr><ul>
-<li>Collections: Explore three distinct collections - Home Decorations, Gift Sets, and Custom Items. Each collection embodies the passion and creativity of pyrography, offering a unique visual journey.</li>
+<li><b>Collections:</b> Explore three distinct collections - Home Decorations, Gift Sets, and Custom Items. Each collection embodies the passion and creativity of pyrography, offering a unique visual journey.</li>
 </ul><ul>
-<li>User Creations: For logged-in users, PyroCraft Haven opens the door to artistic expression. Create, edit, and delete your items, shaping them with the warmth of your creativity. Each item tells a story, and you have the power to craft your narrative.</li>
+<li><b>User Creations:</b> For logged-in users, PyroCraft Haven opens the door to artistic expression. Create, edit, and delete your items, shaping them with the warmth of your creativity. Each item tells a story, and you have the power to craft your narrative.</li>
 </ul><ul>
-<li>Dynamic Home Page: The home page dynamically showcases the last three added items, creating an ever-evolving visual experience. Witness the latest additions and be inspired by the diversity of pyrography.</li>
+<li><b>Dynamic Home Page:</b> The home page dynamically showcases the last three added items, creating an ever-evolving visual experience. Witness the latest additions and be inspired by the diversity of pyrography.</li>
 </ul><ul>
-<li>Authentication Tracking: A custom hook ensures seamless authentication for users, tracking login, register, and logout activities across various routes. Feel the connection with the community as you navigate through Pyrography ART Gallery.</li>
+<li><b>Authentication Tracking:</b> A custom hook ensures seamless authentication for users, tracking login, register, and logout activities across various routes. Feel the connection with the community as you navigate through Pyrography ART Gallery.</li>
 </ul><ul>
-<li>Like Functionality: Express your appreciation for fellow artists with the like functionality. Each like is a virtual nod of approval, creating a sense of camaraderie within the Pyrography ART Gallery community.</li>
+<li><b>Like Functionality:</b> Express your appreciation for fellow artists with the like functionality. Each like is a virtual nod of approval, creating a sense of camaraderie within the Pyrography ART Gallery community.</li>
 </ul><h2>Project Status</h2>
 <hr><p>Completed</p><h2>Acknowledgement</h2>
 <hr><ul>
