@@ -12,7 +12,7 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 
 ## Technologies Used
 
-![Static Badge](https://img.shields.io/badge/:JavaScript) ![Static Badge](https://img.shields.io/badge/:HTML-8A2BE2) ![Static Badge](https://img.shields.io/badge/:CSS) ![Static Badge](https://img.shields.io/badge/:React) ![Static Badge](https://img.shields.io/badge/:Vite) ![Static Badge](https://img.shields.io/badge/:React_Router_Dom) ![Static Badge](https://img.shields.io/badge/:Bootstrap) ![Static Badge](https://img.shields.io/badge/:React_Bootstrap)
+![Static Badge](https://img.shields.io/badge/JavaScript-FAFA1A) ![Static Badge](https://img.shields.io/badge/HTML5-FA4E1A) ![Static Badge](https://img.shields.io/badge/CSS3-5335FF) ![Static Badge](https://img.shields.io/badge/React-v18.2.0-35A7FF) ![Static Badge](https://img.shields.io/badge/Vite-v4.4.5-FFDD35) ![Static Badge](https://img.shields.io/badge/React%20Router%20Dom-332767) ![Static Badge](https://img.shields.io/badge/React%20Bootstrap-3E23B6)
 
 ## Features
 
