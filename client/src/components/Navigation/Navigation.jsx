@@ -14,14 +14,16 @@ export default function Navigation() {
             <header data-role="Header" className={`${styles["home-header"]} ${styles["max-width-container"]}`}>
                 <div className={styles["home-navbar1"]}>
                     <div className={styles["home-middle"]}>
-                        <ul className={styles["home-left"]}>
-                            <li className={styles["navbar-link"]}><Link to={Path.HomeDecorationsPage}>HOME DECORATIONS</Link></li>
+                        <div className={styles["home-main-navbar"]}>
+                            <ul className={styles["home-left"]}>
+                                <li className={styles["navbar-link"]}><Link to={Path.HomeDecorationsPage}>HOME DECORATIONS</Link></li>
 
-                            <li className={styles["navbar-link"]}><Link to={Path.GiftSetsPage}>GIFT SETS</Link></li>
-                            <li className={styles["navbar-link"]}><Link to={Path.CustomItemsPage}>CUSTOM ITEMS</Link></li>
-                        </ul>
-                        <div className={`${styles["navbar-logo-title"]} ${styles["navbar-link"]}`}>
-                            <Link to="/"><img src="/images/logo.jpg" alt="logo" /></Link>
+                                <li className={styles["navbar-link"]}><Link to={Path.GiftSetsPage}>GIFT SETS</Link></li>
+                                <li className={styles["navbar-link"]}><Link to={Path.CustomItemsPage}>CUSTOM ITEMS</Link></li>
+                            </ul>
+                            <div className={`${styles["navbar-logo-title"]} ${styles["navbar-link"]}`}>
+                                <Link to="/"><img src="/images/logo.jpg" alt="logo" /></Link>
+                            </div>
                         </div>
 
                         {isAuthenticated && (
