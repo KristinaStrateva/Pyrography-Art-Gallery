@@ -8,7 +8,7 @@ export const login = (email, password) => {
             email,
             password,
         });
-
+    
         return result;
 
     } catch (error) {
@@ -23,7 +23,7 @@ export const register = (username, email, password) => {
             email,
             password,
         });
-
+    
         return result;
 
     } catch (error) {
@@ -31,11 +31,4 @@ export const register = (username, email, password) => {
     }
 };
 
-export const logout = () => {
-    try {
-        request.get(`${baseUrl}/logout`);
-        
-    } catch (error) {
-        throw error;
-    }
-}
+export const logout = () => request.get(`${baseUrl}/logout`);
