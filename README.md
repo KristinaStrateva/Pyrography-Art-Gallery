@@ -23,7 +23,7 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 
 - Pyrography ART Gallery creates a dedicated online space for pyrography enthusiasts to showcase their creations, fostering a vibrant and supportive community.
 
-- By organizing items into collections and providing a dynamic home page, PyroCraft Haven serves as a centralized platform where users can easily explore and discover a variety of pyrography pieces.
+- By organizing items into collections and providing a dynamic home page, Pyrography ART Gallery serves as a centralized platform where users can easily explore and discover a variety of pyrography pieces.
 
 - The purpose of Pyrography ART Gallery is to cultivate a thriving community, celebrate artistic talent, facilitate learning, encourage personal expression, overcome existing limitations, and provide a unique online experience for individuals passionate about the art of pyrography.
 
