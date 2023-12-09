@@ -109,12 +109,12 @@ Now when the client setup is complete you can open the following link in your we
 
 - **Authorized not owner experience:**
 
-before like
-<br>
+    - Before like
+
 <img src="/client//public/images/details_page_not_owner.jpg" alt="Not Liked Item Page" width="700" />
 
-after like
-<br>
+    - After like
+
 <img src="/client//public/images/details_page_with_like.jpg" alt="Liked Item Page" width="700" />
 
 ## API Endpoints
@@ -244,6 +244,7 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
     }
     ```
     - _Response:_
+    ```
     [
         0: {
             "likeId": "unique_like_id",
@@ -257,6 +258,7 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
         }
         ...
     ]
+    ```
     - _Description:_ Get all likes to a specific item
 
 ## Room for Improvements
