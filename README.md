@@ -15,8 +15,7 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 - [Usage](#usage)
 - [Screenshots](#screenshots)
 - [API Endpoints](#api-endpoints)
-- [Improvements](#improvements)
-- [Features that can be Added](#features-that-can-be-added)
+- [Room for Improvements](#room-for-improvements)
 - [Acknowledgement](#acknowledgement)
 - [Contacts](#contacts)
 
@@ -124,13 +123,13 @@ The Base URL for the API is: `http://localhost:3030/data`
 
 The documentation below assumes you are pre-pending the Base URL to the endpoints in order to make requests.
 
-#### Authentication
+### Authentication
 
 - **POST /users/login**
     - _Request:_
     ```
     {
-        username": "string",
+        "email": "string",
         "password": "string"
     }
     ```
@@ -141,6 +140,124 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
     }
     ```
     - _Description:_ Authenticate and log in a user
+
+- **POST /users/register**
+    - _Request:_
+    ```
+    {
+        "username": "string",
+        "email": "string",
+        "password": "string"
+    }
+    ```
+    - _Response:_
+    ```
+    {
+        "User Data": "userData"
+    }
+    ```
+    - _Description:_ Create a new user
+
+### Items Management
+
+- **POST /:collectionName**
+    - _Request:_
+    ```
+    {
+        "collectionName": "string",
+        "itemData": "itemData"
+    }
+    ```
+    - _Response:_
+    ```
+    {
+        "itemId": "unique_item_id"
+    }
+    ```
+    - _Description:_ Create a new item
+
+- **GET /:collectionName/:itemId**
+    - _Response:_
+    ```
+    {
+        "collectionName": "string",
+        "itemId": "unique_item_id",
+        "name": "string",
+        "imageUrl": "string",
+        "description": "string",
+        "ownerId": "ownerId"
+    }
+    ```
+    - _Description:_ Get details data of a specific item
+
+- **PUT /:collectionName/:itemId**
+    - _Request:_
+    ```
+    {
+        "collectionName": "string",
+        "itemId": "unique_item_id",
+        "itemData": "itemData"
+    }
+    ```
+    - _Response:_
+    ```
+    {
+        "itemId": "unique_item_id"
+    }
+    ```
+    - _Description:_ Update a specific item
+
+- **DELETE /:collectionName/:itemId**
+    - _Request:_
+    ```
+    {
+        "collectionName": "string",
+        "itemId": "unique_item_id",
+    }
+    ```
+    - _Description:_ Remove an item from collection
+
+### Likes Management
+
+- **POST /likes**
+    - _Request:_
+    ```
+    {
+        "itemId": "unique_item_id"
+    }
+    ```
+    - _Response:_
+    ```
+    {
+        "likeId": "unique_like_id",
+        "itemId": "unique_item_id",
+        "ownerId": "unique_owner_id"
+    }
+    ```
+    - _Description:_ Create a like to a specific item
+
+- **GET /likes?where=itemId=:itemId**
+    - _Request:_
+    ```
+    {
+        "itemId": "unique_item_id"
+    }
+    ```
+    - _Response:_
+    [
+        0: {
+            "likeId": "unique_like_id",
+            "itemId": "unique_item_id",
+            "ownerId": "unique_owner_id"
+        },
+        1: {
+            "likeId": "unique_like_id",
+            "itemId": "unique_item_id",
+            "ownerId": "unique_owner_id"
+        }
+        ...
+    ]
+    - _Description:_ Get all likes to a specific item
 
 ## Room for Improvements
 
