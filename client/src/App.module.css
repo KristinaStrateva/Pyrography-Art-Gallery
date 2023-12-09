@@ -40,6 +40,7 @@ body {
     align-items: center;
     flex-direction: column;
     padding-bottom: 1em;
+    min-height: 63vh;
 }
 
 .max-width-container {

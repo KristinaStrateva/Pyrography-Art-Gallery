@@ -97,7 +97,7 @@ export default function CollectionPage() {
                     </div>
                 }
 
-                {!collection.length && <p className={mainStyle["home-paragraph"]}>There are no items in this collection yet, but you can add the first one!</p>}
+                {!collection.length && <p className={styles["home-paragraph"]}>There are no items in this collection yet, but you can add the first one!</p>}
 
             </div>
         </div>

@@ -111,11 +111,11 @@ Now when the client setup is complete you can open the following link in your we
 
     - Before like
 
-<img src="/client//public/images/details_page_not_owner.jpg" alt="Not Liked Item Page" width="700" />
+    <img src="/client//public/images/details_page_not_owner.jpg" alt="Not Liked Item Page" width="700" />
 
     - After like
 
-<img src="/client//public/images/details_page_with_like.jpg" alt="Liked Item Page" width="700" />
+    <img src="/client//public/images/details_page_with_like.jpg" alt="Liked Item Page" width="700" />
 
 ## API Endpoints
 
@@ -255,7 +255,7 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
             "likeId": "unique_like_id",
             "itemId": "unique_item_id",
             "ownerId": "unique_owner_id"
-        }
+        },
         ...
     ]
     ```

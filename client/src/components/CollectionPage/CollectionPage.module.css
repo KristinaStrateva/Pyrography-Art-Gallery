@@ -78,3 +78,8 @@
 .carousel-item {
     padding-inline: 1.5em;
 }
+
+.home-paragraph {
+    min-height: 57vh;
+    padding-top: 10em;
+}
