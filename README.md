@@ -123,7 +123,7 @@ Now when the client setup is complete you can open the following link in your we
 
 ## API Endpoints
 
-The Base URL for the API is: `http://localhost:3030/data`
+The Base URL for the API is: `http://localhost:3030`
 
 The documentation below assumes you are pre-pending the Base URL to the endpoints in order to make requests.
 
@@ -164,7 +164,7 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
 
 ### Items Management
 
-- **POST /:collectionName**
+- **POST /data/:collectionName**
     - _Request:_
     ```
     {
@@ -180,7 +180,7 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
     ```
     - _Description:_ Create a new item
 
-- **GET /:collectionName/:itemId**
+- **GET /data/:collectionName/:itemId**
     - _Response:_
     ```
     {
@@ -194,7 +194,7 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
     ```
     - _Description:_ Get details data of a specific item
 
-- **PUT /:collectionName/:itemId**
+- **PUT /data/:collectionName/:itemId**
     - _Request:_
     ```
     {
@@ -211,7 +211,7 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
     ```
     - _Description:_ Update a specific item
 
-- **DELETE /:collectionName/:itemId**
+- **DELETE /data/:collectionName/:itemId**
     - _Request:_
     ```
     {
@@ -223,7 +223,7 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
 
 ### Likes Management
 
-- **POST /likes**
+- **POST /data/likes**
     - _Request:_
     ```
     {
@@ -240,7 +240,7 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
     ```
     - _Description:_ Create a like to a specific item
 
-- **GET /likes?where=itemId=:itemId**
+- **GET /data/likes?where=itemId=:itemId**
     - _Request:_
     ```
     {
