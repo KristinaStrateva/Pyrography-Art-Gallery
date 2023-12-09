@@ -117,6 +117,10 @@ Now when the client setup is complete you can open the following link in your we
 
     <img src="/client//public/images/details_page_with_like.jpg" alt="Liked Item Page" width="700" />
 
+- **404 Page**
+
+<img src="/client//public/images/not_found_page.jpg" alt="404 Page" width="700" />
+
 ## API Endpoints
 
 The Base URL for the API is: `http://localhost:3030/data`

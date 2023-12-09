@@ -6,7 +6,6 @@ import * as itemsService from '../../../services/itemsService';
 
 import styles from './EditPage.module.css';
 import mainStyle from '../../../App.module.css';
-import AuthContext from '../../../contexts/authContext';
 import validateFormValues from '../../../utils/validateFormValues';
 
 const EditFormKeys = {
@@ -27,23 +26,15 @@ export default function EditPage() {
         [EditFormKeys.Description]: '',
     });
 
-    // const {userId} = useContext(AuthContext);
-
-    // const [isOwner, setIsOwner] = useState('');
-
     useEffect(() => {
         itemsService.getItemById(collectionName, itemId)
             .then(itemData => {
-                setItem(state => state = {...itemData});
+                setItem(state => state = { ...itemData });
 
                 setCurrentCollectionName(collectionName);
             })
             .catch(err => console.log(err));
     }, [collectionName, itemId]);
-
-    // useEffect(() => {
-    //     setIsOwner(state => state = item._ownerId === userId);
-    // }, [item]);
 
     const updateItemSubmitHandler = async (event) => {
         event.preventDefault();
@@ -70,41 +61,39 @@ export default function EditPage() {
     }
 
     return (
-        // <OwnerGuardProvider collectionName={collectionName} isOwner={isOwner}>
-            <section className={styles.edit}>
-                <div className={styles.form}>
-                    <h2>Edit item</h2>
-                    <form className={styles["edit-form"]} onSubmit={updateItemSubmitHandler}>
-                        <select name="collectionName" value={currentCollectionName} onChange={onChange}>
-                            <option value="home-decorations">Home Decorations</option>
-                            <option value="gift-sets">Gift Sets</option>
-                            <option value="custom-items">Custom Items</option>
-                        </select>
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Name"
-                            value={item[EditFormKeys.Name]}
-                            onChange={onChange}
-                        />
-                        <input
-                            type="text"
-                            name="imageUrl"
-                            placeholder="Image url starting with http:// or https://"
-                            value={item[EditFormKeys.ImageUrl]}
-                            onChange={onChange}
-                        />
-                        <textarea
-                            name="description"
-                            placeholder="Description..."
-                            value={item[EditFormKeys.Description]}
-                            onChange={onChange}
-                        ></textarea>
+        <section className={styles.edit}>
+            <div className={styles.form}>
+                <h2>Edit item</h2>
+                <form className={styles["edit-form"]} onSubmit={updateItemSubmitHandler}>
+                    <select name="collectionName" value={currentCollectionName} onChange={onChange}>
+                        <option value="home-decorations">Home Decorations</option>
+                        <option value="gift-sets">Gift Sets</option>
+                        <option value="custom-items">Custom Items</option>
+                    </select>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        value={item[EditFormKeys.Name]}
+                        onChange={onChange}
+                    />
+                    <input
+                        type="text"
+                        name="imageUrl"
+                        placeholder="Image url starting with http:// or https://"
+                        value={item[EditFormKeys.ImageUrl]}
+                        onChange={onChange}
+                    />
+                    <textarea
+                        name="description"
+                        placeholder="Description..."
+                        value={item[EditFormKeys.Description]}
+                        onChange={onChange}
+                    ></textarea>
 
-                        <button type="submit" className={mainStyle.button}>Edit</button>
-                    </form>
-                </div>
-            </section>
-        // </OwnerGuardProvider>
+                    <button type="submit" className={mainStyle.button}>Edit</button>
+                </form>
+            </div>
+        </section>
     );
 }

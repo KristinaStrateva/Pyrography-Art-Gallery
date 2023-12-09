@@ -10,7 +10,7 @@ body {
 
 .notfound-container {
     position: relative;
-    height: 25em;
+    min-height: 28.5em;
 }
 
 .notfound {
