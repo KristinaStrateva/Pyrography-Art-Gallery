@@ -275,11 +275,13 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
 
 - ### Features that can be Added
 
-    - **Feature to be added 1:** Implement buy functionality.
+    - **Feature to be added 1:** Good testing system.
 
-    - **Feature to be added 2:** Introduce a search bar.
+    - **Feature to be added 2:** Implement buy functionality.
 
-    - **Feature to be added 3:** Enable corresponding by email.
+    - **Feature to be added 3:** Introduce a search bar.
+
+    - **Feature to be added 4:** Enable corresponding by email.
 
 ## Acknowledgement
 
