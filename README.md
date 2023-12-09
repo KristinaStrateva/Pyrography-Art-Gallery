@@ -101,7 +101,7 @@ Now when the client setup is complete you can open the following link in your we
 - **Authorized experience:**
 
 <img src="/client//public/images/home_page_logged_in_1.jpg" alt="Home Page" width="700" />
-<img src="/client//public/images/my_items_page_1.jpg" alt="My Items Page" width="700" />
+<img src="/client//public/images/my_items_page.jpg" alt="My Items Page" width="700" />
 
 - **Authorized owner experience:**
 
