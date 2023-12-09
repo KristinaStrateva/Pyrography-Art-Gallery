@@ -24,7 +24,7 @@ export default function DetailsPage() {
     useEffect(() => {
         itemsService.getItemById(collectionName, itemId)
             .then(setItem)
-            .catch(err => console.log(err));
+            .catch(err => {throw err});
     }, [itemId]);
 
     useEffect(() => {
@@ -37,16 +37,23 @@ export default function DetailsPage() {
                     setLike(true);
                 }
             })
-            .catch(err => console.log(err));
+            .catch(err => {throw err});
     }, [like]);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const likeHandler = async () => {
-        await likesService.likeItem(itemId);
+        try {
+            await likesService.likeItem(itemId);
+    
+            setLike(true);
 
-        setLike(true);
+        } catch (err) {
+            setLike(false);
+
+            throw err;
+        }
     }
 
     return (

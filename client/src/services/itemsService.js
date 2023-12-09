@@ -3,45 +3,80 @@ import * as request from '../lib/request';
 const baseUrl = 'http://localhost:3030/data';
 
 export const getAllItems = async () => {
-    const homeDecorations = await request.get(`${baseUrl}/home-decorations`);
-    const giftSets = await request.get(`${baseUrl}/gift-sets`);
-    const customTextOnWood = await request.get(`${baseUrl}/custom-items`);
+    try {
+        const homeDecorations = await request.get(`${baseUrl}/home-decorations`);
+        const giftSets = await request.get(`${baseUrl}/gift-sets`);
+        const customTextOnWood = await request.get(`${baseUrl}/custom-items`);
+    
+        const allItems = [...homeDecorations, ...giftSets, ...customTextOnWood];
+    
+        return allItems;
 
-    const allItems = [...homeDecorations, ...giftSets, ...customTextOnWood];
-
-    return allItems;
+    } catch (error) {
+        throw error;
+    }
 };
 
 export const getAllFromCollection = async (collectionName) => {
-    const result = await request.get(`${baseUrl}/${collectionName}`);
+    try {
+        const result = await request.get(`${baseUrl}/${collectionName}`);
+    
+        return result;
 
-    return result;
+    } catch (error) {
+        throw error;
+    }
 };
 
 export const getItemById = async (collectionName, itemId) => {
-    const result = await request.get(`${baseUrl}/${collectionName}/${itemId}`);
+    try {
+        const result = await request.get(`${baseUrl}/${collectionName}/${itemId}`);
+    
+        return result;
 
-    return result;
+    } catch (error) {
+        throw error;
+    }
 };
 
 export const getMyItems = async (userId) => {
-    const result = (await getAllItems()).filter(item => item._ownerId === userId);
+    try {
+        const result = (await getAllItems()).filter(item => item._ownerId === userId);
+    
+        return result;
 
-    return result;
+    } catch (error) {
+        throw error;
+    }
 }
 
 export const addItem = async (collectionName, itemData) => {
-    const result = await request.post(`${baseUrl}/${collectionName}`, itemData);
+    try {
+        const result = await request.post(`${baseUrl}/${collectionName}`, itemData);
+    
+        return result;
 
-    return result;
+    } catch (error) {
+        throw error;
+    }
 }
 
 export const updateItem = async (collectionName, itemId, itemData) => {
-    const result = await request.put(`${baseUrl}/${collectionName}/${itemId}`, itemData);
+    try {
+        const result = await request.put(`${baseUrl}/${collectionName}/${itemId}`, itemData);
+    
+        return result;
 
-    return result;
+    } catch (error) {
+        throw error;
+    }
 }
 
 export const deleteItem = async (collectionName, itemId) => {
-    await request.del(`${baseUrl}/${collectionName}/${itemId}`);
+    try {
+        await request.del(`${baseUrl}/${collectionName}/${itemId}`);
+        
+    } catch (error) {
+        throw error;
+    }
 }

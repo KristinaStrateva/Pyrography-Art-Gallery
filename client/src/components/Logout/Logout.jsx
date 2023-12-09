@@ -19,7 +19,7 @@ export default function Logout() {
             .catch((err) => {
                 logoutHandler();
                 navigate(Path.LoginPage);
-                console.log(err.message);
+                throw err;
             })
     }, []);
 

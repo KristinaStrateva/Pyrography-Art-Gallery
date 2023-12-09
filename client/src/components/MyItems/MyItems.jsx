@@ -16,7 +16,7 @@ export default function MyItems() {
     useEffect(() => {
         itemsService.getMyItems(userId)
             .then(result => setMyItems(result))
-            .catch(err => console.log(err));
+            .catch(err => {throw err});
     }, []);
 
     return (

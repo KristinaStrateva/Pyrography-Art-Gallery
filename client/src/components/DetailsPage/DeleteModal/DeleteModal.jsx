@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 import * as itemsService from '../../../services/itemsService';
+import Path from '../../../utils/paths';
 
 export default function DeleteModal({
     show,
@@ -14,11 +15,18 @@ export default function DeleteModal({
     const navigate = useNavigate();
 
     const deleteItemHandler = async () => {
-        await itemsService.deleteItem(collectionName, itemId);
+        try {
+            await itemsService.deleteItem(collectionName, itemId);
+    
+            handleClose();
+    
+            navigate(`/${collectionName}`);
 
-        handleClose();
+        } catch (error) {
+            navigate(Path.NotFound);
 
-        navigate(`/${collectionName}`);
+            throw error;
+        }
     }
 
     return (

@@ -22,7 +22,7 @@ export default function CollectionPage() {
             .then(data => {
                 setCollection(Object.values(data).filter(x => typeof x === 'object'));
             })
-            .catch(err => console.log(err));
+            .catch(err => {throw err});
     }, [locationName]);
 
     useEffect(() => {

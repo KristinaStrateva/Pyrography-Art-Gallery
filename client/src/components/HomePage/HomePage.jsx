@@ -17,7 +17,7 @@ export default function HomePage() {
 
                 setLastItems(state => state = [...sortedLastThreeItems]);
             })
-            .catch(err => console.log(err));
+            .catch(err => {throw err});
     }, []);
 
     return (

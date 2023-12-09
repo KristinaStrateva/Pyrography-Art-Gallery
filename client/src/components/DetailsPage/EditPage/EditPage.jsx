@@ -33,7 +33,7 @@ export default function EditPage() {
 
                 setCurrentCollectionName(collectionName);
             })
-            .catch(err => console.log(err));
+            .catch(err => {throw err});
     }, [collectionName, itemId]);
 
     const updateItemSubmitHandler = async (event) => {
