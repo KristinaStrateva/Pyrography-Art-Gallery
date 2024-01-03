@@ -271,6 +271,8 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
 
     - **Improvement 2:** Enhance user experience with additional effects.
 
+    - **Improvement 3:** Deployment.
+
 - ### Features that can be Added
 
     - **Feature to be added 1:** Good testing system.
