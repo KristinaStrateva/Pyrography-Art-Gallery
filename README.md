@@ -8,8 +8,7 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 
 ## Table of Contents
 
-- [General Information](#general-information)
-<!-- - [Project Deployment](#live-demo) -->
+- [General Information](#general-information)<!-- - [Project Deployment](#live-demo) -->
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [Usage](#usage)
