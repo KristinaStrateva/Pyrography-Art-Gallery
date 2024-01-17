@@ -1,0 +1,6 @@
+{
+    "moduleNameMapper": {
+        "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/src/test/fileMoch.js",
+        "\\.(css|less|scss)$": "identity-obj-proxy"
+    }
+}
