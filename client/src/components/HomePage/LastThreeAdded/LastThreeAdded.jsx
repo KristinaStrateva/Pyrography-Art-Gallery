@@ -13,7 +13,7 @@ export default function LastThreeAdded({
             <div className={mainStyle["max-width-container"]}>
                 <div className={mainStyle["section-heading-section-heading"]}>
                     <h1 className={`${mainStyle["section-heading-text"]} ${mainStyle["Heading-2"]}`}>
-                        <span>LATEST ADDED</span>
+                        <span data-testid="heading">LATEST ADDED</span>
                     </h1>
                     <span className={mainStyle["section-heading-text1"]}>
                         <span>
