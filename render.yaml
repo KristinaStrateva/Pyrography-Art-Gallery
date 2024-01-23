@@ -1,7 +1,7 @@
 services:
   - type: static
-    buildCommand: echo "No build command needed for static site"
-    startCommand: echo "No start command needed for static site"
+    buildCommand: cd client && npm install && npm run build
+    startCommand: cd client && npm run dev
     staticPublishPath: client/dist
 
   - type: private
