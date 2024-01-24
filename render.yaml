@@ -1,9 +1,0 @@
-services:
-  - type: static
-    buildCommand: cd client && npm install && npm run build
-    startCommand: cd client && npm run dev
-    staticPublishPath: client/dist
-
-  - type: private
-    buildCommand: cd server && npm install
-    startCommand: cd server && node server.js
