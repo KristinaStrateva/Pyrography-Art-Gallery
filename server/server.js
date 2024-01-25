@@ -83,22 +83,11 @@
                 return res.end();
             }
 
-            const allowedOrigins = ['http://localhost:5173', 'https://pyrography-art-gallery.onrender.com'];
-
-            const origin = req.headers.origin;
-
             let status = 200;
             let headers = {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type, Auth',
-                'access-control-expose-headers': 'Set-Cookie',
-                'Access-Control-Allow-Credentials': true
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
             };
-
-            if (allowedOrigins.includes(origin)) {
-                headers['Access-Control-Allow-Origin'] = origin;
-            }
 
             let result = '';
             let context;
@@ -1454,7 +1443,7 @@
 
     const server = http__default['default'].createServer(requestHandler(plugins, services));
 
-    const port = process.env.PORT || 4000;
+    const port = 3030;
     server.listen(port);
     console.log(`Server started on port ${port}. You can make requests to http://localhost:${port}/`);
     console.log(`Admin panel located at http://localhost:${port}/admin`);
