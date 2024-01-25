@@ -83,11 +83,23 @@
                 return res.end();
             }
 
+            const allowedOrigins = ['http://localhost:5173', 'https://pyrography-art-gallery.onrender.com'];
+
+            const origin = req.headers.origin;
+
             let status = 200;
             let headers = {
-                'Access-Control-Allow-Origin': '*',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS',
+                'Access-Control-Allow-Headers': 'Content-Type, Auth',
+                'access-control-expose-headers': 'Set-Cookie',
+                'Access-Control-Allow-Credentials': true
             };
+
+            if (allowedOrigins.includes(origin)) {
+                headers['Access-Control-Allow-Origin'] = origin;
+            }
+
             let result = '';
             let context;
 
