@@ -85,7 +85,7 @@
 
             let status = 200;
             let headers = {
-                'Access-Control-Allow-Origin': 'https://pyrography-art-gallery.onrender.com',
+                'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json'
             };
 
@@ -1443,7 +1443,7 @@
 
     const server = http__default['default'].createServer(requestHandler(plugins, services));
 
-    const port = 3030;
+    const port = process.env.PORT || 3030;
     server.listen(port);
     console.log(`Server started on port ${port}. You can make requests to http://localhost:${port}/`);
     console.log(`Admin panel located at http://localhost:${port}/admin`);
