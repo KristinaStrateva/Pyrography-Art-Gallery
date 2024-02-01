@@ -1,6 +1,8 @@
 import * as request from '../lib/request';
 
-const baseUrl = 'http://localhost:3030/data/likes';
+// const baseUrl = 'http://localhost:3030/data/likes';
+const baseUrl = `${request.headers.referer || request.headers.referrer}/data/likes`;
+
 
 export const allLikesForItem = async (itemId) => {
     try {
