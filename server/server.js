@@ -85,7 +85,7 @@
 
             let status = 200;
             let headers = {
-                'Access-Control-Allow-Origin': 'http://localhost:5173, https://pyrography-art-gallery.onrender.com, https://pyrography-art-gallery-api.onrender.com',
+                'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json'
             };
 
