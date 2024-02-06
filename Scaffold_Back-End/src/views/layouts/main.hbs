@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Second Hand Electronics</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    {{#if error}}
+    <div>
+        <div class="errorContainer">
+            <p>{{error}}</p>
+        </div>
+    </div>
+    {{/if}}
+
+    <div id="container">
+
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/electronics/catalog">Catalog</a></li>
+                {{#if isAuthenticated}}
+                <li><a href="/electronics/create">Create Offer</a></li>
+                <li><a href="/search">Search</a></li>
+                <li><a href="/users/logout">Logout</a></li>
+                {{else}}
+                <li><a href="/users/login">Login</a></li>
+                <li><a href="/users/register">Register</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+
+        {{{body}}}
+
+        <footer>@SoftUni - JS Back-End - Second Hand Electronics 2023</footer>
+    </div>
+
+</body>
+
+</html>
