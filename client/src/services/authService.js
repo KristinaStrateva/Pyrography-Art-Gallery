@@ -1,7 +1,7 @@
 import * as request from '../lib/request';
 
-// const baseUrl = `http://localhost:3030/users`;
-const baseUrl = `${request.headers.referer || request.headers.referrer}/users`;
+const baseUrl = `http://localhost:3030/users`;
+// const baseUrl = `${request.headers.referer || request.headers.referrer}/users`;
 
 
 export const login = (email, password) => {
