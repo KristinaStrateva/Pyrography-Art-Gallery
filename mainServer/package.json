@@ -17,6 +17,7 @@
   "author": "Kristina Strateva",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "date-fns": "^3.3.1",
