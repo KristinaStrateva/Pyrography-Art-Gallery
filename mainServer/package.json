@@ -1,0 +1,19 @@
+{
+  "name": "pyrography_art_gallery-api",
+  "version": "1.0.0",
+  "description": "REST API to be used by Pyrography Art Gallery Front-End project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "build": "npm i",
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "pyrography",
+    "art",
+    "gallery",
+    "pyrography art gallery"
+  ],
+  "author": "Kristina Strateva",
+  "license": "MIT"
+}
