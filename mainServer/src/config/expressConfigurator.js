@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 // const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -7,6 +9,8 @@ const { logger } = require('../middlewares/logger');
 // const { setAuthentication } = require('../middlewares/authMiddleware');
 
 function expressConfigurator(app) {
+    console.log(process.env.NODE_ENV);
+    
     app.use(logger);
     app.use(cors(corsOptions));
     // app.use(express.static(path.resolve(__dirname, '../public')));
