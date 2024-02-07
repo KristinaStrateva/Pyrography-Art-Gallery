@@ -3,11 +3,11 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 // const cors = require('cors');
 // const corsOptions = require('./corsOptions');
-// const { logger } = require('../middlewares/logger');
+const { logger } = require('../middlewares/logger');
 // const { setAuthentication } = require('../middlewares/authMiddleware');
 
 function expressConfigurator(app) {
-    // app.use(logger);
+    app.use(logger);
     // app.use(cors(corsOptions));
     // app.use(express.static(path.resolve(__dirname, '../public')));
     app.use(express.urlencoded({ extended: false }));
