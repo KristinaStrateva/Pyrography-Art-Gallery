@@ -9,8 +9,8 @@ const { logger } = require('../middlewares/logger');
 // const { setAuthentication } = require('../middlewares/authMiddleware');
 
 function expressConfigurator(app) {
-    console.log(process.env.NODE_ENV);
-    
+    console.log(`Node.js execution mode: ${process.env.NODE_ENV}`);
+
     app.use(logger);
     app.use(cors(corsOptions));
     // app.use(express.static(path.resolve(__dirname, '../public')));
