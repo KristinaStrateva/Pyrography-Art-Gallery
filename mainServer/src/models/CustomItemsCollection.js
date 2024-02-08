@@ -3,6 +3,7 @@ const Item = require('./Item');
 
 const customItemsCollectionSchema = new mongoose.Schema({
     name: 'Custom Items',
+    pathName: 'custom-items',
     items: [
         {
             item: {

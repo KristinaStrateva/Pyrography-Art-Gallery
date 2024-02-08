@@ -3,6 +3,7 @@ const Item = require('./Item');
 
 const homeDecorationsCollectionSchema = new mongoose.Schema({
     name: 'Home Decorations',
+    pathName: 'home-decorations',
     items: [
         {
             item: {
