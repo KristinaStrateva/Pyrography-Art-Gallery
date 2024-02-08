@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const expressConfigurator = require('./config/expressConfigurator');
-const errorHandler = require('./middlewares/errorHandler');
 const dbConnect = require('./config/dbConfigurator');
 const { logEvents } = require('./middlewares/logger');
 
@@ -13,7 +12,6 @@ const app = express();
 dbConnect(app);
 expressConfigurator(app);
 
-app.use(errorHandler);
 
 mongoose.connection.once('open', () => {
     console.log('DB connected successfully!');
