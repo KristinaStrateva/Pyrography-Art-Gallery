@@ -2,6 +2,21 @@ const asyncHandler = require('express-async-handler');
 const Collection = require('../models/Collection');
 const Item = require('../models/Item');
 
+// @desc Get all items from collection
+// @route GET /:collectionName
+// @access Public
+
+const getAllItemsFromCollection = asyncHandler(async (req, res) => {
+    const collectionName = req.params;
+
+    const items = await Collection.findOne({ pathName: collectionName });
+
+    if (!items) {
+        return res.status(400).json({ message: 'This collection is empty!' });
+    }
+
+    res.status(200).json({ items });
+})
 
 // @desc Get last three added items
 // @route GET /
@@ -51,6 +66,7 @@ const createItem = asyncHandler(async (req, res) => {
 });
 
 module.exports = {
+    getAllItemsFromCollection,
     getLastThreeItems,
     createItem,
 }
