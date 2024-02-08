@@ -3,9 +3,8 @@ const mongoose = require('mongoose');
 const itemSchema = new mongoose.Schema(
     {
         collectionName: {
-            type: String,
-            enum: ['Home Decorations', 'Gift Sets', 'Custom Items'],
-            default: 'Home Decorations',
+            type: mongoose.Types.ObjectId,
+            ref: 'Collection',
         },
         name: {
             type: String,

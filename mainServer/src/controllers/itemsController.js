@@ -8,9 +8,9 @@ const CustomItemsCollection = require('../models/CustomItemsCollection');
 // @access Private
 
 const getLastThreeItems = asyncHandler(async (req, res) => {
-    const homeDecorationsItems = await HomeDecorationsCollection.find().select('items').populate('item').lean();
-    const giftSetsItems = await GiftSetsCollection.find().select('items').populate('item').lean();
-    const customItemsItems = await CustomItemsCollection.find().select('items').populate('item').lean();
+    const homeDecorationsItems = await Collection.find().select('items').populate('item').lean();
+    const giftSetsItems = await Collection.find().select('items').populate('item').lean();
+    const customItemsItems = await Collection.find().select('items').populate('item').lean();
 
     const allItems = [...homeDecorationsItems, ...giftSetsItems, ...customItemsItems];
 
