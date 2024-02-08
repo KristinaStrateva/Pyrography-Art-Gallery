@@ -1,4 +1,5 @@
 const asyncHandler = require('express-async-handler');
+
 const Collection = require('../models/Collection');
 const Item = require('../models/Item');
 
@@ -7,7 +8,7 @@ const Item = require('../models/Item');
 // @access Public
 
 const getAllItemsFromCollection = asyncHandler(async (req, res) => {
-    const collectionName = req.params;
+    const { collectionName } = req.params;
 
     const items = await Collection.findOne({ pathName: collectionName });
 
@@ -23,9 +24,9 @@ const getAllItemsFromCollection = asyncHandler(async (req, res) => {
 // @access Private
 
 const getLastThreeItems = asyncHandler(async (req, res) => {
-    const homeDecorationsItems = await Collection.find().select('items').populate('item').lean();
-    const giftSetsItems = await Collection.find().select('items').populate('item').lean();
-    const customItemsItems = await Collection.find().select('items').populate('item').lean();
+    const homeDecorationsItems = await Collection.findOne({name: 'Home Decorations'}).populate('items').lean();
+    const giftSetsItems = await Collection.findOne({name: 'Gift Sets'}).populate('items').lean();
+    const customItemsItems = await Collection.findOne({name: 'Custom Items'}).populate('items').lean();
 
     const allItems = [...homeDecorationsItems, ...giftSetsItems, ...customItemsItems];
 
