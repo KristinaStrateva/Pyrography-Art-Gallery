@@ -1,4 +1,5 @@
 const asyncHandler = require('express-async-handler');
+
 const User = require('../models/User');
 const tokenGenerator = require('../utils/tokenGenerator');
 // const { validationResult } = require('express-validator');
@@ -22,9 +23,9 @@ const login = asyncHandler(async (req, res) => {
         return res.status(401).json({ message: 'Invalid email or password!' });
     }
 
-    const isValid = await bcrypt.compare(password, user.password);
+    const isValidPassword = await bcrypt.compare(password, user.password);
 
-    if (!isValid) {
+    if (!isValidPassword) {
         return res.status(401).json({ message: 'Invalid email or password!' });
     }
 
@@ -45,7 +46,26 @@ const login = asyncHandler(async (req, res) => {
 // @access Private
 
 const register = asyncHandler(async (req, res) => {
+    const { username, email, password } = req.body;
 
+    const usernameExists = await User.findOne({ username }).lean();
+
+    if (usernameExists) {
+        return res.status(409).json({ message: 'Username already exists!' });
+    }
+
+    const createdUser = await User.create({ username, email, password });
+
+    const token = tokenGenerator(createdUser);
+
+    const userData = {
+        id: createdUser._id,
+        username: createdUser.username,
+        email: createdUser.email,
+        token
+    };
+
+    res.status(200).json({ userData });
 });
 
 // @desc Logout an user
