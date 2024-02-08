@@ -1,3 +1,19 @@
+const { body } = require('express-validator');
+
+const loginValidation = [
+    body('email')
+        .notEmpty()
+        .withMessage('Email is required!')
+        .toLowerCase()
+        .trim()
+        .isEmail()
+        .withMessage('Incorrect email address!'),
+    body('password')
+        .notEmpty()
+        .withMessage('Password is required!')
+        .trim(),
+];
+
 const registerValidation = [
     body('username')
         .notEmpty()
@@ -24,4 +40,8 @@ const registerValidation = [
         .matches(/^(?=.*\d)(?=.*[A-Z]).+$/)
         .withMessage('Password must contain at least 1 Capital letter and 1 digit!'),
 ];
+
+module.exports = {
+    loginValidation,
     registerValidation,
+}
