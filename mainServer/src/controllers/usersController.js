@@ -73,7 +73,7 @@ const register = asyncHandler(async (req, res) => {
 // @access Private
 
 const logout = (req, res) => {
-
+    res.status(200).json({ success: 'Successfully logged out!' });
 };
 
 module.exports = {
