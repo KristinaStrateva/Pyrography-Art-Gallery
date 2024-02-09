@@ -11,7 +11,7 @@ export default function HomePage() {
     const [lastItems, setLastItems] = useState([]);
 
     useEffect(() => {
-        itemsService.getAllItems()
+        itemsService.getLastThreeItems()
             .then(items => {
                 setLastItems(state => state = [...items]);
             })
