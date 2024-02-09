@@ -13,9 +13,7 @@ export default function HomePage() {
     useEffect(() => {
         itemsService.getAllItems()
             .then(items => {
-                const sortedLastThreeItems = items.sort((a, b) => b._createdOn - a._createdOn).slice(0, 3);
-
-                setLastItems(state => state = [...sortedLastThreeItems]);
+                setLastItems(state => state = [...items]);
             })
             .catch(err => {throw err});
     }, []);
