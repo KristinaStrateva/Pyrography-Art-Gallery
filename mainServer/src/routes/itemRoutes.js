@@ -2,7 +2,6 @@ const router = require('express').Router();
 
 const itemsController = require('../controllers/itemsController');
 
-router.get('/', itemsController.getLastThreeItems);
 router.get('/:collectionName', itemsController.getAllItemsFromCollection);
 router.post('/add-item', itemsController.createItem);
 
