@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import AuthContext from "../../contexts/authContext";
 import * as itemsService from '../../services/itemsService';
-import formCollectionName from "../../utils/formCollectionName";
+import transformCollectionName from "../../utils/transformCollectionName";
 
 import styles from './MyItems.module.css';
 import mainStyle from '../../App.module.css';
@@ -29,7 +29,7 @@ export default function MyItems() {
                     </h1>
                     <div className={styles["main-section"]}>
                         {myItems.map(item => {
-                            const collectionName = formCollectionName(item.collectionName);
+                            const collectionName = transformCollectionName(item.collectionName);
 
                             return (
                                 <div key={item._id} className={styles["category-card-category-card"]}>

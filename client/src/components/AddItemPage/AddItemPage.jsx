@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import useForm from '../../hooks/useForm';
-import formCollectionName from '../../utils/formCollectionName';
+import transformCollecitonName from '../../utils/transformCollectionName';
 
 import * as itemsService from '../../services/itemsService';
 
@@ -20,7 +20,7 @@ export default function AddItemPage() {
     const navigate = useNavigate();
 
     const addItemSubmitHandler = async (values) => {
-        const collectionName = formCollectionName(values.collectionName);
+        const collectionName = transformCollecitonName(values.collectionName);
 
         try {
 
