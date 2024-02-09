@@ -5,13 +5,9 @@ const baseUrl = 'http://localhost:3500/data';
 
 export const getAllItems = async () => {
     try {
-        const homeDecorations = await request.get(`${baseUrl}/home-decorations`);
-        const giftSets = await request.get(`${baseUrl}/gift-sets`);
-        const customTextOnWood = await request.get(`${baseUrl}/custom-items`);
-    
-        const allItems = [...homeDecorations, ...giftSets, ...customTextOnWood];
-    
-        return allItems;
+        const lastThreeItems = await request.get(`${baseUrl}`);
+
+        return lastThreeItems;
 
     } catch (error) {
         throw error;
