@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
-const itemsController = require('../controllers/itemsController');
+const homeController = require('../controllers/homeController');
 
-router.get('/', itemsController.getLastThreeItems);
+router.get('/', homeController.getLastThreeItems);
 
 module.exports = router;
