@@ -1,7 +1,7 @@
 const homeRouter = require('../routes/homeRoutes');
 const userRouter = require('../routes/userRoutes');
 const itemRouter = require('../routes/itemRoutes');
-const errorHandler = require('./middlewares/errorHandler');
+const errorHandler = require('../middlewares/errorHandler');
 
 module.exports = (app) => {
     app.use(homeRouter);
