@@ -1,4 +1,5 @@
 const asyncHandler = require('express-async-handler');
+const bcrypt = require('bcrypt');
 
 const User = require('../models/User');
 const tokenGenerator = require('../utils/tokenGenerator');
@@ -29,7 +30,7 @@ const login = asyncHandler(async (req, res) => {
         return res.status(401).json({ message: 'Invalid email or password!' });
     }
 
-    const token = tokenGenerator(user);
+    const token = await tokenGenerator(user);
 
     const userData = {
         id: user._id,
@@ -38,11 +39,11 @@ const login = asyncHandler(async (req, res) => {
         token,
     };
 
-    res.status(200).json({ userData });
+    res.status(200).json(userData);
 });
 
 // @desc Register new user
-// @route POST /register
+// @route POST users/register
 // @access Private
 
 const register = asyncHandler(async (req, res) => {
@@ -56,7 +57,7 @@ const register = asyncHandler(async (req, res) => {
 
     const createdUser = await User.create({ username, email, password });
 
-    const token = tokenGenerator(createdUser);
+    const token = await tokenGenerator(createdUser);
 
     const userData = {
         id: createdUser._id,
@@ -65,7 +66,7 @@ const register = asyncHandler(async (req, res) => {
         token
     };
 
-    res.status(200).json({ userData });
+    res.status(200).json(userData);
 });
 
 // @desc Logout an user
