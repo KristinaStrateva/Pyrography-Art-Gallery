@@ -10,13 +10,15 @@ const Item = require('../models/Item');
 const getAllItemsFromCollection = asyncHandler(async (req, res) => {
     const { collectionName } = req.params;
 
-    const items = await Collection.findOne({ pathName: collectionName });
+    const collection = await Collection.findOne({ pathName: collectionName }).populate('items').lean();
 
-    if (!items) {
+    const items = collection.items;
+
+    if (items.length === 0) {
         return res.status(400).json({ message: 'This collection is empty!' });
     }
 
-    res.status(200).json({ items });
+    res.status(200).json(items);
 })
 
 // @desc Get last three added items
@@ -24,13 +26,30 @@ const getAllItemsFromCollection = asyncHandler(async (req, res) => {
 // @access Private
 
 const getLastThreeItems = asyncHandler(async (req, res) => {
-    const homeDecorationsItems = await Collection.findOne({name: 'Home Decorations'}).populate('items').lean();
-    const giftSetsItems = await Collection.findOne({name: 'Gift Sets'}).populate('items').lean();
-    const customItemsItems = await Collection.findOne({name: 'Custom Items'}).populate('items').lean();
+    const homeDecorationsCollection = await Collection.findOne({name: 'Home Decorations'}).populate('items').lean();
+    const homeDecorationsItems = homeDecorationsCollection.items;
 
-    const allItems = [...homeDecorationsItems, ...giftSetsItems, ...customItemsItems];
+    const giftSetsCollection = await Collection.findOne({name: 'Gift Sets'}).populate('items').lean();
+    const giftSetsItems = giftSetsCollection.items;
 
-    if (!allItems) {
+    const customItemsCollection = await Collection.findOne({name: 'Custom Items'}).populate('items').lean();
+    const customItemsItems = customItemsCollection.items;
+
+    const allItems = [];
+
+    if (homeDecorationsItems) {
+        allItems.push(...homeDecorationsItems);
+    }
+
+    if (giftSetsItems) {
+        allItems.push(...giftSetsItems);
+    }
+
+    if (customItemsItems) {
+        allItems.push(...customItemsItems);
+    }
+
+    if (allItems.length === 0) {
         return res.status(400).json({ message: 'No items found' });
     }
 
@@ -57,13 +76,13 @@ const createItem = asyncHandler(async (req, res) => {
         name,
         imageUrl,
         description,
-        owner: req.user._id
+        // owner: req.user._id
     });
 
     collection.items.push(newItem._id);
     await collection.save();
 
-    res.status(201).json({ newItem });
+    res.status(201).json(newItem);
 });
 
 module.exports = {
