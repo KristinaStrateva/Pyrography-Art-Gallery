@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const expressConfigurator = require('./config/expressConfigurator');
 const dbConnect = require('./config/dbConfigurator');
 const { logEvents } = require('./middlewares/logger');
+const routesConfigurator = require('./config/routesConfigurator');
 
 const PORT = process.env.PORT || 3500;
 
@@ -11,7 +12,7 @@ const app = express();
 
 dbConnect(app);
 expressConfigurator(app);
-
+routesConfigurator(app);
 
 mongoose.connection.once('open', () => {
     console.log('DB connected successfully!');
