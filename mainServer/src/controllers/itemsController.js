@@ -77,7 +77,8 @@ const likeItem = asyncHandler(async (req, res) => {
         return res.status(400).json({ message: 'This item is not found!' });
     }
 
-    let userId = '65c6aa50ec333934a557e6ea';
+    // have to get real user ID!!!
+    let userId = '65c6aa50ec333934a557e6ea'; // this one is for developing purpose only
 
     item.likesList.push({user: userId});
     await item.save();
