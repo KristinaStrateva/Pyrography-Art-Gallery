@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const itemSchema = new mongoose.Schema(
     {
-        collectionName: {
+        fromCollection: {
             type: mongoose.Types.ObjectId,
             ref: 'Collection',
         },

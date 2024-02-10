@@ -21,6 +21,22 @@ const getAllItemsFromCollection = asyncHandler(async (req, res) => {
     res.status(200).json(items);
 });
 
+// @desc Get item by id
+// @route GET /:collectionName/:itemId/details
+// @access Public
+
+const getItemById = asyncHandler(async (req, res) => {
+    const { itemId } = req.params;
+
+    const item = await Item.findById({ _id: itemId }).lean();
+
+    if (!item) {
+        return res.status(400).json({ message: 'This item is not found!' });
+    }
+
+    res.status(200).json(item);
+});
+
 // @desc Create new item
 // @route POST /add-item
 // @access Private
@@ -71,6 +87,7 @@ const likeItem = asyncHandler(async (req, res) => {
 
 module.exports = {
     getAllItemsFromCollection,
+    getItemById,
     createItem,
     likeItem,
 }

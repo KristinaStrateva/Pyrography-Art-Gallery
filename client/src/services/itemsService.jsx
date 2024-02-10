@@ -27,8 +27,8 @@ export const getAllFromCollection = async (collectionName) => {
 
 export const getItemById = async (collectionName, itemId) => {
     try {
-        const result = await request.get(`${baseUrl}/${collectionName}/${itemId}`);
-    
+        const result = await request.get(`${baseUrl}/${collectionName}/${itemId}/details`);
+
         return result;
 
     } catch (error) {
@@ -73,6 +73,10 @@ export const deleteItem = async (collectionName, itemId) => {
     try {
         await request.del(`${baseUrl}/${collectionName}/${itemId}`);
         
+    } catch (error) {
+        throw error;
+    }
+}
 
 export const likeItem = async (collectionName, itemId) => {
     try {
