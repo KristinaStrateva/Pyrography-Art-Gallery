@@ -7,27 +7,57 @@ const Collection = require('../models/Collection');
 // @access Private
 
 const getLastThreeItems = asyncHandler(async (req, res) => {
-    const homeDecorationsCollection = await Collection.findOne({ name: 'Home Decorations' }).populate('items').lean();
-    const homeDecorationsItems = homeDecorationsCollection.items;
+    const homeDecorationsCollection = await Collection
+        .findOne({ name: 'Home Decorations' })
+        .populate({
+            path: 'items',
+            model: 'Item',
+            populate: {
+                path: 'fromCollection',
+                model: 'Collection'
+            }
+        })
+        .lean();
+    const homeDecorationsArray = homeDecorationsCollection.items;
 
-    const giftSetsCollection = await Collection.findOne({ name: 'Gift Sets' }).populate('items').lean();
-    const giftSetsItems = giftSetsCollection.items;
+    const giftSetsCollection = await Collection
+        .findOne({ name: 'Gift Sets' })
+        .populate({
+            path: 'items',
+            model: 'Item',
+            populate: {
+                path: 'fromCollection',
+                model: 'Collection'
+            }
+        })
+        .lean();
+    const giftSetsArray = giftSetsCollection.items;
 
-    const customItemsCollection = await Collection.findOne({ name: 'Custom Items' }).populate('items').lean();
-    const customItemsItems = customItemsCollection.items;
+    const customItemsCollection = await Collection
+        .findOne({ name: 'Custom Items' })
+        .populate({
+            path: 'items',
+            model: 'Item',
+            populate: {
+                path: 'fromCollection',
+                model: 'Collection'
+            }
+        })
+        .lean();
+    const customItemsArray = customItemsCollection.items;
 
     const allItems = [];
 
-    if (homeDecorationsItems) {
-        allItems.push(...homeDecorationsItems);
+    if (homeDecorationsArray) {
+        allItems.push(...homeDecorationsArray);
     }
 
-    if (giftSetsItems) {
-        allItems.push(...giftSetsItems);
+    if (giftSetsArray) {
+        allItems.push(...giftSetsArray);
     }
 
-    if (customItemsItems) {
-        allItems.push(...customItemsItems);
+    if (customItemsArray) {
+        allItems.push(...customItemsArray);
     }
 
     if (allItems.length === 0) {
