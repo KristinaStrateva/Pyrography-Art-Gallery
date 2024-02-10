@@ -35,7 +35,7 @@ const createItem = asyncHandler(async (req, res) => {
     }
 
     const newItem = await Item.create({
-        collectionName: collection._id,
+        fromCollection: collection._id,
         name,
         imageUrl,
         description,
@@ -48,7 +48,29 @@ const createItem = asyncHandler(async (req, res) => {
     res.status(201).json(newItem);
 });
 
+// @desc Like an item
+// @route POST /:collectionName/:itemId/likes
+// @access Private
+
+const likeItem = asyncHandler(async (req, res) => {
+    const { itemId } = req.params;
+
+    const item = await Item.findById({ _id: itemId });
+
+    if (!item) {
+        return res.status(400).json({ message: 'This item is not found!' });
+    }
+
+    let userId = '65c6aa50ec333934a557e6ea';
+
+    item.likesList.push({user: userId});
+    await item.save();
+
+    res.status(200).json(item.likesList);
+});
+
 module.exports = {
     getAllItemsFromCollection,
     createItem,
+    likeItem,
 }

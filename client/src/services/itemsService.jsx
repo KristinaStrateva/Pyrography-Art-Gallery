@@ -73,6 +73,13 @@ export const deleteItem = async (collectionName, itemId) => {
     try {
         await request.del(`${baseUrl}/${collectionName}/${itemId}`);
         
+
+export const likeItem = async (collectionName, itemId) => {
+    try {
+        const result = await request.post(`${baseUrl}/${collectionName}/${itemId}/like`);
+    
+        return result;
+
     } catch (error) {
         throw error;
     }

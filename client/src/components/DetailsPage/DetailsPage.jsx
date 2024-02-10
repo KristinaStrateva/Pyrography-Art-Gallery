@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import * as itemsService from '../../services/itemsService';
-import * as likesService from '../../services/likesService';
 import AuthContext from "../../contexts/authContext";
 
 import DeleteModal from "./DeleteModal/DeleteModal";
@@ -23,30 +22,25 @@ export default function DetailsPage() {
 
     useEffect(() => {
         itemsService.getItemById(collectionName, itemId)
-            .then(setItem)
-            .catch(err => {throw err});
-    }, [itemId]);
+            .then(item => {
+                setItem(item);
+                setLikesAmount(item.likesList.length);
 
-    useEffect(() => {
-        likesService.allLikesForItem(itemId)
-            .then(likes => {
-                setLikesAmount(likes.length);
+                // if (likes.find(x => x._ownerId === userId)) {
 
-                if (likes.find(x => x._ownerId === userId)) {
-
-                    setLike(true);
-                }
+                //     setLike(true);
+                // }
             })
-            .catch(err => {throw err});
-    }, [like]);
+            .catch(err => { throw err });
+    }, [itemId, like]);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const likeHandler = async () => {
         try {
-            await likesService.likeItem(itemId);
-    
+            await itemsService.likeItem(collectionName, itemId);
+
             setLike(true);
 
         } catch (err) {
