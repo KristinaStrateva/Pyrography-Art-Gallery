@@ -1,7 +1,5 @@
 import { Link } from 'react-router-dom';
 
-import transformCollectionName from '../../../utils/transformCollectionName';
-
 import styles from './LastThreeAdded.module.css';
 import mainStyle from '../../../App.module.css';
 
@@ -23,7 +21,7 @@ export default function LastThreeAdded({
                 </div>
                 <div className={styles["home-cards-container"]}>
                     {lastItems.map(item => {
-                        const collectionName = transformCollectionName(item.collectionName);
+                        const collectionName = item.fromCollection.pathName;
 
                         return (
                             <div key={item._id} className={styles["category-card-category-card"]}>
