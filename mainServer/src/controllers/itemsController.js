@@ -42,6 +42,7 @@ const getItemById = asyncHandler(async (req, res) => {
 // @access Private
 
 const getMyItems = asyncHandler(async (req, res) => {
+    // have to think how to check the user ID on the server, not only on the FE
     // const userId = 
     const allItems = await Item.find().lean();
 
@@ -104,6 +105,7 @@ const likeItem = asyncHandler(async (req, res) => {
 module.exports = {
     getAllItemsFromCollection,
     getItemById,
+    getMyItems,
     createItem,
     likeItem,
 }
