@@ -23,7 +23,7 @@ const getAllItemsFromCollection = asyncHandler(async (req, res) => {
 
 // @desc Get item by id
 // @route GET /:collectionName/:itemId/details
-// @access Public
+// @access Private
 
 const getItemById = asyncHandler(async (req, res) => {
     const { itemId } = req.params;
@@ -35,6 +35,21 @@ const getItemById = asyncHandler(async (req, res) => {
     }
 
     res.status(200).json(item);
+});
+
+// @desc Get item by id
+// @route GET /:collectionName/:itemId/details
+// @access Private
+
+const getMyItems = asyncHandler(async (req, res) => {
+    // const userId = 
+    const allItems = await Item.find().lean();
+
+    if (!allItems) {
+        return res.status(400).json({ message: 'There are no items yet!' });
+    }
+
+    res.status(200).json(allItems);
 });
 
 // @desc Create new item
