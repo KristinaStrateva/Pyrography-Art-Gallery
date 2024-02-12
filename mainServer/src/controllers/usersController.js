@@ -18,6 +18,14 @@ const login = asyncHandler(async (req, res) => {
     //     throw new Error(errors.map(err => err.msg));
     // }
 
+    if (!email) {
+        return res.status(400).json({ message: 'Email is required!' });
+    }
+
+    if (!password) {
+        return res.status(400).json({ message: 'Password is required!' });
+    }
+
     const user = await User.findOne({ email }).populate('items');
 
     if (!user) {
@@ -49,6 +57,18 @@ const login = asyncHandler(async (req, res) => {
 const register = asyncHandler(async (req, res) => {
     const { username, email, password } = req.body;
 
+    if (!username) {
+        return res.status(400).json({ message: 'Username is required!' });
+    }
+
+    if (!email) {
+        return res.status(400).json({ message: 'Email is required!' });
+    }
+
+    if (!password) {
+        return res.status(400).json({ message: 'Password is required!' });
+    }
+
     const usernameExists = await User.findOne({ username }).lean();
 
     if (usernameExists) {
@@ -56,6 +76,10 @@ const register = asyncHandler(async (req, res) => {
     }
 
     const createdUser = await User.create({ username, email, password });
+
+    if (!createdUser) {
+        return res.status(400).json({ message: 'Inavlid user data received!' });
+    }
 
     const token = await tokenGenerator(createdUser);
 
@@ -66,7 +90,7 @@ const register = asyncHandler(async (req, res) => {
         token
     };
 
-    res.status(200).json(userData);
+    res.status(201).json(userData);
 });
 
 // @desc Logout an user
