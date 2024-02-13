@@ -58,9 +58,9 @@ const getMyItems = asyncHandler(async (req, res) => {
 // @access Private
 
 const createItem = asyncHandler(async (req, res) => {
-    const { collectionName, name, imageUrl, description } = req.body;
+    const { fromCollection, name, imageUrl, description } = req.body;
 
-    const collection = await Collection.findOne({ name: collectionName });
+    const collection = await Collection.findOne({ name: fromCollection });
 
     if (!collection) {
         return res.status(404).json({ message: "Collection not found" });
@@ -96,7 +96,7 @@ const likeItem = asyncHandler(async (req, res) => {
     // have to get real user ID!!!
     let userId = '65c6aa50ec333934a557e6ea'; // this one is for developing purpose only
 
-    item.likesList.push({user: userId});
+    item.likesList.push({ user: userId });
     await item.save();
 
     res.status(200).json(item.likesList);
