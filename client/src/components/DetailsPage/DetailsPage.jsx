@@ -22,10 +22,10 @@ export default function DetailsPage() {
 
     useEffect(() => {
         itemsService.getItemById(collectionName, itemId)
-            .then(item => {
-                setItem(item);
-                setLikesAmount(item.likesList.length);
-
+            .then(itemData => {
+                setItem(itemData);
+                setLikesAmount(itemData.likesList.length);
+                
                 // if (likes.find(x => x._ownerId === userId)) {
 
                 //     setLike(true);
@@ -62,6 +62,7 @@ export default function DetailsPage() {
                 <div className={styles["info-wrapper"]}>
                     <div>
                         <p className={styles["details-title"]}>Name: {item.name}</p>
+                        <p>Collection: <span className={styles["details-description"]}>{item.fromCollection.name}</span></p>
                         <p>Description: <span className={styles["details-description"]}>{item.description}</span></p>
                     </div>
                     <div className={styles["action-buttons"]}>
