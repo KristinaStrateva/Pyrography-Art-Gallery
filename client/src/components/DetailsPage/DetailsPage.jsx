@@ -12,6 +12,7 @@ import mainStyle from '../../App.module.css';
 export default function DetailsPage() {
     const [item, setItem] = useState({});
     const [likesAmount, setLikesAmount] = useState(0);
+    const [fromCollection, setFromCollection] = useState('');
     const [show, setShow] = useState(false);
     const [like, setLike] = useState(false);
 
@@ -25,7 +26,8 @@ export default function DetailsPage() {
             .then(itemData => {
                 setItem(itemData);
                 setLikesAmount(itemData.likesList.length);
-                
+                setFromCollection(itemData.fromCollection.name);
+
                 // if (likes.find(x => x._ownerId === userId)) {
 
                 //     setLike(true);
@@ -62,7 +64,7 @@ export default function DetailsPage() {
                 <div className={styles["info-wrapper"]}>
                     <div>
                         <p className={styles["details-title"]}>Name: {item.name}</p>
-                        <p>Collection: <span className={styles["details-description"]}>{item.fromCollection.name}</span></p>
+                        <p>Collection: <span className={styles["details-description"]}>{fromCollection}</span></p>
                         <p>Description: <span className={styles["details-description"]}>{item.description}</span></p>
                     </div>
                     <div className={styles["action-buttons"]}>

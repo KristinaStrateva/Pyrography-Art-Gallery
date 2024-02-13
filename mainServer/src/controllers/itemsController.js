@@ -10,12 +10,22 @@ const Item = require('../models/Item');
 const getAllItemsFromCollection = asyncHandler(async (req, res) => {
     const { collectionName } = req.params;
 
-    const collection = await Collection.findOne({ pathName: collectionName }).populate('items').lean();
+    const collection = await Collection
+        .findOne({ pathName: collectionName })
+        .populate({
+            path: 'items',
+            model: 'Item',
+            populate: {
+                path: 'fromCollection',
+                model: 'Collection'
+            }
+        })
+        .lean();
 
     const items = collection.items;
 
-    if (items.length === 0) {
-        return res.status(400).json({ message: 'This collection is empty!' });
+    if (!items) {
+        return res.status(400).json({ message: 'This collection is not found!' });
     }
 
     res.status(200).json(items);
@@ -28,7 +38,7 @@ const getAllItemsFromCollection = asyncHandler(async (req, res) => {
 const getItemById = asyncHandler(async (req, res) => {
     const { itemId } = req.params;
 
-    const item = await Item.findById({ _id: itemId }).lean();
+    const item = await Item.findById({ _id: itemId }).populate('fromCollection').lean();
 
     if (!item) {
         return res.status(400).json({ message: 'This item is not found!' });
