@@ -20,13 +20,13 @@ export default function CollectionPage() {
     useEffect(() => {
         itemsService.getAllFromCollection(locationName)
             .then(data => {
-                setCollection(Object.values(data).filter(x => typeof x === 'object'));
+                setCollection(data);
             })
             .catch(err => {throw err});
     }, [locationName]);
 
     useEffect(() => {
-        setCollectionName(s => s = collection[0]?.collectionName);
+        setCollectionName(s => s = collection[0]?.fromCollection.name);
     }, [collection]);
 
     useEffect(() => {
