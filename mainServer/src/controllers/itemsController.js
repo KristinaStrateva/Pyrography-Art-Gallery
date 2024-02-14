@@ -2,6 +2,7 @@ const asyncHandler = require('express-async-handler');
 
 const Collection = require('../models/Collection');
 const Item = require('../models/Item');
+const User = require('../models/User');
 
 // @desc Get all items from collection
 // @route GET /:collectionName
@@ -90,6 +91,25 @@ const createItem = asyncHandler(async (req, res) => {
     res.status(201).json(newItem);
 });
 
+// @desc Delete an item
+// @route DELETE /:collectionName/:itemId
+// @access Private
+
+const deleteItem = asyncHandler(async (req, res) => {
+    const { collectionName, itemId } = req.params;
+
+    const itemToBeDeleted = await Item.findByIdAndDelete({ _id: itemId });
+
+    if (!itemToBeDeleted) {
+        return res.status(400).json({ message: 'This item is not found!' });
+    }
+
+    await Collection.findOneAndUpdate({ pathName: collectionName }, { $pull: { items: itemId } });
+    await User.findOneAndUpdate({ _id: itemToBeDeleted.owner }, { $pull: { items: itemId } });
+
+    res.status(204).json({ message: 'Successfully deleted item!' });
+});
+
 // @desc Like an item
 // @route POST /:collectionName/:itemId/likes
 // @access Private
@@ -117,5 +137,6 @@ module.exports = {
     getItemById,
     getMyItems,
     createItem,
+    deleteItem,
     likeItem,
 }
