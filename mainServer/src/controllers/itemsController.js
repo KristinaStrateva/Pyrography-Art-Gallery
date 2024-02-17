@@ -73,6 +73,8 @@ const createItem = asyncHandler(async (req, res) => {
 
     const collection = await Collection.findOne({ name: fromCollection });
 
+    // Have to take the current user too so its ID can be added to the owner property of the new item
+
     if (!collection) {
         return res.status(404).json({ message: "Collection not found" });
     }
@@ -105,7 +107,7 @@ const deleteItem = asyncHandler(async (req, res) => {
     }
 
     await Collection.findOneAndUpdate({ pathName: collectionName }, { $pull: { items: itemId } });
-    await User.findOneAndUpdate({ _id: itemToBeDeleted.owner }, { $pull: { items: itemId } });
+    // await User.findOneAndUpdate({ _id: itemToBeDeleted.owner }, { $pull: { items: itemId } });
 
     res.status(204).json({ message: 'Successfully deleted item!' });
 });
