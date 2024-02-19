@@ -2,12 +2,12 @@ const asyncHandler = require('express-async-handler');
 const bcrypt = require('bcrypt');
 
 const User = require('../models/User');
-const tokenGenerator = require('../utils/tokenGenerator');
+const { accessTokenGenerator, refreshTokenGenerator } = require('../utils/tokenGenerator');
 // const { validationResult } = require('express-validator');
 
 // @desc Sign in existing user
 // @route POST /login
-// @access Private
+// @access Public
 
 const login = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
@@ -38,13 +38,23 @@ const login = asyncHandler(async (req, res) => {
         return res.status(401).json({ message: 'Invalid email or password!' });
     }
 
-    const token = await tokenGenerator(user);
+    const accessToken = await accessTokenGenerator(user);
+    const refreshToken = await refreshTokenGenerator(user);
 
+    res.cookie('jwt', refreshToken, {
+        httpOnly: true,
+        secure: true,
+        sameSite: 'None',
+        maxAge: 7 * 24 * 60 * 60 * 1000
+    });
+
+    // Have to check if it is necessary to make this userData object or to send only the accessToken
+    
     const userData = {
         id: user._id,
         username: user.username,
         email: user.email,
-        token,
+        accessToken,
     };
 
     res.status(200).json(userData);
