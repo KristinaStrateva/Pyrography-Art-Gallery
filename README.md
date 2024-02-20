@@ -51,7 +51,7 @@ This repository hosts the source code for our immersive platform dedicated to th
     - `/public`: Contains static assets, including images
     - `/src`: Holds the React components, styles, and other client-side code
 
-- `/server`: The server-side code for handling backend logic and API requests, using SoftUni's practice server
+- `/server`: The server-side code for handling backend logic and API requests, using Express.js and MongoDB
 
 Feel free to explore each directory to understand how different components and functionalities are structured within the project.
 
@@ -67,9 +67,13 @@ Open a new terminal window in the root directory of the project and navigate to 
 
 `cd server`
 
-Start the server by running the following command:
+Install server dependencies:
 
-`node server.js`
+`npm install`
+
+Start the server in development mode:
+
+`npm run dev`
 
 **3. Setup the Client**
 
@@ -121,7 +125,7 @@ Now when the client setup is complete you can open the following link in your we
 
 ## API Endpoints
 
-The Base URL for the API is: `http://localhost:3030`
+The Base URL for the API is: `http://localhost:3500`
 
 The documentation below assumes you are pre-pending the Base URL to the endpoints in order to make requests.
 
@@ -162,27 +166,26 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
 
 ### Items Management
 
-- **POST /data/:collectionName**
+- **POST /data/add-item**
     - _Request:_
     ```
     {
-        "collectionName": "string",
         "itemData": "itemData"
     }
     ```
     - _Response:_
     ```
     {
-        "itemId": "unique_item_id"
+        "New Item": "newItem"
     }
     ```
     - _Description:_ Create a new item
 
-- **GET /data/:collectionName/:itemId**
+- **GET /data/:collectionName/:itemId/details**
     - _Response:_
     ```
     {
-        "collectionName": "string",
+        "fromCollection": "unique_collection_id",
         "itemId": "unique_item_id",
         "name": "string",
         "imageUrl": "string",
@@ -192,19 +195,22 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
     ```
     - _Description:_ Get details data of a specific item
 
-- **PUT /data/:collectionName/:itemId**
+- **PUT /data/:collectionName/:itemId/edit-item**
     - _Request:_
     ```
     {
-        "collectionName": "string",
-        "itemId": "unique_item_id",
         "itemData": "itemData"
     }
     ```
     - _Response:_
     ```
     {
-        "itemId": "unique_item_id"
+        "fromCollection": "unique_collection_id",
+        "itemId": "unique_item_id",
+        "name": "string",
+        "imageUrl": "string",
+        "description": "string",
+        "ownerId": "ownerId"
     }
     ```
     - _Description:_ Update a specific item
@@ -213,7 +219,6 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
     - _Request:_
     ```
     {
-        "collectionName": "string",
         "itemId": "unique_item_id",
     }
     ```
@@ -221,24 +226,7 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
 
 ### Likes Management
 
-- **POST /data/likes**
-    - _Request:_
-    ```
-    {
-        "itemId": "unique_item_id"
-    }
-    ```
-    - _Response:_
-    ```
-    {
-        "likeId": "unique_like_id",
-        "itemId": "unique_item_id",
-        "ownerId": "unique_owner_id"
-    }
-    ```
-    - _Description:_ Create a like to a specific item
-
-- **GET /data/likes?where=itemId=:itemId**
+- **POST /data/:collectionName/:itemId/like**
     - _Request:_
     ```
     {
@@ -248,20 +236,12 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
     - _Response:_
     ```
     [
-        0: {
-            "likeId": "unique_like_id",
-            "itemId": "unique_item_id",
-            "ownerId": "unique_owner_id"
-        },
-        1: {
-            "likeId": "unique_like_id",
-            "itemId": "unique_item_id",
-            "ownerId": "unique_owner_id"
-        },
-        ...
+        {
+            "user": "unique_user_id"
+        }
     ]
     ```
-    - _Description:_ Get all likes to a specific item
+    - _Description:_ Create a like to a specific item
 
 ## Room for Improvements
 
