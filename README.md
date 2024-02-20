@@ -52,6 +52,7 @@ This repository hosts the source code for our immersive platform dedicated to th
     - `/src`: Holds the React components, styles, and other client-side code
 
 - `/server`: The server-side code for handling backend logic and API requests, using Express.js and MongoDB
+    - `/src`: Holds the controllers, models, configuration, routes and other server-side code
 
 Feel free to explore each directory to understand how different components and functionalities are structured within the project.
 
