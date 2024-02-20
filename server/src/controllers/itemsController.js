@@ -90,7 +90,48 @@ const createItem = asyncHandler(async (req, res) => {
     collection.items.push(newItem._id);
     await collection.save();
 
+    // Have to add this new item to MyItems
+
     res.status(201).json(newItem);
+});
+
+// @desc Edit an item
+// @route PUT /:collectionName/:itemId/edit-item
+// @access Private
+
+const editItem = asyncHandler(async (req, res) => {
+    const { fromCollection, name, imageUrl, description } = req.body;
+    const { collectionName, itemId } = req.params;
+
+    // Have to take the current user too so its ID can be added to the owner property of the new item
+
+    const collection = await Collection.findOne({ name: fromCollection }).populate('items');
+
+    if (!collection) {
+        return res.status(404).json({ message: "Collection not found" });
+    }
+
+    const updatedItem = await Item.findByIdAndUpdate({ _id: itemId }, {
+        fromCollection: collection._id,
+        name,
+        imageUrl,
+        description,
+        // owner: user._id
+    });
+
+    if (collection.pathName === collectionName) {
+        await Collection.findOneAndUpdate({ name: fromCollection, 'items._id': itemId }, { $set: { 'items.$.fieldToUpdate': updatedItem } });
+
+    } else {
+        await Collection.findOneAndUpdate({ pathName: collectionName }, { $pull: { items: itemId } });
+
+        collection.items.push(updatedItem._id);
+        await collection.save();
+    }
+    
+    // Have to update the item in MyItems
+    
+    res.status(200).json(updatedItem);
 });
 
 // @desc Delete an item
@@ -139,6 +180,7 @@ module.exports = {
     getItemById,
     getMyItems,
     createItem,
+    editItem,
     deleteItem,
     likeItem,
 }
