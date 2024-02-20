@@ -239,7 +239,8 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
     [
         {
             "user": "unique_user_id"
-        }
+        },
+        ...
     ]
     ```
     - _Description:_ Create a like to a specific item
