@@ -22,6 +22,8 @@ const refreshTokenGenerator = async (user) => {
     // };
 
     const token = await jwt.sign({ username: user.username }, REFRESH_TOKEN_SECRET, { expiresIn: '1m' });
+
+    return token;
 };
 
 module.exports = {
