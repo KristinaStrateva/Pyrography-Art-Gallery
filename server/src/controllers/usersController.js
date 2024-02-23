@@ -29,13 +29,13 @@ const login = asyncHandler(async (req, res) => {
     const user = await User.findOne({ email }).populate('items');
 
     if (!user) {
-        return res.status(401).json({ message: 'Invalid email or password!' });
+        return res.status(401).json({ message: 'Unauthorized: Invalid email or password!' });
     }
 
     const isValidPassword = await bcrypt.compare(password, user.password);
 
     if (!isValidPassword) {
-        return res.status(401).json({ message: 'Invalid email or password!' });
+        return res.status(401).json({ message: 'Unauthorized: Invalid email or password!' });
     }
 
     const accessToken = await accessTokenGenerator(user);
@@ -105,10 +105,25 @@ const register = asyncHandler(async (req, res) => {
 
 // @desc Logout an user
 // @route POST /logout
-// @access Private
+// @access Public
 
 const logout = (req, res) => {
-    res.status(200).json({ success: 'Successfully logged out!' });
+    const cookies = req.cookies;
+
+    if (!cookies?.jwt) {
+        return res.sendStatus(204);
+    }
+
+    res.clearCookie('jwt', {
+        httpOnly: true,
+        sameSite: 'None',
+        secure: true
+    });
+
+    res.json({
+        message: 'Cookie cleared',
+        success: 'Successfully logged out!'
+    });
 };
 
 module.exports = {
