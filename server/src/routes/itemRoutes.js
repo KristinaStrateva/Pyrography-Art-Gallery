@@ -1,12 +1,13 @@
 const router = require('express').Router();
 
 const itemsController = require('../controllers/itemsController');
+const verifyJWT = require('../middlewares/verifyJWT');
 
 router.get('/:collectionName', itemsController.getAllItemsFromCollection);
 router.get('/:collectionName/:itemId/details', itemsController.getItemById);
-router.post('/add-item', itemsController.createItem);
-router.put('/:collectionName/:itemId/edit-item', itemsController.editItem);
-router.delete('/:collectionName/:itemId', itemsController.deleteItem);
-router.post('/:collectionName/:itemId/like', itemsController.likeItem);
+router.post('/add-item', verifyJWT, itemsController.createItem);
+router.put('/:collectionName/:itemId/edit-item', verifyJWT, itemsController.editItem);
+router.delete('/:collectionName/:itemId', verifyJWT, itemsController.deleteItem);
+router.post('/:collectionName/:itemId/like', verifyJWT, itemsController.likeItem);
 
 module.exports = router;
