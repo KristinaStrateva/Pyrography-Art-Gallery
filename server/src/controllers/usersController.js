@@ -41,6 +41,10 @@ const login = asyncHandler(async (req, res) => {
     const accessToken = await accessTokenGenerator(user);
     const refreshToken = await refreshTokenGenerator(user);
 
+    console.log(accessToken);
+
+    res.setHeader('Authorization', `Bearer ${accessToken}`);
+
     res.cookie('jwt', refreshToken, {
         httpOnly: true,
         secure: true,
