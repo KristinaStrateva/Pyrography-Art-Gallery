@@ -49,6 +49,7 @@ export const getMyItems = async (accessToken) => {
 
 export const addItem = async (itemData, accessToken) => {
     try {
+        const result = await request.post(`${baseUrl}/add-item`, itemData, accessToken);
     
         return result;
 
