@@ -28,10 +28,9 @@ export default function DetailsPage() {
                 setLikesAmount(itemData.likesList.length);
                 setFromCollection(itemData.fromCollection.name);
 
-                // if (likes.find(x => x._ownerId === userId)) {
-
-                //     setLike(true);
-                // }
+                if (itemData.likesList.length > 0 && itemData.likesList.find(like => like.user === userId)) {
+                    setLike(true);
+                }
             })
             .catch(err => { throw err });
     }, [itemId, like]);
@@ -41,7 +40,7 @@ export default function DetailsPage() {
 
     const likeHandler = async () => {
         try {
-            await itemsService.likeItem(collectionName, itemId);
+            await itemsService.likeItem(collectionName, itemId, accessToken);
 
             setLike(true);
 

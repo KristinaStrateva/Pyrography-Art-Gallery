@@ -164,15 +164,30 @@ const deleteItem = asyncHandler(async (req, res) => {
 
 const likeItem = asyncHandler(async (req, res) => {
     const { itemId } = req.params;
+    const userId = req.user._id;
 
-    const item = await Item.findById({ _id: itemId });
+    const item = await Item
+        .findById({ _id: itemId })
+        .populate({
+            path: 'likesList',
+            model: 'Item',
+            populate: {
+                path: 'user',
+                model: 'User'
+            }
+        });
 
     if (!item) {
         return res.status(400).json({ message: 'This item is not found!' });
     }
 
-    // have to get real user ID!!!
-    let userId = '65c6aa50ec333934a557e6ea'; // this one is for developing purpose only
+    if (item.likesList.length > 0 && item.likesList.find(like => like.user._id === userId)) {
+        return res.status(403).json({ message: 'Forbidden!' }); // Cannot like an item twice
+    }
+
+    if (item.owner === userId) {
+        return res.status(403).json({ message: 'Cannot like own items!' });
+    }
 
     item.likesList.push({ user: userId });
     await item.save();

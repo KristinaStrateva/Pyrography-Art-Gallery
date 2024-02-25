@@ -78,9 +78,9 @@ export const deleteItem = async (collectionName, itemId, accessToken) => {
     }
 }
 
-export const likeItem = async (collectionName, itemId) => {
+export const likeItem = async (collectionName, itemId, accessToken) => {
     try {
-        const result = await request.post(`${baseUrl}/${collectionName}/${itemId}/like`);
+        const result = await request.post(`${baseUrl}/${collectionName}/${itemId}/like`, undefined, accessToken);
     
         return result;
 
