@@ -1,9 +1,12 @@
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
+import AuthContext from '../../../contexts/authContext';
 import * as itemsService from '../../../services/itemsService';
+
 import Path from '../../../utils/paths';
 
 export default function DeleteModal({
@@ -13,13 +16,14 @@ export default function DeleteModal({
     itemId,
 }) {
     const navigate = useNavigate();
+    const { accessToken } = useContext(AuthContext);
 
     const deleteItemHandler = async () => {
         try {
-            await itemsService.deleteItem(collectionName, itemId);
-    
+            await itemsService.deleteItem(collectionName, itemId, accessToken);
+
             handleClose();
-    
+
             navigate(`/${collectionName}`);
 
         } catch (error) {

@@ -154,7 +154,6 @@ const deleteItem = asyncHandler(async (req, res) => {
     }
 
     await Collection.findOneAndUpdate({ pathName: collectionName }, { $pull: { items: itemId } });
-    // await User.findOneAndUpdate({ _id: itemToBeDeleted.owner }, { $pull: { items: itemId } });
 
     res.status(204).json({ message: 'Successfully deleted item!' });
 });

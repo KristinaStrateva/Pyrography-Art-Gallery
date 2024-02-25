@@ -69,9 +69,9 @@ export const updateItem = async (collectionName, itemId, itemData, accessToken) 
     }
 }
 
-export const deleteItem = async (collectionName, itemId) => {
+export const deleteItem = async (collectionName, itemId, accessToken) => {
     try {
-        await request.del(`${baseUrl}/${collectionName}/${itemId}`);
+        await request.del(`${baseUrl}/${collectionName}/${itemId}`, undefined, accessToken);
         
     } catch (error) {
         throw error;
