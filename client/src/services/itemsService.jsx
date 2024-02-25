@@ -47,9 +47,8 @@ export const getMyItems = async (accessToken) => {
     }
 }
 
-export const addItem = async (collectionName, itemData) => {
+export const addItem = async (itemData, accessToken) => {
     try {
-        const result = await request.post(`${baseUrl}/${collectionName}`, itemData);
     
         return result;
 

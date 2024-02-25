@@ -69,10 +69,9 @@ const getMyItems = asyncHandler(async (req, res) => {
 
 const createItem = asyncHandler(async (req, res) => {
     const { fromCollection, name, imageUrl, description } = req.body;
+    const userId = req.user._id;
 
     const collection = await Collection.findOne({ name: fromCollection });
-
-    // Have to take the current user too so its ID can be added to the owner property of the new item
 
     if (!collection) {
         return res.status(404).json({ message: "Collection not found" });
@@ -83,13 +82,11 @@ const createItem = asyncHandler(async (req, res) => {
         name,
         imageUrl,
         description,
-        // owner: req.user._id
+        owner: userId,
     });
 
     collection.items.push(newItem._id);
     await collection.save();
-
-    // Have to add this new item to MyItems
 
     res.status(201).json(newItem);
 });
