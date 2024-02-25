@@ -23,11 +23,6 @@ const itemSchema = new mongoose.Schema(
             minLength: [10, 'Description must be at least 10 characters!'],
             maxLength: [100, 'Description must not be more than 100 characters!'],
         },
-        // price: {
-        //     type: Number,
-        //     required: [true, 'Price is required!'],
-        //     min: [1, 'Price should be positive number'],
-        // },
         likesList: [
             {
                 user: {
