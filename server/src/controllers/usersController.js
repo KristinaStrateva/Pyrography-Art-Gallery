@@ -95,13 +95,13 @@ const register = asyncHandler(async (req, res) => {
         return res.status(400).json({ message: 'Inavlid user data received!' });
     }
 
-    const token = await tokenGenerator(createdUser);
+    const accessToken = await accessTokenGenerator(createdUser);
 
     const userData = {
         id: createdUser._id,
         username: createdUser.username,
         email: createdUser.email,
-        token
+        accessToken,
     };
 
     res.status(201).json(userData);
