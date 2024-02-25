@@ -22,7 +22,7 @@ const getAllItemsFromCollection = asyncHandler(async (req, res) => {
         })
         .lean();
 
-    const items = collection.items;
+    const items = collection?.items;
 
     if (!items) {
         return res.status(400).json({ message: 'This collection is not found!' });
