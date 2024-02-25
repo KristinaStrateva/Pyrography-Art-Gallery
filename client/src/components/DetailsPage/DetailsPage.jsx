@@ -16,10 +16,10 @@ export default function DetailsPage() {
     const [show, setShow] = useState(false);
     const [like, setLike] = useState(false);
 
-    const { userId, isAuthenticated } = useContext(AuthContext);
+    const { userId, accessToken, isAuthenticated } = useContext(AuthContext);
     const { collectionName, itemId } = useParams();
 
-    const isOwner = item._ownerId === userId;
+    const isOwner = item.owner === userId;
 
     useEffect(() => {
         itemsService.getItemById(collectionName, itemId)
