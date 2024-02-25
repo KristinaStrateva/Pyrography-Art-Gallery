@@ -58,9 +58,9 @@ export const addItem = async (collectionName, itemData) => {
     }
 }
 
-export const updateItem = async (collectionName, itemId, itemData) => {
+export const updateItem = async (collectionName, itemId, itemData, accessToken) => {
     try {
-        const result = await request.put(`${baseUrl}/${collectionName}/${itemId}`, itemData);
+        const result = await request.put(`${baseUrl}/${collectionName}/${itemId}/edit-item`, itemData, accessToken);
     
         return result;
 

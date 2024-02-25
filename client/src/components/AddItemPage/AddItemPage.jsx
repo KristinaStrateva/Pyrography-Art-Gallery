@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import useForm from '../../hooks/useForm';
@@ -8,9 +9,10 @@ import * as itemsService from '../../services/itemsService';
 import styles from './AddItemPage.module.css';
 import mainStyle from '../../App.module.css';
 import validateFormValues from '../../utils/validateFormValues';
+import AuthContext from '../../contexts/authContext';
 
 const AddItemFormKeys = {
-    CollectionName: 'collectionName',
+    FromCollection: 'fromCollection',
     Name: 'name',
     ImageUrl: 'imageUrl',
     Description: 'description',
@@ -18,17 +20,18 @@ const AddItemFormKeys = {
 
 export default function AddItemPage() {
     const navigate = useNavigate();
+    const { accessToken } = useContext(AuthContext);
 
     const addItemSubmitHandler = async (values) => {
-        const collectionName = transformCollecitonName(values.collectionName);
+        const collectionName = transformCollecitonName(values.fromCollection);
 
         try {
 
             validateFormValues(values);
 
-            await itemsService.addItem(collectionName, values);
+            const newItem = await itemsService.addItem(values, accessToken);
 
-            navigate(`/${collectionName}`);
+            navigate(`/${collectionName}/${newItem._id}/details`);
 
         } catch (error) {
             throw error;
@@ -36,7 +39,7 @@ export default function AddItemPage() {
     };
 
     const { values, onChange, onSubmit } = useForm({
-        [AddItemFormKeys.CollectionName]: 'Home Decorations',
+        [AddItemFormKeys.FromCollection]: 'Home Decorations',
         [AddItemFormKeys.Name]: '',
         [AddItemFormKeys.ImageUrl]: '',
         [AddItemFormKeys.Description]: '',
@@ -47,7 +50,7 @@ export default function AddItemPage() {
             <div className={styles.form}>
                 <h2>Add item</h2>
                 <form className={styles["create-form"]} onSubmit={onSubmit}>
-                    <select name={AddItemFormKeys.CollectionName} value={values[AddItemFormKeys.CollectionName]} onChange={onChange}>
+                    <select name={AddItemFormKeys.FromCollection} value={values[AddItemFormKeys.FromCollection]} onChange={onChange}>
                         <option value="Home Decorations">Home Decorations</option>
                         <option value="Gift Sets">Gift Sets</option>
                         <option value="Custom Items">Custom Items</option>

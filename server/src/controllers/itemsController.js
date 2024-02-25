@@ -101,10 +101,19 @@ const createItem = asyncHandler(async (req, res) => {
 const editItem = asyncHandler(async (req, res) => {
     const { fromCollection, name, imageUrl, description } = req.body;
     const { collectionName, itemId } = req.params;
+    const userId = req.user._id;
 
-    // Have to take the current user too so its ID can be added to the owner property of the new item
+    const item = await Item.findById({ _id: itemId }).lean();
 
-    const collection = await Collection.findOne({ name: fromCollection }).populate('items');
+    if (!item) {
+        return res.status(404).json({ message: 'This item not found!' });
+    }
+
+    if (item?.owner.toString() !== userId) {
+        return res.status(403).json({ message: 'Forbidden!' });
+    }
+
+    const collection = await Collection.findOne({ pathName: fromCollection }).populate('items');
 
     if (!collection) {
         return res.status(404).json({ message: "Collection not found" });
