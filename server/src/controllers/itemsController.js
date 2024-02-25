@@ -124,7 +124,7 @@ const editItem = asyncHandler(async (req, res) => {
         name,
         imageUrl,
         description,
-        // owner: user._id
+        owner: userId,
     });
 
     if (collection.pathName === collectionName) {
@@ -136,9 +136,7 @@ const editItem = asyncHandler(async (req, res) => {
         collection.items.push(updatedItem._id);
         await collection.save();
     }
-    
-    // Have to update the item in MyItems
-    
+
     res.status(200).json(updatedItem);
 });
 

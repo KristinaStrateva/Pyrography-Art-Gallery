@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
+import AuthContext from '../../../contexts/authContext';
 import * as itemsService from '../../../services/itemsService';
-// import { OwnerGuardProvider } from '../../../contexts/ownerContext';
+
+import validateFormValues from '../../../utils/validateFormValues';
 
 import styles from './EditPage.module.css';
 import mainStyle from '../../../App.module.css';
-import validateFormValues from '../../../utils/validateFormValues';
 
 const EditFormKeys = {
-    CollectionName: 'collectionName',
+    FromCollection: 'fromCollection',
     Name: 'name',
     ImageUrl: 'imageUrl',
     Description: 'description',
@@ -17,10 +18,10 @@ const EditFormKeys = {
 
 export default function EditPage() {
     const navigate = useNavigate();
+    const { accessToken } = useContext(AuthContext);
     const { collectionName, itemId } = useParams();
-    const [currentCollectionName, setCurrentCollectionName] = useState('');
     const [item, setItem] = useState({
-        [EditFormKeys.CollectionName]: '',
+        [EditFormKeys.FromCollection]: '',
         [EditFormKeys.Name]: '',
         [EditFormKeys.ImageUrl]: '',
         [EditFormKeys.Description]: '',
@@ -30,10 +31,8 @@ export default function EditPage() {
         itemsService.getItemById(collectionName, itemId)
             .then(itemData => {
                 setItem(state => state = { ...itemData });
-
-                setCurrentCollectionName(collectionName);
             })
-            .catch(err => {throw err});
+            .catch(err => { throw err });
     }, [collectionName, itemId]);
 
     const updateItemSubmitHandler = async (event) => {
@@ -44,7 +43,7 @@ export default function EditPage() {
         try {
             validateFormValues(values);
 
-            await itemsService.updateItem(collectionName, itemId, values);
+            await itemsService.updateItem(collectionName, itemId, values, accessToken);
 
             navigate(`/${collectionName}/${itemId}/details`);
 
@@ -65,7 +64,7 @@ export default function EditPage() {
             <div className={styles.form}>
                 <h2>Edit item</h2>
                 <form className={styles["edit-form"]} onSubmit={updateItemSubmitHandler}>
-                    <select name="collectionName" value={currentCollectionName} onChange={onChange}>
+                    <select name="fromCollection" value={item[EditFormKeys.FromCollection].pathName} onChange={onChange}>
                         <option value="home-decorations">Home Decorations</option>
                         <option value="gift-sets">Gift Sets</option>
                         <option value="custom-items">Custom Items</option>
