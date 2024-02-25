@@ -1,4 +1,4 @@
-const buildOptions = (data) => {
+const buildOptions = (data, accessToken) => {
     const options = {
         headers: {}
     };
@@ -8,19 +8,17 @@ const buildOptions = (data) => {
         options.body = JSON.stringify(data);
     }
 
-    const token = localStorage.getItem('accessToken');
-
-    if (token) {
-        options.headers['X-Authorization'] = token;
+    if (accessToken) {
+        options.headers['Authorization'] = `Bearer ${accessToken}`;
     }
 
     return options;
 };
 
-const request = async (method, url, data) => {
+const request = async (method, url, data, accessToken) => {
     try {
         const response = await fetch(url, {
-            ...buildOptions(data),
+            ...buildOptions(data, accessToken),
             method
         });
     
@@ -29,9 +27,9 @@ const request = async (method, url, data) => {
         }
     
         if (!response.ok) {
-            if (response.status === 403) {
-                localStorage.removeItem('accessToken');
-            }
+            // if (response.status === 403) {
+            //     localStorage.removeItem('accessToken');
+            // }
             
             let errorMessage;
 
@@ -45,7 +43,7 @@ const request = async (method, url, data) => {
         
         const responseBody = await response.text();
         
-        return responseBody ? JSON.parse(responseBody) : null;
+        return responseBody ? JSON.parse(responseBody) : await response.json();
 
     } catch (error) {
         throw error;
@@ -56,4 +54,4 @@ export const get = request.bind(null, 'GET');
 export const post = request.bind(null, 'POST');
 export const put = request.bind(null, 'PUT');
 export const del = request.bind(null, 'DELETE');
-export const patch = request.bind(null, 'PATCH');
+// export const patch = request.bind(null, 'PATCH');
