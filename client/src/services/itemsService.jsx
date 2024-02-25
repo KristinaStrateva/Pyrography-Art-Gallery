@@ -1,7 +1,6 @@
 import * as request from '../lib/request';
 
 const baseUrl = 'http://localhost:3500/data';
-// const baseUrl = `${request.headers.referer || request.headers.referrer}/data`;
 
 export const getLastThreeItems = async () => {
     try {

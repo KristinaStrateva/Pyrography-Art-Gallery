@@ -1,8 +1,6 @@
 import * as request from '../lib/request';
 
 const baseUrl = `http://localhost:3500/users`;
-// const baseUrl = `${request.headers.referer || request.headers.referrer}/users`;
-
 
 export const login = (email, password) => {
     try {
