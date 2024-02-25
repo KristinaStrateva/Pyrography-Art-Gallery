@@ -2,7 +2,6 @@ const asyncHandler = require('express-async-handler');
 
 const Collection = require('../models/Collection');
 const Item = require('../models/Item');
-const User = require('../models/User');
 
 // @desc Get all items from collection
 // @route GET /:collectionName
@@ -48,8 +47,8 @@ const getItemById = asyncHandler(async (req, res) => {
     res.status(200).json(item);
 });
 
-// @desc Get item by id
-// @route GET /:collectionName/:itemId/details
+// @desc Get my items
+// @route GET /my-items
 // @access Private
 
 const getMyItems = asyncHandler(async (req, res) => {

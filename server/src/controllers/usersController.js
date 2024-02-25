@@ -26,7 +26,7 @@ const login = asyncHandler(async (req, res) => {
         return res.status(400).json({ message: 'Password is required!' });
     }
 
-    const user = await User.findOne({ email }).populate('items');
+    const user = await User.findOne({ email });
 
     if (!user) {
         return res.status(401).json({ message: 'Unauthorized: Invalid email or password!' });

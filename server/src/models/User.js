@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const Item = require('./Item');
 
 const userSchema = new mongoose.Schema({
     email: {
@@ -13,14 +12,6 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
     },
-    items: [
-        {
-            item: {
-                type: mongoose.Types.ObjectId,
-                ref: Item,
-            }
-        }
-    ]
 });
 
 userSchema.virtual('rePassword')
