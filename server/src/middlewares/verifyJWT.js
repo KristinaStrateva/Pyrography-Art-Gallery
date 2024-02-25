@@ -1,6 +1,6 @@
 const jwt = require('../lib/jwt');
 
-const verifyJWT = (req, res, next) => {
+const verifyJWT = async (req, res, next) => {
     const authHeader = req.headers.authorization || req.headers.Authorization;
 
     if (!authHeader?.startsWith('Bearer ')) {
@@ -9,19 +9,20 @@ const verifyJWT = (req, res, next) => {
 
     const token = authHeader.split(' ')[1];
 
-    jwt.verify(
-        token,
-        process.env.ACCESS_TOKEN_SECRET,
-        (err, decoded) => {
-            if (err) {
-                return res.status(403).json({ message: 'Forbidden!' });
-            }
+    console.log(token);
 
-            req.user = decoded.UserInfo;
+    try {
+        const decoded = await jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
 
-            next();
-        }
-    )
+        console.log(decoded);
+
+        req.user = decoded.UserInfo; // req.user = { _id, username, email }
+
+        next();
+
+    } catch (error) {
+        return res.status(403).json({ message: 'Forbidden!' });
+    }
 };
 
 module.exports = verifyJWT;
