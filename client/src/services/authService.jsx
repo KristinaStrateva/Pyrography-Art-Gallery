@@ -10,7 +10,7 @@ export const login = (email, password) => {
             email,
             password,
         });
-    
+
         return result;
 
     } catch (error) {
@@ -25,7 +25,7 @@ export const register = (username, email, password) => {
             email,
             password,
         });
-    
+
         return result;
 
     } catch (error) {
@@ -33,4 +33,4 @@ export const register = (username, email, password) => {
     }
 };
 
-export const logout = () => request.get(`${baseUrl}/logout`);
+export const logout = (accessToken) => request.post(`${baseUrl}/logout`, undefined, accessToken);

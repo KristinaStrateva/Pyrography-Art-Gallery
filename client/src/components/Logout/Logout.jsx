@@ -8,10 +8,10 @@ import * as authService from '../../services/authService';
 
 export default function Logout() {
     const navigate = useNavigate();
-    const { logoutHandler } = useContext(AuthContext);
+    const { logoutHandler, accessToken } = useContext(AuthContext);
 
     useEffect(() => {
-        authService.logout()
+        authService.logout(accessToken)
             .then(() => {
                 logoutHandler();
                 navigate(Path.HomePage);

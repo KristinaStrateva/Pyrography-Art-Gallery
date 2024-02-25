@@ -52,15 +52,15 @@ export const AuthProvider = ({
 
     const logoutHandler = () => {
         setAuth({});
-        localStorage.removeItem('accessToken');
     }
 
     const values = {
         loginSubmitHandler,
         registerSubmitHandler,
         logoutHandler,
-        userId: auth._id,
+        userId: auth.id,
         username: auth.username || auth.email,
+        accessToken: auth.accessToken,
         isAuthenticated: !!auth.accessToken,
     };
 
