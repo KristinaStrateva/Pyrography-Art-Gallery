@@ -21,9 +21,7 @@ export const AuthProvider = ({
 
             const result = await authService.login(values.email, values.password);
     
-            setAuth(result);
-    
-            localStorage.setItem('accessToken', result.accessToken);
+            setAuth(result); // result = {id, username, email, accessToken}
     
             navigate(Path.HomePage);
 
@@ -39,9 +37,7 @@ export const AuthProvider = ({
             
             const result = await authService.register(values.username, values.email, values.password);
             
-            setAuth(result);
-    
-            localStorage.setItem('accessToken', result.accessToken);
+            setAuth(result); // result = {id, username, email, accessToken}
     
             navigate(Path.HomePage);
 
