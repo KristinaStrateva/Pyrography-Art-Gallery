@@ -5,7 +5,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import { AuthProvider } from './contexts/authContext';
 import Path from './utils/paths';
 
-import AuthGuard from './components/Guards/AuthGuard';
+import { AuthGuard, OwnerGuard } from './components/Guards/AuthGuard';
 import HomePage from './components/HomePage/HomePage';
 import Navigation from './components/Navigation/Navigation';
 import Footer from './components/Footer/Footer';
@@ -57,7 +57,10 @@ export default function App() {
 
                             <Route element={<AuthGuard />}>
                                 <Route path={Path.Logout} element={<Logout />} />
-                                <Route path={Path.EditPage} element={<EditPage />} />
+
+                                <Route element={<OwnerGuard />}>
+                                    <Route path={Path.EditPage} element={<EditPage />} />
+                                </Route>
                                 <Route path={Path.AddItemPage} element={<AddItemPage />} />
                                 <Route path={Path.MyItems} element={<MyItems />} />
                             </Route>
