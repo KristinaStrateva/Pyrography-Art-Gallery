@@ -11,10 +11,10 @@ import mainStyle from '../../App.module.css';
 export default function MyItems() {
     const [myItems, setMyItems] = useState([]);
 
-    const { userId } = useContext(AuthContext);
+    const { accessToken } = useContext(AuthContext);
 
     useEffect(() => {
-        itemsService.getMyItems(userId)
+        itemsService.getMyItems(accessToken)
             .then(result => setMyItems(result))
             .catch(err => {throw err});
     }, []);
@@ -29,7 +29,7 @@ export default function MyItems() {
                     </h1>
                     <div className={styles["main-section"]}>
                         {myItems.map(item => {
-                            const collectionName = transformCollectionName(item.collectionName);
+                            const collectionName = transformCollectionName(item.fromCollection.name);
 
                             return (
                                 <div key={item._id} className={styles["category-card-category-card"]}>

@@ -36,9 +36,9 @@ export const getItemById = async (collectionName, itemId) => {
     }
 };
 
-export const getMyItems = async (userId) => {
+export const getMyItems = async (accessToken) => {
     try {
-        const result = (await getAllItems()).filter(item => item._ownerId === userId);
+        const result = await request.get(`${baseUrl}/my-items`, undefined, accessToken);
     
         return result;
 

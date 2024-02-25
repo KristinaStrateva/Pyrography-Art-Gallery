@@ -53,9 +53,9 @@ const getItemById = asyncHandler(async (req, res) => {
 // @access Private
 
 const getMyItems = asyncHandler(async (req, res) => {
-    // have to think how to check the user ID on the server, not only on the FE
-    // const userId = 
-    const allItems = await Item.find().lean();
+    const userId = req.user._id;
+
+    const allItems = await Item.find({ owner: userId }).populate('fromCollection').lean();
 
     if (!allItems) {
         return res.status(400).json({ message: 'There are no items yet!' });
