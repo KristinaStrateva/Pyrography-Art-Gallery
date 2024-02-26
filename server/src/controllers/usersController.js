@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 
 const User = require('../models/User');
 const { accessTokenGenerator, refreshTokenGenerator } = require('../utils/tokenGenerator');
-// const { validationResult } = require('express-validator');
 
 // @desc Sign in existing user
 // @route POST /login
@@ -11,12 +10,6 @@ const { accessTokenGenerator, refreshTokenGenerator } = require('../utils/tokenG
 
 const login = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
-    // const { errors } = validationResult(req);
-
-    // if (errors.length) {
-    //     res.status(400);
-    //     throw new Error(errors.map(err => err.msg));
-    // }
 
     if (!email) {
         return res.status(400).json({ message: 'Email is required!' });
@@ -52,8 +45,6 @@ const login = asyncHandler(async (req, res) => {
         maxAge: 7 * 24 * 60 * 60 * 1000
     });
 
-    // Have to check if it is necessary to make this userData object or to send only the accessToken
-    
     const userData = {
         id: user._id,
         username: user.username,
@@ -130,8 +121,46 @@ const logout = (req, res) => {
     });
 };
 
+// @desc Refresh
+// @route GET /users/refresh
+// @access Public
+
+const refresh = asyncHandler(async (req, res) => {
+    const cookies = req.cookies;
+
+    if (!cookies?.jwt) {
+        return res.status(401).json({ message: 'Unauthorized!' });
+    }
+
+    const refreshToken = cookies.jwt;
+
+    try {
+        const decoded = await jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
+
+        console.log(decoded);
+        const foundUser = await User.findOne({ username: decoded.username });
+
+        if (!foundUser) {
+            return res.status(401).json({message: 'Unauthorized!'});
+        }
+
+        const accessToken = await accessTokenGenerator(foundUser);
+
+        res.json({
+            id: foundUser.id,
+            username: foundUser.username,
+            email: foundUser.email,
+            accessToken: accessToken,
+        });
+
+    } catch (error) {
+        return res.status(403).json({ message: 'Forbidden!' });
+    }
+});
+
 module.exports = {
     login,
     register,
     logout,
+    refresh,
 };
