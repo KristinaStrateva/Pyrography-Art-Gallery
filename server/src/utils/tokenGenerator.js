@@ -9,18 +9,12 @@ const accessTokenGenerator = async (user) => {
         email: user.email,
     };
 
-    const token = await jwt.sign({ UserInfo: payload }, ACCESS_TOKEN_SECRET, { expiresIn: '10m' });
+    const token = await jwt.sign({ UserInfo: payload }, ACCESS_TOKEN_SECRET, { expiresIn: '10s' });
 
     return token;
 };
 
 const refreshTokenGenerator = async (user) => {
-    // const payload = {
-    //     _id: user._id,
-    //     username: user.username,
-    //     email: user.email,
-    // };
-
     const token = await jwt.sign({ username: user.username }, REFRESH_TOKEN_SECRET, { expiresIn: '10m' });
 
     return token;
