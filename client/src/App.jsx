@@ -29,7 +29,7 @@ export default function App() {
         if (error) {
             setTimeout(() => {
                 setError(null);
-            }, 3000);
+            }, 5000);
         }
     }, [error]);
 
@@ -57,12 +57,12 @@ export default function App() {
 
                             <Route element={<AuthGuard />}>
                                 <Route path={Path.Logout} element={<Logout />} />
+                                <Route path={Path.AddItemPage} element={<AddItemPage />} />
+                                <Route path={Path.MyItems} element={<MyItems />} />
 
                                 <Route element={<OwnerGuard />}>
                                     <Route path={Path.EditPage} element={<EditPage />} />
                                 </Route>
-                                <Route path={Path.AddItemPage} element={<AddItemPage />} />
-                                <Route path={Path.MyItems} element={<MyItems />} />
                             </Route>
 
                             <Route path={Path.NotFound} element={<NotFoundPage />} />
