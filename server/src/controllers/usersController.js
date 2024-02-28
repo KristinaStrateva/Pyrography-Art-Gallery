@@ -2,7 +2,7 @@ const asyncHandler = require('express-async-handler');
 const bcrypt = require('bcrypt');
 
 const User = require('../models/User');
-const { accessTokenGenerator, refreshTokenGenerator } = require('../utils/tokenGenerator');
+const { accessTokenGenerator } = require('../utils/tokenGenerator');
 
 // @desc Sign in existing user
 // @route POST /login
@@ -22,28 +22,28 @@ const login = asyncHandler(async (req, res) => {
     const user = await User.findOne({ email });
 
     if (!user) {
-        return res.status(401).json({ message: 'Unauthorized: Invalid email or password!' });
+        return res.status(401).json({ message: 'Invalid email or password!' });
     }
 
     const isValidPassword = await bcrypt.compare(password, user.password);
 
     if (!isValidPassword) {
-        return res.status(401).json({ message: 'Unauthorized: Invalid email or password!' });
+        return res.status(401).json({ message: 'Invalid email or password!' });
     }
 
     const accessToken = await accessTokenGenerator(user);
-    const refreshToken = await refreshTokenGenerator(user);
+    // const refreshToken = await refreshTokenGenerator(user);
 
     console.log(accessToken);
 
     res.setHeader('Authorization', `Bearer ${accessToken}`);
 
-    res.cookie('jwt', refreshToken, {
-        httpOnly: true,
-        secure: true,
-        sameSite: 'None',
-        maxAge: 7 * 24 * 60 * 60 * 1000
-    });
+    // res.cookie('jwt', refreshToken, {
+    //     httpOnly: true,
+    //     secure: true,
+    //     sameSite: 'None',
+    //     maxAge: 7 * 24 * 60 * 60 * 1000
+    // });
 
     const userData = {
         id: user._id,
@@ -103,21 +103,23 @@ const register = asyncHandler(async (req, res) => {
 // @access Public
 
 const logout = (req, res) => {
-    const cookies = req.cookies;
+    // const cookies = req.cookies;
 
-    if (!cookies?.jwt) {
-        return res.sendStatus(204);
-    }
+    // if (!cookies?.jwt) {
+    //     return res.sendStatus(204);
+    // }
 
-    res.clearCookie('jwt', {
-        httpOnly: true,
-        sameSite: 'None',
-        secure: true
-    });
+    // res.clearCookie('jwt', {
+    //     httpOnly: true,
+    //     sameSite: 'None',
+    //     secure: true
+    // });
+
+    res.removeHeader('Authorization');
 
     res.json({
-        message: 'Cookie cleared',
-        success: 'Successfully logged out!'
+        // message: 'Cookie cleared',
+        message: 'Successfully logged out!'
     });
 };
 
@@ -125,42 +127,42 @@ const logout = (req, res) => {
 // @route GET /users/refresh
 // @access Public
 
-const refresh = asyncHandler(async (req, res) => {
-    const cookies = req.cookies;
+// const refresh = asyncHandler(async (req, res) => {
+//     const cookies = req.cookies;
 
-    if (!cookies?.jwt) {
-        return res.status(401).json({ message: 'Unauthorized!' });
-    }
+//     if (!cookies?.jwt) {
+//         return res.status(401).json({ message: 'Unauthorized!' });
+//     }
 
-    const refreshToken = cookies.jwt;
+//     const refreshToken = cookies.jwt;
 
-    try {
-        const decoded = await jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
+//     try {
+//         const decoded = await jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
 
-        console.log(decoded);
-        const foundUser = await User.findOne({ username: decoded.username });
+//         console.log(decoded);
+//         const foundUser = await User.findOne({ username: decoded.username });
 
-        if (!foundUser) {
-            return res.status(401).json({message: 'Unauthorized!'});
-        }
+//         if (!foundUser) {
+//             return res.status(401).json({message: 'Unauthorized!'});
+//         }
 
-        const accessToken = await accessTokenGenerator(foundUser);
+//         const accessToken = await accessTokenGenerator(foundUser);
 
-        res.json({
-            id: foundUser.id,
-            username: foundUser.username,
-            email: foundUser.email,
-            accessToken: accessToken,
-        });
+//         res.json({
+//             id: foundUser.id,
+//             username: foundUser.username,
+//             email: foundUser.email,
+//             accessToken: accessToken,
+//         });
 
-    } catch (error) {
-        return res.status(403).json({ message: 'Forbidden!' });
-    }
-});
+//     } catch (error) {
+//         return res.status(403).json({ message: 'Forbidden!' });
+//     }
+// });
 
 module.exports = {
     login,
     register,
     logout,
-    refresh,
+    // refresh,
 };
