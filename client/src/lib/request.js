@@ -36,17 +36,18 @@ const request = async (method, url, data, accessToken) => {
                 console.error('Error while parse JSON response', error);
             }
 
-            // if (
-            //     response.status === 401 && errorMessage === 'Token is missing!' ||
-            //     response.status === 401 && errorMessage === 'Token has expired!' ||
-            //     response.status === 403 && errorMessage === 'Problem with token verification!'
-            // ) {
-            //     console.error(errorMessage);
-            //     window.location.href = '/logout';
-            //     throw new Error(errorMessage);
-            // } else {
-            //     throw new Error(errorMessage || 'Unknown error');
-            // }
+            if (
+                response.status === 401 && errorMessage === 'Token is missing!' ||
+                response.status === 401 && errorMessage === 'Token has expired!' ||
+                response.status === 403 && errorMessage === 'Problem with token verification!'
+            ) {
+                console.error(errorMessage);
+                localStorage.removeItem('auth');
+                window.location = '/logout';
+                throw new Error(errorMessage);
+            } else {
+                throw new Error(errorMessage || 'Unknown error');
+            }
         }
 
         const responseBody = await response.text();
