@@ -8,7 +8,7 @@ const accessTokenGenerator = async (user) => {
         email: user.email,
     };
 
-    const token = await jwt.sign({ UserInfo: payload }, ACCESS_TOKEN_SECRET, { expiresIn: '10s' });
+    const token = await jwt.sign({ UserInfo: payload }, ACCESS_TOKEN_SECRET, { expiresIn: '2d' });
 
     return token;
 };
