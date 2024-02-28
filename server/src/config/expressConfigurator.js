@@ -4,7 +4,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const corsOptions = require('./corsOptions');
-const { logger } = require('../middlewares/logger');
+const logger = require('../middlewares/logger');
 
 function expressConfigurator(app) {
     console.log(`Node.js execution mode: ${process.env.NODE_ENV}`);
