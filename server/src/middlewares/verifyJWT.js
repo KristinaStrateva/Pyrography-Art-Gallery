@@ -4,7 +4,9 @@ const verifyJWT = async (req, res, next) => {
     const authHeader = req.headers.authorization || req.headers.Authorization;
 
     if (!authHeader?.startsWith('Bearer ')) {
-        return res.status(401).json({ message: 'Unauthorized!' });
+        delete req.headers['Authorization'] || delete req.headers['authorization'];
+        console.log('Token is missing!')
+        return res.status(401).json({ message: 'Token is missing!' });
     }
 
     const token = authHeader.split(' ')[1];
@@ -21,7 +23,17 @@ const verifyJWT = async (req, res, next) => {
         next();
 
     } catch (error) {
-        return res.status(403).json({ message: 'Forbidden!' });
+        // console.error(error.message)
+        delete req.headers['Authorization'] || delete req.headers['authorization'];
+
+        if (error.name === 'TokenExpiredError') {
+            // console.log('Token has expired!')
+            return res.status(401).json({ message: 'Token has expired!' });
+        } else {
+            console.log(error.name)
+            console.log('Problem with token verification!')
+            return res.status(403).json({ message: 'Problem with token verification!' });
+        }
     }
 };
 
