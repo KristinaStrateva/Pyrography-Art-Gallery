@@ -60,7 +60,7 @@ export const addItem = async (itemData, accessToken) => {
 export const updateItem = async (collectionName, itemId, itemData, accessToken) => {
     try {
         const result = await request.put(`${baseUrl}/${collectionName}/${itemId}/edit-item`, itemData, accessToken);
-    
+
         return result;
 
     } catch (error) {

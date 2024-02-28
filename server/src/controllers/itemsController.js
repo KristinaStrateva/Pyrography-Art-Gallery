@@ -103,7 +103,7 @@ const editItem = asyncHandler(async (req, res) => {
     const item = await Item.findById({ _id: itemId }).lean();
 
     if (!item) {
-        return res.status(404).json({ message: 'This item not found!' });
+        return res.status(200).json({ message: 'This item not found!' });
     }
 
     if (item?.owner.toString() !== userId) {
@@ -113,7 +113,7 @@ const editItem = asyncHandler(async (req, res) => {
     const collection = await Collection.findOne({ pathName: fromCollection }).populate('items');
 
     if (!collection) {
-        return res.status(404).json({ message: "Collection not found" });
+        return res.status(200).json({ message: "Collection not found" });
     }
 
     const updatedItem = await Item.findByIdAndUpdate({ _id: itemId }, {

@@ -30,9 +30,7 @@ export default function EditPage() {
     useEffect(() => {
         itemsService.getItemById(collectionName, itemId)
             .then(itemData => {
-                setItem(state => {
-                    state = { ...itemData }
-                });
+                setItem({ ...itemData });
             })
             .catch(err => { throw err });
     }, [collectionName, itemId]);
