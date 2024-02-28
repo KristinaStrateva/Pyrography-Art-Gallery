@@ -25,7 +25,7 @@ const getAllItemsFromCollection = asyncHandler(async (req, res) => {
     const items = collection?.items;
 
     if (!items) {
-        return res.status(400).json({ message: 'This collection is not found!' });
+        return res.status(200).json({ message: 'This collection is not found!' });
     }
 
     res.status(200).json(items);
@@ -41,7 +41,7 @@ const getItemById = asyncHandler(async (req, res) => {
     const item = await Item.findById({ _id: itemId }).populate('fromCollection').lean();
 
     if (!item) {
-        return res.status(400).json({ message: 'This item is not found!' });
+        return res.status(200).json({ message: 'This item is not found!' });
     }
 
     res.status(200).json(item);
@@ -57,7 +57,7 @@ const getMyItems = asyncHandler(async (req, res) => {
     const allItems = await Item.find({ owner: userId }).populate('fromCollection').lean();
 
     if (!allItems) {
-        return res.status(400).json({ message: 'There are no items yet!' });
+        return res.status(200).json({ message: 'There are no items yet!' });
     }
 
     res.status(200).json(allItems);
@@ -74,7 +74,7 @@ const createItem = asyncHandler(async (req, res) => {
     const collection = await Collection.findOne({ name: fromCollection });
 
     if (!collection) {
-        return res.status(404).json({ message: "Collection not found" });
+        return res.status(200).json({ message: "Collection not found" });
     }
 
     const newItem = await Item.create({
@@ -147,7 +147,7 @@ const deleteItem = asyncHandler(async (req, res) => {
     const itemToBeDeleted = await Item.findByIdAndDelete({ _id: itemId });
 
     if (!itemToBeDeleted) {
-        return res.status(400).json({ message: 'This item is not found!' });
+        return res.status(200).json({ message: 'This item is not found!' });
     }
 
     await Collection.findOneAndUpdate({ pathName: collectionName }, { $pull: { items: itemId } });
@@ -175,7 +175,7 @@ const likeItem = asyncHandler(async (req, res) => {
         });
 
     if (!item) {
-        return res.status(400).json({ message: 'This item is not found!' });
+        return res.status(200).json({ message: 'This item is not found!' });
     }
 
     if (item.likesList.length > 0 && item.likesList.find(like => like.user._id === userId)) {
