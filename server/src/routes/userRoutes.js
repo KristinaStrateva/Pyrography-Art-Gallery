@@ -5,7 +5,6 @@ const { loginValidation, registerValidation } = require('../middlewares/userVali
 const loginLimiter = require('../middlewares/loginLimiter');
 const verifyJWT = require('../middlewares/verifyJWT');
 
-// router.get('/refresh', usersController.refresh);
 router.post('/login', loginValidation, loginLimiter, usersController.login);
 router.post('/register', registerValidation, usersController.register);
 router.post('/logout', verifyJWT, usersController.logout);

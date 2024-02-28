@@ -9,7 +9,6 @@ export const AuthGuard = () => {
     const { isAuthenticated } = useContext(AuthContext);
 
     if (!isAuthenticated) {
-        console.log('some')
         return <Navigate to={Path.LoginPage} />
     }
 
@@ -20,8 +19,6 @@ export const OwnerGuard = () => {
     const { userId } = useContext(AuthContext);
     const { collectionName, itemId } = useParams();
     const [hasPermission, setHasPermission] = useState(true);
-
-    console.log(userId);
 
     useEffect(() => {
         const fetchData = async () => {

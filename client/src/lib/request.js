@@ -27,10 +27,7 @@ const request = async (method, url, data, accessToken) => {
         }
 
         if (!response.ok) {
-            // if (response.status === 403) {
-            //     localStorage.removeItem('accessToken');
-            // }
-            
+
             let errorMessage;
 
             try {
