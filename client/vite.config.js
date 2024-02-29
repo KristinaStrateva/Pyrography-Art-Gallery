@@ -26,7 +26,6 @@ export default ({ command }) => {
       setupFiles: './setupTests.js',
     },
     build: {
-      minify: 'terser',
       sourcemap: true,
       target: 'modules',
       outDir: 'dist',
