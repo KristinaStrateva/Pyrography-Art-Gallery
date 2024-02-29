@@ -1,10 +1,20 @@
 import * as request from '../lib/request';
 
-const baseUrl = 'http://localhost:3500/data';
+// const baseUrl = 'http://localhost:3500/data';
+
+let baseUrl;
+
+const { mode } = import.meta.env;
+
+if (mode === 'production') {
+    baseUrl = 'https://pyrography-art-gallery.onrender.com/data';
+} else if (mode === 'development') {
+    baseUrl = 'http://localhost:3500/data';
+}
 
 export const getLastThreeItems = async () => {
     try {
-        const lastThreeItems = await request.get('http://localhost:3500');
+        const lastThreeItems = await request.get(mode === 'production' ? 'https://pyrography-art-gallery.onrender.com' : 'http://localhost:3500');
 
         return lastThreeItems;
 
