@@ -11,6 +11,13 @@ function expressConfigurator(app) {
 
     app.use(logger);
     app.use(cors(corsOptions));
+    app.use(express.static('public', {
+        setHeaders: (res, path, stat) => {
+          if (path.endsWith('.js')) {
+            res.set('Content-Type', 'application/javascript');
+          }
+        }
+      }));
     app.use(express.urlencoded({ extended: false }));
     app.use(express.json());
     app.use(cookieParser());
