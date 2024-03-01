@@ -1,6 +1,5 @@
 import * as request from '../lib/request';
 
-// const baseUrl = `http://localhost:3500/users`;
 let baseUrl;
 
 const mode = process.env.NODE_ENV;

@@ -1,11 +1,8 @@
 import * as request from '../lib/request';
 
-// const baseUrl = 'http://localhost:3500/data';
-
 let baseUrl;
 
 const mode = process.env.NODE_ENV;
-console.log(mode);
 
 if (mode === 'production') {
     baseUrl = 'https://pyrography-art-gallery-api.onrender.com/data';
