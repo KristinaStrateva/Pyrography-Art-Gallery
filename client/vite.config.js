@@ -19,7 +19,7 @@ import react from '@vitejs/plugin-react'
 export default ({ command }) => {
   return defineConfig({
     plugins: [react()],
-    base: command === 'build' ? 'https://pyrography-art-gallery-api.onrender.com/' : '/',
+    base: command === 'build' ? 'https://pyrography-art-gallery.onrender.com/' : '/',
     test: {
       globals: true,
       environment: 'jsdom',
