@@ -15,7 +15,7 @@ if (mode === 'production') {
 
 export const getLastThreeItems = async () => {
     try {
-        const lastThreeItems = await request.get(mode === 'development' ? 'https://pyrography-art-gallery.onrender.com' : 'http://localhost:3500');
+        const lastThreeItems = await request.get(mode === 'development' ? 'https://pyrography-art-gallery-api.onrender.com' : 'http://localhost:3500');
 
         return lastThreeItems;
 
