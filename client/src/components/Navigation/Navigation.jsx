@@ -22,7 +22,7 @@ export default function Navigation() {
                                 <li className={styles["navbar-link"]}><Link to={Path.CustomItemsPage}>CUSTOM ITEMS</Link></li>
                             </ul>
                             <div className={`${styles["navbar-logo-title"]} ${styles["navbar-link"]}`}>
-                                <Link to="/"><img src="/images/logo.jpg" alt="logo" /></Link>
+                                <Link to="/"><img src="/images/logo.jpeg" alt="logo" /></Link>
                             </div>
                         </div>
 
