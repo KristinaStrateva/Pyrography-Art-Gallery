@@ -20,8 +20,9 @@
     color: white;
 }
 
-.form select, input,
-textarea {
+.form select,
+.form input,
+.form textarea {
     outline: 0;
     background: #fefafa;
     width: 90%;
