@@ -8,7 +8,8 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 
 ## Table of Contents
 
-- [General Information](#general-information)<!-- - [Project Deployment](#live-demo) -->
+- [General Information](#general-information)
+- [Project Deployment](#live-demo)
 - [Features](#features)
 - [Project Structure](#project-structure)
 - [Usage](#usage)
@@ -25,11 +26,12 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 - By organizing items into collections and providing a dynamic home page, Pyrography ART Gallery serves as a centralized platform where users can easily explore and discover a variety of pyrography pieces.
 
 - The purpose of Pyrography ART Gallery is to cultivate a thriving community, celebrate artistic talent, facilitate learning, encourage personal expression, overcome existing limitations, and provide a unique online experience for individuals passionate about the art of pyrography.
-<!-- ## Live Demo
+
+## Live Demo
 
 Check out the live demo of Pyrography ART Gallery [here](https://pyrography-art-gallery.onrender.com/).
 
-**Note:** The website is optimized for the latest versions of Chrome and Mozilla Firefox, with a desktop resolution of 1920x1080. -->
+**Note:** The website is optimized for the latest versions of Chrome and Mozilla Firefox, with a desktop resolution of 1920x1080.
 
 ## Features
 
@@ -126,7 +128,10 @@ Now when the client setup is complete you can open the following link in your we
 
 ## API Endpoints
 
-The Base URL for the API is: `http://localhost:3500`
+The Base URL for the API is: 
+
+- for development mode: `http://localhost:3500`
+- for production mode: `https://pyrography-art-gallery-api.onrender.com`
 
 The documentation below assumes you are pre-pending the Base URL to the endpoints in order to make requests.
 
@@ -249,12 +254,11 @@ The documentation below assumes you are pre-pending the Base URL to the endpoint
 
 - ### Improvements
 
-    - **Improvement 1:** Stronger validations can be implemented on the server side.
+    - **Improvement 1:** Enhance user experience with additional effects.
 
-    - **Improvement 2:** Enhance user experience with additional effects.
+    <!-- - **Improvement 2:** 
 
-    - **Improvement 3:** Deployment.
-
+    - **Improvement 3:**  -->
 - ### Features that can be Added
 
     - **Feature to be added 1:** Good testing system.
