@@ -6,7 +6,7 @@ let baseUrl;
 const mode = process.env.NODE_ENV;
 
 if (mode === 'production') {
-    baseUrl = 'https://pyrography-art-gallery.onrender.com/users';
+    baseUrl = 'https://pyrography-art-gallery-api.onrender.com/users';
 } else if (mode === 'development') {
     baseUrl = 'http://localhost:3500/users';
 }

@@ -8,7 +8,7 @@ const mode = process.env.NODE_ENV;
 console.log(mode);
 
 if (mode === 'production') {
-    baseUrl = 'https://pyrography-art-gallery.onrender.com/data';
+    baseUrl = 'https://pyrography-art-gallery-api.onrender.com/data';
 } else if (mode === 'development') {
     baseUrl = 'http://localhost:3500/data';
 }
