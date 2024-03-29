@@ -17,7 +17,7 @@ const loginValidation = [
 const registerValidation = [
     body('username')
         .notEmpty()
-        .withMessage('Username is required!')
+        .withMessage('Username is very required!')
         .toLowerCase()
         .trim()
         .isLength({min: 8})
