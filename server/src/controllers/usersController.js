@@ -53,7 +53,7 @@ const register = asyncHandler(async (req, res) => {
     const { username, email, password } = req.body;
 
     if (!username) {
-        return res.status(400).json({ message: 'Username is very required!' });
+        return res.status(400).json({ message: 'Username is required!' });
     }
 
     if (!email) {
