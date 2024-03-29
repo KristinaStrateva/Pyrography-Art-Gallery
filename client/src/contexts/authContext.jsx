@@ -33,7 +33,7 @@ export const AuthProvider = ({
     const registerSubmitHandler = async (values) => {
 
         try {
-            // validateFormValues(values);
+            validateFormValues(values);
 
             const result = await authService.register(values.username, values.email, values.password);
 
