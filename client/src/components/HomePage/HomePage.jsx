@@ -10,18 +10,18 @@ import Spinner from '../Spinner/Spinner';
 
 export default function HomePage() {
     const [lastItems, setLastItems] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    let isLoading = true;
 
     useEffect(() => {
         itemsService.getLastThreeItems()
             .then(items => {
-                setIsLoading = (state => state = false);
+                isLoading = false;
                 setLastItems(state => state = [...items]);
             })
             .catch(err => {
-                setIsLoading = (state => state = false);
+                isLoading = false;
 
-                throw err
+                throw err;
             });
     }, []);
 
@@ -37,7 +37,7 @@ export default function HomePage() {
             }
 
             <HomeBanner />
-            
+
         </div>
     );
 }
