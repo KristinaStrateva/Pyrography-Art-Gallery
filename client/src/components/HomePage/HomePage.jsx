@@ -12,6 +12,8 @@ export default function HomePage() {
     const [lastItems, setLastItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+    console.log(isLoading);
+
     useEffect(() => {
         itemsService.getLastThreeItems()
             .then(items => {
