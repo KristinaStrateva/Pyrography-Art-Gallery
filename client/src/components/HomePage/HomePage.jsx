@@ -6,28 +6,37 @@ import LastThreeAdded from "./LastThreeAdded/LastThreeAdded";
 import HomeBanner from "./HomeBanner/HomeBanner";
 
 import mainStyle from '../../App.module.css';
+import Spinner from '../Spinner/Spinner';
 
 export default function HomePage() {
     const [lastItems, setLastItems] = useState([]);
+    const isLoading = true;
 
     useEffect(() => {
         itemsService.getLastThreeItems()
             .then(items => {
+                isLoading = false;
                 setLastItems(state => state = [...items]);
             })
-            .catch(err => {throw err});
+            .catch(err => { throw err });
     }, []);
 
     return (
-        <div className={mainStyle["home-main"]}>
+        <>
+            {isLoading && <Spinner />}
+
+            {!isLoading && (
+                <div className={mainStyle["home-main"]}>
 
 
-            {lastItems.length > 0 && <LastThreeAdded lastItems={lastItems} />}
+                    {lastItems.length > 0 && <LastThreeAdded lastItems={lastItems} />}
 
-            {!lastItems.length && <p className={mainStyle["home-paragraph"]}>There are no items yet, but you can add the first one!</p>}
+                    {!lastItems.length && <p className={mainStyle["home-paragraph"]}>There are no items yet, but you can add the first one!</p>}
 
-            <HomeBanner />
+                    <HomeBanner />
 
-        </div>
+                </div>
+            )}
+        </>
     );
 }
