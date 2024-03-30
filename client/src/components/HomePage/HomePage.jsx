@@ -9,8 +9,8 @@ import mainStyle from '../../App.module.css';
 import Spinner from '../Spinner/Spinner';
 
 export default function HomePage() {
-    const [lastItems, setLastItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [lastItems, setLastItems] = useState([]);
 
     console.log(isLoading);
 
