@@ -8,8 +8,10 @@ import DeleteModal from "./DeleteModal/DeleteModal";
 
 import styles from './DetailsPage.module.css';
 import mainStyle from '../../App.module.css';
+import Spinner from "../Spinner/Spinner";
 
 export default function DetailsPage() {
+    const [isLoading, setIsLoading] = useState(true);
     const [item, setItem] = useState({});
     const [likesAmount, setLikesAmount] = useState(0);
     const [fromCollection, setFromCollection] = useState('');
@@ -24,6 +26,7 @@ export default function DetailsPage() {
     useEffect(() => {
         itemsService.getItemById(collectionName, itemId)
             .then(itemData => {
+                setIsLoading(false);
                 setItem(itemData);
                 setLikesAmount(itemData.likesList.length);
                 setFromCollection(itemData.fromCollection.name);
@@ -32,7 +35,10 @@ export default function DetailsPage() {
                     setLike(true);
                 }
             })
-            .catch(err => { throw err });
+            .catch(err => {
+                setIsLoading(false);
+                throw err;
+            });
     }, [itemId, like]);
 
     const handleClose = () => setShow(false);
@@ -52,37 +58,43 @@ export default function DetailsPage() {
     }
 
     return (
-        <section className={styles.details}>
-            <div className={styles["details-wrapper"]}>
-                <div className={styles["img-wrapper"]}>
-                    <img src={item.imageUrl} alt={item.name} />
-                    <div>
-                        <p>{likesAmount} Likes</p>
+        <>
+            {isLoading && <Spinner />}
+
+            {!isLoading && (
+                <section className={styles.details}>
+                    <div className={styles["details-wrapper"]}>
+                        <div className={styles["img-wrapper"]}>
+                            <img src={item.imageUrl} alt={item.name} />
+                            <div>
+                                <p>{likesAmount} Likes</p>
+                            </div>
+                        </div>
+                        <div className={styles["info-wrapper"]}>
+                            <div>
+                                <p className={styles["details-title"]}>Name: {item.name}</p>
+                                <p>Collection: <span className={styles["details-description"]}>{fromCollection}</span></p>
+                                <p>Description: <span className={styles["details-description"]}>{item.description}</span></p>
+                            </div>
+                            <div className={styles["action-buttons"]}>
+                                {isAuthenticated && isOwner && (
+                                    <>
+                                        <Link to={`/${collectionName}/${itemId}/edit-item`} className={mainStyle.button}>Edit</Link>
+                                        <DeleteModal
+                                            show={show}
+                                            handleClose={handleClose}
+                                            collectionName={collectionName}
+                                            itemId={itemId}
+                                        />
+                                        <button className={mainStyle.button} onClick={handleShow}>Delete</button>
+                                    </>
+                                )}
+                                {!like && isAuthenticated && !isOwner && <button className={mainStyle.button} onClick={likeHandler}>Like</button>}
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className={styles["info-wrapper"]}>
-                    <div>
-                        <p className={styles["details-title"]}>Name: {item.name}</p>
-                        <p>Collection: <span className={styles["details-description"]}>{fromCollection}</span></p>
-                        <p>Description: <span className={styles["details-description"]}>{item.description}</span></p>
-                    </div>
-                    <div className={styles["action-buttons"]}>
-                        {isAuthenticated && isOwner && (
-                            <>
-                                <Link to={`/${collectionName}/${itemId}/edit-item`} className={mainStyle.button}>Edit</Link>
-                                <DeleteModal
-                                    show={show}
-                                    handleClose={handleClose}
-                                    collectionName={collectionName}
-                                    itemId={itemId}
-                                />
-                                <button className={mainStyle.button} onClick={handleShow}>Delete</button>
-                            </>
-                        )}
-                        {!like && isAuthenticated && !isOwner && <button className={mainStyle.button} onClick={likeHandler}>Like</button>}
-                    </div>
-                </div>
-            </div>
-        </section>
+                </section>
+            )}
+        </>
     );
 }
