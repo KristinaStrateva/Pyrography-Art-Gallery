@@ -10,19 +10,25 @@ import * as itemsService from '../../services/itemsService';
 
 import styles from './CollectionPage.module.css';
 import mainStyle from '../../App.module.css';
+import Spinner from '../Spinner/Spinner';
 
 export default function CollectionPage() {
     const [collection, setCollection] = useState([]);
     const [collectionName, setCollectionName] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
     const locationName = useLocation().pathname.slice(1);
 
     useEffect(() => {
         itemsService.getAllFromCollection(locationName)
             .then(data => {
+                setIsLoading(false)
                 setCollection(data);
             })
-            .catch(err => {throw err});
+            .catch(err => {
+                setIsLoading(false);
+                throw err;
+            });
     }, [locationName]);
 
     useEffect(() => {
@@ -63,43 +69,51 @@ export default function CollectionPage() {
     }
 
     return (
-        <div className={`${mainStyle["section-container"]} ${mainStyle["column"]}`}>
-            <div className={mainStyle["section-container"]}>
-                {collection.length > 0 &&
-                    <div className={styles["max-width-container"]}>
-                        <div className={mainStyle["section-heading-section-heading"]}>
-                            <h1 className={`${mainStyle["section-heading-text"]} ${mainStyle["Heading-2"]}`}>
-                                <span>{collectionName} COLLECTION</span>
-                            </h1>
-                            <span className={mainStyle["section-heading-text1"]}>
-                                <span>
-                                    You can choose an item from this category
-                                </span>
-                            </span>
-                        </div>
-                        <div className={styles["home-container08"]}>
+        <>
+            {isLoading && <Spinner />}
 
-                            <Carousel slide={false} className={styles.carousel}>
+            {!isLoading && (
 
-                                {collection.map((item, index) => (
-                                    <CarouselItem key={`${item._id}-${index}`} className={styles["carousel-item"]}>
-                                        <img alt={item.name} src={item.imageUrl} className={styles["blog-post-card-image"]} />
-                                        <CarouselCaption>
-                                            <h3>{item.name}</h3>
-                                            <Link to={`/${locationName}/${item._id}/details`} className={mainStyle.button}>More details</Link>
-                                        </CarouselCaption>
-                                    </CarouselItem >
-                                ))}
+                <div className={`${mainStyle["section-container"]} ${mainStyle["column"]}`}>
+                    <div className={mainStyle["section-container"]}>
 
-                            </Carousel>
+                        {collection.length > 0 &&
+                            <div className={styles["max-width-container"]}>
+                                <div className={mainStyle["section-heading-section-heading"]}>
+                                    <h1 className={`${mainStyle["section-heading-text"]} ${mainStyle["Heading-2"]}`}>
+                                        <span>{collectionName} COLLECTION</span>
+                                    </h1>
+                                    <span className={mainStyle["section-heading-text1"]}>
+                                        <span>
+                                            You can choose an item from this category
+                                        </span>
+                                    </span>
+                                </div>
+                                <div className={styles["home-container08"]}>
 
-                        </div>
+                                    <Carousel slide={false} className={styles.carousel}>
+
+                                        {collection.map((item, index) => (
+                                            <CarouselItem key={`${item._id}-${index}`} className={styles["carousel-item"]}>
+                                                <img alt={item.name} src={item.imageUrl} className={styles["blog-post-card-image"]} />
+                                                <CarouselCaption>
+                                                    <h3>{item.name}</h3>
+                                                    <Link to={`/${locationName}/${item._id}/details`} className={mainStyle.button}>More details</Link>
+                                                </CarouselCaption>
+                                            </CarouselItem >
+                                        ))}
+
+                                    </Carousel>
+
+                                </div>
+                            </div>
+                        }
+
+                        {!collection.length && <p className={styles["home-paragraph"]}>There are no items in this collection yet, but you can add the first one!</p>}
+
                     </div>
-                }
-
-                {!collection.length && <p className={styles["home-paragraph"]}>There are no items in this collection yet, but you can add the first one!</p>}
-
-            </div>
-        </div>
+                </div>
+            )}
+        </>
     );
 }
