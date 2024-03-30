@@ -32,11 +32,9 @@ export default function HomePage() {
 
             {isLoading && <Spinner />}
 
-            {!isLoading && lastItems.length > 0 ?
-                (<LastThreeAdded lastItems={lastItems} />) :
+            {!isLoading && lastItems.length > 0 && (<LastThreeAdded lastItems={lastItems} />)}
 
-                (<p className={mainStyle["home-paragraph"]}>There are no items yet, but you can add the first one!</p>)
-            }
+            {!isLoading && lastItems.length === 0 && (<p className={mainStyle["home-paragraph"]}>There are no items yet, but you can add the first one!</p>)}
 
             <HomeBanner />
             
