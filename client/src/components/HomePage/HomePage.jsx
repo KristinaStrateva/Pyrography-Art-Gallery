@@ -26,21 +26,18 @@ export default function HomePage() {
     }, []);
 
     return (
-        <>
+        <div className={mainStyle["home-main"]}>
+
             {isLoading && <Spinner />}
 
-            {!isLoading && (
-                <div className={mainStyle["home-main"]}>
+            {!isLoading && lastItems.length > 0 ?
+                (<LastThreeAdded lastItems={lastItems} />) :
 
+                (<p className={mainStyle["home-paragraph"]}>There are no items yet, but you can add the first one!</p>)
+            }
 
-                    {lastItems.length > 0 && <LastThreeAdded lastItems={lastItems} />}
-
-                    {!lastItems.length && <p className={mainStyle["home-paragraph"]}>There are no items yet, but you can add the first one!</p>}
-
-                    <HomeBanner />
-
-                </div>
-            )}
-        </>
+            <HomeBanner />
+            
+        </div>
     );
 }
