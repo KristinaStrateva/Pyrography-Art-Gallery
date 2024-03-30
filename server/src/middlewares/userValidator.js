@@ -1,21 +1,21 @@
-const { body } = require('express-validator');
+const { check } = require('express-validator');
 
 const loginValidation = [
-    body('email')
+    check('email')
         .notEmpty()
         .withMessage('Email is required!')
         .toLowerCase()
         .trim()
         .isEmail()
         .withMessage('Incorrect email address!'),
-    body('password')
+    check('password')
         .notEmpty()
         .withMessage('Password is required!')
         .trim(),
 ];
 
 const registerValidation = [
-    body('username')
+    check('username')
         .notEmpty()
         .withMessage('Username is very required!')
         .toLowerCase()
@@ -24,14 +24,14 @@ const registerValidation = [
         .withMessage('Username must be at least 8 characters!')
         .isLength({max: 15})
         .withMessage('Username must be less than 15 characters!'),
-    body('email')
+    check('email')
         .notEmpty()
         .withMessage('Email is required!')
         .toLowerCase()
         .trim()
         .isEmail()
         .withMessage('Incorrect email address!'),
-    body('password')
+    check('password')
         .notEmpty()
         .withMessage('Password is required!')
         .trim()
