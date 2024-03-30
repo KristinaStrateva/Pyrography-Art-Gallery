@@ -13,9 +13,9 @@ import mainStyle from '../../App.module.css';
 import Spinner from '../Spinner/Spinner';
 
 export default function CollectionPage() {
+    const [isLoading, setIsLoading] = useState(true);
     const [collection, setCollection] = useState([]);
     const [collectionName, setCollectionName] = useState('');
-    const [isLoading, setIsLoading] = useState(true);
 
     const locationName = useLocation().pathname.slice(1);
 
