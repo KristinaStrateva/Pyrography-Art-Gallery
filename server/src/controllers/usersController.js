@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 
 const User = require('../models/User');
 const { accessTokenGenerator } = require('../utils/tokenGenerator');
+const { validationResult } = require('express-validator');
 
 // @desc Sign in existing user
 // @route POST /login
@@ -51,6 +52,11 @@ const login = asyncHandler(async (req, res) => {
 
 const register = asyncHandler(async (req, res) => {
     const { username, email, password } = req.body;
+    const {errors} = validationResult(req);
+
+    if (errors.length !== 0) {
+        console.log(errors);
+    } 
 
     if (!username) {
         return res.status(400).json({ message: 'Username is required!' });
