@@ -1,7 +1,7 @@
 /* HTML: <div class="loader"></div> */
 .loader {
-    margin: 15em;
-    width: 120px;
+    margin: 10em;
+    width: 280px;
     height: 22px;
     border-radius: 20px;
     color: #d99595;
