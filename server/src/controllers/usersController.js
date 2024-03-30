@@ -52,9 +52,9 @@ const login = asyncHandler(async (req, res) => {
 
 const register = asyncHandler(async (req, res) => {
     const { username, email, password } = req.body;
-    const {errors} = validationResult(req);
+    const errors = validationResult(req);
 
-    if (errors.length !== 0) {
+    if (!errors.isEmpty()) {
         console.log(errors);
     } 
 
