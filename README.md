@@ -31,7 +31,9 @@ Welcome to Pyrography ART Gallery, an immersive platform that celebrates the art
 
 Check out the live demo of Pyrography ART Gallery [here](https://pyrography-art-gallery.onrender.com/).
 
-**Note:** The website is optimized for the latest versions of Chrome and Mozilla Firefox, with a desktop resolution of 1920x1080.
+**Notes:** 
+- The website is optimized for the latest versions of Chrome and Mozilla Firefox, with a desktop resolution of 1920x1080.
+- Tha platform is rendered on [www.render.com](https://render.com/) with free plan, that is why it could take a while to load the data. Please be patient and give it a chance!
 
 ## Features
 
